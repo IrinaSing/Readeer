@@ -1,17 +1,15 @@
 const express = require('express');
 const booksController = require('../controllers/books');
 
-const channelRoutes = express.Router();
+const booksRoutes = express.Router();
 
-channelRoutes.use((req, res, next) => {
+booksRoutes.use((req, res, next) => {
   console.log('api! books search route');
   next();
 });
 
-// channelRoutes.get('/', channelController.get);
-// channelRoutes.get('/:channelId', channelController.getChannelById);
-// channelRoutes.delete('/:channelId', channelController.delete);
-// channelRoutes.put('/:channelId', channelController.put);
-// channelRoutes.post('/', channelController.post);
+booksRoutes.get('/', booksController.get);
+booksRoutes.get('/:bookId', booksController.getBookById);
+booksRoutes.post('/', booksController.search);
 
-module.exports = channelRoutes;
+module.exports = booksRoutes;
