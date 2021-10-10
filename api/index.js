@@ -25,7 +25,7 @@ router.use('/register', registerRoute);
 router.use('/login', loginRoute);
 
 // authentication with token
-router.use(authenticateUser);
+// router.use(authenticateUser);
 
 // use routes
 router.use('/user', userRoutes);

@@ -4,7 +4,7 @@ const usersController = require('../controllers/users');
 const userRoutes = express.Router();
 
 userRoutes.use((req, res, next) => {
-  console.log('api! books search route');
+  console.log('api! user route');
   next();
 });
 
