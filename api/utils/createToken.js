@@ -7,6 +7,7 @@ function createToken(user) {
     iss: 'Hack Your Future Belgium',
     userId: `${user.id}`,
     username: `${user.username}`,
+    email: `${user.email}`,
     iat: new Date().getTime(),
     exp: new Date().setDate(new Date().getDate() + 1),
   };

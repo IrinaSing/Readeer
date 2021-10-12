@@ -70,11 +70,23 @@ logins an existing user to the system
 
   `POST`
 
+- **Body**
+
+  ```
+  {
+    "email" : <email>,
+    "password" : <password>,
+  }
+  ```
+
 - **Result**
 
 ```
 {
-
+  "token": <token>,
+  "email": <email>,
+  "username": <username>,
+  mes"sage: "Session created for user <username>",
 }
 ```
 

@@ -3,7 +3,7 @@ const loginManager = require('../business-logic/login');
 const loginController = {
   post: async (req, res) => {
     try {
-      const { username: username, password } = req.body;
+      const { email: email, password } = req.body;
 
       const result = await loginManager.checkPassword(username, password);
 
