@@ -7,7 +7,7 @@ const booksRoute = require('./routes/books');
 const registerRoute = require('./routes/register');
 const loginRoute = require('./routes/login');
 const authenticateUser = require('./middleware/authenticate');
-const userRoutes = require('./routes/user');
+const userRoutes = require('./routes/users');
 
 const router = express.Router();
 
@@ -28,6 +28,6 @@ router.use('/login', loginRoute);
 // router.use(authenticateUser);
 
 // use routes
-router.use('/user', userRoutes);
+router.use('/users', userRoutes);
 
 module.exports = router;

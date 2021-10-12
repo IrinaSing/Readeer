@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "NODE_ENV=production PORT=3000 STATIC_DIR=client DATA_DIR=data node ./api/index.js",
-    "dev:api": "nodemon api/index.js",
-    "dev:client": "vite ./client",
+    "dev:api": "nodemon index.js",
     "document:client": "node ./dev-scripts/document client",
     "document:api": "node ./dev-scripts/document api",
     "document": "node ./dev-scripts/document client api",
