@@ -35,11 +35,26 @@ Registers a new user to the system
 
   `POST`
 
+- **Body**
+
+  ```
+  {
+    "firstName": <firstName>,
+    "lastName": <lastName>,
+    "birthday" : <birthday>,\\ epoch in ms
+    "email" : <email>,
+    "username": <username>,
+    "password" : <password>,
+    "city": <city>,
+  }
+  ```
+
 - **Result**
 
 ```
 {
-
+  "username": <username>,
+  "email" : <email>,
 }
 ```
 

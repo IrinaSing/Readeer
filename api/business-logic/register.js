@@ -5,12 +5,25 @@ const usersStore = dataAccess('Users');
 const hashPassword = require('../utils/hashPassword');
 
 const registerManager = {
-  register: async function (username, password) {
+  register: async function (
+    firstName,
+    lastName,
+    birthday,
+    email,
+    username,
+    password,
+    city
+  ) {
     const hashedPassword = hashPassword(`${username}.${password}`);
 
     const user = {
+      firstName,
+      lastName,
+      birthday,
+      email,
       username: username,
       password: hashedPassword,
+      city,
     };
 
     // check if user already exists
@@ -33,7 +46,7 @@ const registerManager = {
       throw new Error('User could not be created');
     }
 
-    return { username };
+    return { username, email };
   },
 };
 
