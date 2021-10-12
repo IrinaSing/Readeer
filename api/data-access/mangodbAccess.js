@@ -7,7 +7,7 @@ const persistentDataAccess = (collectionName) => {
   // const uri = process.env.MONGODB_URI;
   const client = new MongoClient(uri);
 
-  const dbName = 'HYF-Chat';
+  const dbName = 'HYF_FP_DB';
   const db = client.db(dbName);
   const collection = db.collection(collectionName);
 
