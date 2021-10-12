@@ -14,7 +14,7 @@ const registerManager = {
     password,
     city
   ) {
-    const hashedPassword = hashPassword(`${username}.${password}`);
+    const hashedPassword = hashPassword(`${email}.${password}`);
 
     const user = {
       firstName,
