@@ -8,7 +8,7 @@ const hashPassword = require('../utils/hashPassword');
 const loginManager = {
   checkPassword: async function (email, password) {
     if (!email || !password) {
-      res.status(400).send('Missing username or password');
+      res.status(400).send('Missing email or password');
       return;
     }
     const hashedPassword = hashPassword(`${email}.${password}`);

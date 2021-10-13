@@ -5,7 +5,7 @@ const loginController = {
     try {
       const { email: email, password } = req.body;
 
-      const result = await loginManager.checkPassword(username, password);
+      const result = await loginManager.checkPassword(email, password);
 
       if (result) {
         res.status(200).json(result);
