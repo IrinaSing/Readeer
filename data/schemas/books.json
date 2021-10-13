@@ -1,0 +1,81 @@
+{
+  "title": "Book Details",
+  "description": "details of a book",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "objectID"
+    },
+    "title": {
+      "type": "string"
+    },
+    "authors": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "description": "name and surname of the author"
+      }
+    },
+    "isbn_10": {
+      "type": "integer"
+    },
+    "isbn_13": {
+      "type": "integer"
+    },
+    "book_description": {
+      "type": "string"
+    },
+    "rating": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 5
+    },
+    "userId": {
+      "type": "objectID",
+      "description": "id of the user who added the book"
+    },
+    "pageCount": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "number of pages"
+    },
+    "language": {
+      "type": "string",
+      "description": "language of the book"
+    },
+    "createdAt": {
+      "type": "date"
+    },
+    "updatedAt": {
+      "type": "date"
+    },
+    "deletedAt": {
+      "type": "date"
+    },
+    "condition": {
+      "type": "string",
+      "description": "selected from these options ['Like New','Good','Satisfying']"
+    },
+    "status": {
+      "type": "string",
+      "description": "selected from these options ['Available','Exchanged','Not Available']"
+    },
+    "availableAt": {
+      "type": "date"
+    },
+    "exchangeAt": {
+      "type": "date"
+    }
+  },
+  "required": [
+    "id",
+    "title",
+    "author",
+    "isbn_10",
+    "isbn_13",
+    "description",
+    "rating",
+    "userId",
+    "language"
+  ]
+}
