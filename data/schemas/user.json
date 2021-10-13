@@ -6,33 +6,36 @@
     "id": {
       "type": "objectID"
     },
-    "user_name": {
+    "username": {
       "type": "string"
     },
     "email": {
       "type": "string"
     },
-    "first_name": {
+    "firstName": {
       "type": "string"
     },
-    "last_name": {
+    "lastName": {
       "type": "string"
     },
-    "birth": {
-      "type": "object",
-      "required": ["date", "place"],
-      "properties": {
-        "date": {
-          "type": "string"
-        },
-        "place": {
-          "type": "string"
-        }
-      }
+    "birthday": {
+      "type": "integer"
     },
-    "accepting_friend_requests": {
-      "type": "boolean"
+    "password": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
     }
   },
-  "required": ["id", "user_name", "first_name", "email"]
+  "required": [
+    "id",
+    "email",
+    "username",
+    "password",
+    "firstName",
+    "lastName",
+    "birthday",
+    "city"
+  ]
 }

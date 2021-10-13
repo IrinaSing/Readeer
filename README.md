@@ -39,12 +39,12 @@ Registers a new user to the system
 
   ```
   {
-    "firstName": <firstName>,
-    "lastName": <lastName>,
-    "birthday" : <birthday>,\\ epoch in ms
     "email" : <email>,
     "username": <username>,
     "password" : <password>,
+    "firstName": <firstName>,
+    "lastName": <lastName>,
+    "birthday" : <birthday>,\\ epoch in ms
     "city": <city>,
   }
   ```
