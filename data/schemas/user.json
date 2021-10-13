@@ -26,6 +26,15 @@
     },
     "city": {
       "type": "string"
+    },
+    "createdAt": {
+      "type": "date"
+    },
+    "updatedAt": {
+      "type": "date"
+    },
+    "deletedAt": {
+      "type": "date"
     }
   },
   "required": [
@@ -36,6 +45,7 @@
     "firstName",
     "lastName",
     "birthday",
-    "city"
+    "city",
+    "createdAt"
   ]
 }

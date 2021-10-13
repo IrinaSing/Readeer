@@ -24,6 +24,7 @@ const registerManager = {
       username: username,
       password: hashedPassword,
       city,
+      createdAt: new Date(),
     };
 
     // check if user already exists
