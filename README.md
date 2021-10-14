@@ -35,11 +35,26 @@ Registers a new user to the system
 
   `POST`
 
+- **Body**
+
+  ```
+  {
+    "email" : <email>,
+    "username": <username>,
+    "password" : <password>,
+    "firstName": <firstName>,
+    "lastName": <lastName>,
+    "birthday" : <birthday>,\\ epoch in ms
+    "city": <city>,
+  }
+  ```
+
 - **Result**
 
 ```
 {
-
+  "username": <username>,
+  "email" : <email>,
 }
 ```
 
@@ -55,11 +70,23 @@ logins an existing user to the system
 
   `POST`
 
+- **Body**
+
+  ```
+  {
+    "email" : <email>,
+    "password" : <password>,
+  }
+  ```
+
 - **Result**
 
 ```
 {
-
+  "token": <token>,
+  "email": <email>,
+  "username": <username>,
+  mes"sage: "Session created for user <username>",
 }
 ```
 
