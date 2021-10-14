@@ -1,38 +1,74 @@
-const booksStore = require('../data-access/books.js');
+// const booksStore = require('../data-access/books.js');
+
+const dataAccess = require('../data-access/mangodbAccess');
+
+const booksStore = dataAccess('Books');
 
 const booksManager = {
-    getAllBooksWithLimit: async function (){
-        const books = await booksStore.getAllBooksWithLimit();
+  getAllBooksWithLimit: async () => {
+    const books = await booksStore.getAll();
 
-        //TODO ids to string
-        // channels.forEach((channel) => {
-        //     channel.id = channel._id.toString();
-        //   });
+    const searchBooksWithLimitedAccess = [];
 
-        return books;
-    },
+    books.forEach((book) => {
+      const bookWithLimitedAccess = {
+        id: book._id.toString(),
+        title: book.title,
+        // author: book.author,
+        isbn_10: book.isbn_10,
+        isbn_13: book.isbn_13,
+        description: book.book_description,
+        // rating: book.rating,
+        // pageCount: book.pageCount,
+        // language: book.language,
+      };
 
-    getBookByIdWithLimit: async function (bookId) {
-        const book = booksStore.getBookByIdWithLimit(bookId);
+      searchBooksWithLimitedAccess.push(bookWithLimitedAccess);
+    });
 
-                //TODO ids to string
-        // channels.forEach((channel) => {
-        //     channel.id = channel._id.toString();
-        //   });
+    return searchBooksWithLimitedAccess;
+  },
 
-        return book;
-    },
-    searchBooksWithLimit : async function(searchObject) {
-        const books = await booksStore.getAllBooksWithLimit(searchObject);
+  getBookByIdWithLimit: async (bookId) => {
+    const book = booksStore.getById(bookId);
 
-        //TODO ids to string
-        // channels.forEach((channel) => {
-        //     channel.id = channel._id.toString();
-        //   });
+    const bookWithLimitedAccess = {
+      id: book._id.toString(),
+      title: book.title,
+      author: book.author,
+      isbn_10: book.isbn_10,
+      isbn_13: book.isbn_13,
+      description: book.book_description,
+      rating: book.rating,
+      pageCount: book.pageCount,
+      language: book.language,
+    };
 
-        return books;
-    }
+    return bookWithLimitedAccess;
+  },
+  searchBooksWithLimit: async (searchFilter) => {
+    const books = await booksStore.getAll(searchFilter);
 
+    const searchBooksWithLimitedAccess = [];
+
+    books.forEach((book) => {
+      const bookWithLimitedAccess = {
+        id: book._id.toString(),
+        title: book.title,
+        // author: book.author,
+        isbn_10: book.isbn_10,
+        isbn_13: book.isbn_13,
+        description: book.book_description,
+        // rating: book.rating,
+        // pageCount: book.pageCount,
+        // language: book.language,
+      };
+
+      searchBooksWithLimitedAccess.push(bookWithLimitedAccess);
+    });
+
+    return searchBooksWithLimitedAccess;
+  },
 };
 
 module.exports = booksManager;
