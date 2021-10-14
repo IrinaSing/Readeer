@@ -1,6 +1,6 @@
 // const booksStore = require('../data-access/books.js');
 
-const dataAccess = require('../data-access/mangodbAccess');
+const dataAccess = require('../data-access/mongodbAccess');
 
 const booksStore = dataAccess('Books');
 

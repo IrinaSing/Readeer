@@ -1,4 +1,4 @@
-const dataAccess = require('../data-access/mangodbAccess');
+const dataAccess = require('../data-access/mongodbAccess');
 
 const usersStore = dataAccess('Users');
 
