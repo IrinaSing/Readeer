@@ -17,10 +17,10 @@
       }
     },
     "isbn_10": {
-      "type": "integer"
+      "type": "string"
     },
     "isbn_13": {
-      "type": "integer"
+      "type": "string"
     },
     "book_description": {
       "type": "string"
