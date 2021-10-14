@@ -3,7 +3,7 @@ const booksManager = require('../business-logic/books.js');
 const booksController = {
   get: async (req, res) => {
     try {
-      const allBooks = await booksManager.getAllBooks();
+      const allBooks = await booksManager.getAllBooksWithLimit();
       res.status(200).send(JSON.stringify(allBooks));
     } catch (error) {
       res.status(500).send(error);
@@ -13,7 +13,7 @@ const booksController = {
     try {
       const bookId = req.params.bookId;
 
-      const book = await booksManager.getBookById(bookId);
+      const book = await booksManager.getBookByIdWithLimit(bookId);
 
       res.send(JSON.stringify(book));
     } catch (error) {
@@ -26,7 +26,7 @@ const booksController = {
       const body = req.body;
 
       if (body.filter) {
-        const books = await booksManager.searchBooks(body.filter);
+        const books = await booksManager.searchBooksWithLimit(body.filter);
         res.status(200).send(JSON.stringify(books));
       } else {
         res.status(400).send('Bad request');
