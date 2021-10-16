@@ -4,5 +4,5 @@ export const state = {
   username: "",
   userId: "",
   isSignedIn: false,
-  token: ""
+  token: "",
 };
