@@ -1,13 +1,23 @@
-// const userManager = require('../business-logic/user');
+const usersManager = require('../business-logic/users');
 
 const usersController = {
   get: async (req, res) => {
     try {
-      //TODO delete later
-      res.status(200).json({ result: 'success' });
+      const userId = req.params.userId;
+      console.log('controller', userId);
+      const result = await usersManager.get(userId);
 
-      // const allMessages = await userManager.getAllMessages();
-      // res.status(200).send(JSON.stringify(allMessages));
+      const userDetails = {
+        id: result._id,
+        username: result.username,
+        firstName: result.firstName,
+        lastName: result.lastName,
+        birthday: result.birthday,
+        email: result.email,
+        city: result.city,
+      };
+
+      res.status(200).send(JSON.stringify(userDetails));
     } catch (error) {
       res.status(500).send(error);
     }

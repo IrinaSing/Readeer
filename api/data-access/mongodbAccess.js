@@ -1,5 +1,5 @@
 const { MongoClient } = require('mongodb');
-ObjectId = require('mongodb').ObjectID;
+const ObjectId = require('mongodb').ObjectID;
 
 const persistentDataAccess = (collectionName) => {
   const uri =

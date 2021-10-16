@@ -271,19 +271,17 @@ All the paths below require a valid token to be sent in the header.
 }
 ```
 
-- **Body**
-
-  ```
-  {
-
-  }
-  ```
-
 - **Result:**
 
   ```
   {
-
+    "id":"61686cf01abb24ff1700d2d1",
+    "username":"erkam",
+    "firstName":"erkam",
+    "lastName":"guresen",
+    "birthday":"1634059471001",
+    "email":"erkamguresen@vmail.com",
+    "city":"Ghent"
   }
   ```
 
