@@ -13,8 +13,6 @@ const authenticateUser = async function (req, res, next) {
 
   const tokenArray = tokenHeader.split(' ').filter((x) => x);
 
-  console.error(tokenArray);
-
   if (tokenArray[0] !== 'Bearer' || tokenArray.length !== 2) {
     return res.status(401).send({
       message: 'Unauthorized',
