@@ -188,16 +188,59 @@ Creates a new message in the specified channel.
 
   ```
   {
-
+    "filter":{
+        "condition":"Good"
+    }
   }
   ```
 
 - **Result:**
 
   ```
-  {
+  [
+    {
+      "id":"6166dbe484c8cbd1a3169c4a",
+      "title":"Dutch Short Stories for Beginners",
+      "isbn_10":"1951949196",
+      "isbn_13":"978-1951949198",
+      "description":"Do you know what the hardest thing for a Dutch learner is? Finding PROPER reading material that they can handle...which is precisely the reason we've written this book!",
+      "language":"en"
+    },
+    {
+      "id":"6166dc8b84c8cbd1a3169c4b",
+      "title":"Zauberhafter Malblock: Mit Stickern",
+      "isbn_10":"3649634171",
+      "isbn_13":"978-3649634171",
+      "description":"In diesem Malblock finden Einhorn-Fans 24 hübsche Ausmalmotive und eine Seite mit zauberhaften Stickern.",
+      "language":"de"
+    }
+  ]
+  ```
 
+- **Body**
+
+  ```
+  {
+    "filter":{
+        "condition":"Good",
+        "language":"de"
+    }
   }
+  ```
+
+- **Result:**
+
+  ```
+  [
+    {
+      "id":"6166dc8b84c8cbd1a3169c4b",
+      "title":"Zauberhafter Malblock: Mit Stickern",
+      "isbn_10":"3649634171",
+      "isbn_13":"978-3649634171",
+      "description":"In diesem Malblock finden Einhorn-Fans 24 hübsche Ausmalmotive und eine Seite mit zauberhaften Stickern.",
+      "language":"de"
+    }
+  ]
   ```
 
 ## User Operations

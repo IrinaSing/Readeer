@@ -32,7 +32,6 @@ const booksManager = {
   getBookByIdWithLimit: async (bookId) => {
     const book = await booksStore.getById(bookId);
 
-    console.error('here', book);
     const bookWithLimitedAccess = {
       id: book._id.toString(),
       title: book.title,
@@ -62,7 +61,7 @@ const booksManager = {
         description: book.book_description,
         // rating: book.rating,
         // pageCount: book.pageCount,
-        // language: book.language,
+        language: book.language,
       };
 
       searchBooksWithLimitedAccess.push(bookWithLimitedAccess);
