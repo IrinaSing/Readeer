@@ -2,15 +2,18 @@ const isValidToken = require('../utils/validateToken');
 
 const authenticateUser = async function (req, res, next) {
   const tokenHeader = req.headers.authorization;
-  const username = req.headers.username;
+  const userId = req.params.userId;
 
-  if (!tokenHeader || !username) {
+  // if (!tokenHeader) {
+  if (!tokenHeader || !userId) {
     return res.status(401).send({
       message: 'Unauthorized',
     });
   }
 
-  const tokenArray = tokenHeader.split(' ');
+  const tokenArray = tokenHeader.split(' ').filter((x) => x);
+
+  console.error(tokenArray);
 
   if (tokenArray[0] !== 'Bearer' || tokenArray.length !== 2) {
     return res.status(401).send({
@@ -20,7 +23,7 @@ const authenticateUser = async function (req, res, next) {
 
   const token = tokenArray[1];
 
-  const isValid = await isValidToken(token, username);
+  const isValid = await isValidToken(token, userId);
 
   if (isValid) {
     next();

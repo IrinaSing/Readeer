@@ -6,8 +6,8 @@ const express = require('express');
 const booksRoute = require('./routes/books');
 const registerRoute = require('./routes/register');
 const loginRoute = require('./routes/login');
-// const authenticateUser = require('./middleware/authenticate');
-// const userRoutes = require('./routes/users');
+const authenticateUser = require('./middleware/authenticate');
+const userRoutes = require('./routes/users');
 
 const router = express.Router();
 
@@ -25,9 +25,9 @@ router.use('/register', registerRoute);
 router.use('/login', loginRoute);
 
 // authentication with token
-// router.use(authenticateUser);
+router.use('/users/:userId', authenticateUser);
 
 // use routes
-// router.use('/users', userRoutes);
+router.use('/users', userRoutes);
 
 module.exports = router;
