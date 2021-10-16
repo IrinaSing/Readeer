@@ -9,7 +9,7 @@ userRoutes.use((req, res, next) => {
 });
 
 userRoutes.get('/:userId', usersController.get); //own profile details
-// userRoutes.put('/:userId', usersController.put); //change own profile details
+userRoutes.put('/:userId', usersController.put); //change own profile details
 
 // userRoutes.get('/:userId/books', usersController.searchBooks); // search all books for a user
 // userRoutes.get('/:userId/books/:bookId', usersController.searchBookById); // search a book for a user

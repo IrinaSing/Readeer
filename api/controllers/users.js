@@ -5,84 +5,41 @@ const usersController = {
     try {
       const userId = req.params.userId;
       console.log('controller', userId);
-      const result = await usersManager.get(userId);
-
-      const userDetails = {
-        id: result._id,
-        username: result.username,
-        firstName: result.firstName,
-        lastName: result.lastName,
-        birthday: result.birthday,
-        email: result.email,
-        city: result.city,
-      };
+      const userDetails = await usersManager.get(userId);
 
       res.status(200).send(JSON.stringify(userDetails));
     } catch (error) {
       res.status(500).send(error);
     }
   },
-  // getMessagesForChannel: async (req, res) => {
-  //   try {
-  //     const channelId = req.params.channelId;
 
-  //     const messages = await userManager.getMessagesForChannel(channelId);
+  put: async (req, res) => {
+    try {
+      const userId = req.params.userId;
 
-  //     res.send(JSON.stringify(messages));
-  //   } catch (error) {
-  //     res.status(500).send(error.message);
-  //   }
-  // },
-  // put: async (req, res) => {
-  //   try {
-  //     const messageId = req.params.messageId;
+      const body = req.body;
 
-  //     const body = req.body;
-  //     const message = {
-  //       text: body.text,
-  //       id: body.id,
-  //       user: body.user,
-  //       date: body.date,
-  //       channelId: body.channelId,
-  //     };
+      const user = {
+        username: body.username,
+        firstName: body.firstName,
+        lastName: body.lastName,
+        birthday: body.birthday,
+        email: body.email,
+        city: body.city,
+        updatedAt: new Date(),
+      };
 
-  //     if (body.id !== messageId) {
-  //       throw Error('Cannot change message ID after creation!');
-  //     }
+      if (body.id && body.id !== userId) {
+        throw Error('Cannot change user ID after creation!');
+      }
 
-  //     const result = await userManager.updateMessage(message);
+      const result = await usersManager.updateUser(userId, user);
 
-  //     res.status(200).send(JSON.stringify(result));
-  //   } catch (error) {
-  //     res.status(500).send(error.message);
-  //   }
-  // },
-  // post: async (req, res) => {
-  //   try {
-  //     const body = req.body;
-
-  //     const channelId = req.params.channelId;
-  //     const result = await userManager.createMessage(
-  //       body.user,
-  //       body.text,
-  //       channelId
-  //     );
-  //     res.status(200).send(JSON.stringify(result));
-  //   } catch (error) {
-  //     res.status(500).send(error.message);
-  //   }
-  // },
-  // delete: async (req, res) => {
-  //   try {
-  //     const messageId = req.params.messageId;
-
-  //     const result = await userManager.removeMessage(messageId);
-
-  //     res.status(200).send(JSON.stringify(result));
-  //   } catch (error) {
-  //     res.status(500).send(error.message);
-  //   }
-  // },
+      res.status(200).send(JSON.stringify(result));
+    } catch (error) {
+      res.status(500).send(error.message);
+    }
+  },
 };
 
 module.exports = usersController;

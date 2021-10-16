@@ -57,8 +57,15 @@ const persistentDataAccess = (collectionName) => {
       let result;
       try {
         await client.connect();
-        result = await collection.updateOne({ _id: id }, { $set: data });
+
+        console.log(data);
+
+        result = await collection.updateOne(
+          { _id: new ObjectId(id) },
+          { $set: data }
+        );
       } catch (err) {
+        // console.error(err);
         return err;
       } finally {
         await client.close();
