@@ -30,8 +30,9 @@ const booksManager = {
   },
 
   getBookByIdWithLimit: async (bookId) => {
-    const book = booksStore.getById(bookId);
+    const book = await booksStore.getById(bookId);
 
+    console.error('here', book);
     const bookWithLimitedAccess = {
       id: book._id.toString(),
       title: book.title,

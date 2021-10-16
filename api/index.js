@@ -3,7 +3,7 @@
 const express = require('express');
 
 // const routes = require('./routes');
-// const booksRoute = require('./routes/books');
+const booksRoute = require('./routes/books');
 const registerRoute = require('./routes/register');
 const loginRoute = require('./routes/login');
 // const authenticateUser = require('./middleware/authenticate');
@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
 });
 
 //general search
-// router.use('/books', booksRoute);
+router.use('/books', booksRoute);
 
 //register
 router.use('/register', registerRoute);

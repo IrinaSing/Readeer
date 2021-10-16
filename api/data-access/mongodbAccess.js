@@ -1,4 +1,5 @@
 const { MongoClient } = require('mongodb');
+ObjectId = require('mongodb').ObjectID;
 
 const persistentDataAccess = (collectionName) => {
   const uri =
@@ -29,7 +30,7 @@ const persistentDataAccess = (collectionName) => {
       let result;
       try {
         await client.connect();
-        result = await collection.findOne({ _id: id });
+        result = await collection.findOne({ _id: new ObjectId(id) });
       } catch (err) {
         return err;
       } finally {
