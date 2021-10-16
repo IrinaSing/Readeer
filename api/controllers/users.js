@@ -4,7 +4,7 @@ const usersController = {
   get: async (req, res) => {
     try {
       const userId = req.params.userId;
-      console.log('controller', userId);
+
       const userDetails = await usersManager.get(userId);
 
       res.status(200).send(JSON.stringify(userDetails));

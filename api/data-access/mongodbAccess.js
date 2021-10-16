@@ -58,8 +58,6 @@ const persistentDataAccess = (collectionName) => {
       try {
         await client.connect();
 
-        console.log(data);
-
         result = await collection.updateOne(
           { _id: new ObjectId(id) },
           { $set: data }
