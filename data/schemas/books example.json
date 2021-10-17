@@ -1,0 +1,66 @@
+[
+  {
+    "id": "objectID",
+    "title": "string",
+    "authors": ["string", "string"],
+    "isbn_10": "integer",
+    "isbn_13": "integer",
+    "book_description": "string",
+    "rating": "integer",
+    "userId": "objectID",
+    "pageCount": "integer",
+    "language": "string",
+    "createdAt": "date",
+    "updatedAt": "date",
+    "deletedAt": "date",
+    "condition": "['Like New','Good','Satisfying']",
+    "status": "string",
+    "availableAt": "date",
+    "exchangeAt": "date"
+  },
+  {
+    "title": "The Very Hungry Caterpillar",
+    "authors": ["Eric Carle"],
+    "isbn_10": "0399226907",
+    "isbn_13": "978-0399226908",
+    "book_description": "string",
+    "rating": 5,
+    "userId": 21,
+    "pageCount": 26,
+    "language": "en",
+
+    "condition": "Like New",
+    "status": "Available",
+    "availableAt": "Wed Oct 13 2021 15:10:13 GMT+0200 (Central European Summer Time)"
+  },
+  {
+    "title": "Dutch Short Stories for Beginners",
+    "authors": [""],
+    "isbn_10": "1951949196",
+    "isbn_13": "978-1951949198",
+    "book_description": "Do you know what the hardest thing for a Dutch learner is? Finding PROPER reading material that they can handle...which is precisely the reason we've written this book!",
+    "rating": 4.5,
+    "userId": 2,
+    "pageCount": 214,
+    "language": "en",
+
+    "condition": "Good",
+    "status": "Available",
+    "availableAt": "Wed Oct 13 2021 15:10:13 GMT+0200 (Central European Summer Time)"
+  },
+  {
+    "title": "Zauberhafter Malblock: Mit Stickern",
+    "authors": ["Monika Finsterbusch", "Julia Gerigk"],
+    "isbn_10": "3649634171",
+    "isbn_13": "978-3649634171",
+    "book_description": "In diesem Malblock finden Einhorn-Fans 24 hübsche Ausmalmotive und eine Seite mit zauberhaften Stickern.",
+    "rating": 5,
+    "userId": 3,
+    "pageCount": 49,
+    "language": "de",
+
+    "condition": "Good",
+    "status": "Available",
+    "availableAt": "Wed Oct 13 2021 15:10:13 GMT+0200 (Central European Summer Time)"
+  }
+]

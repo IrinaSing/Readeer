@@ -5,7 +5,7 @@ const JWT_SECRET = require('../config/tokens');
 function createToken(user) {
   const payload = {
     iss: 'Hack Your Future Belgium',
-    userId: `${user.id}`,
+    userId: `${user._id}`,
     username: `${user.username}`,
     email: `${user.email}`,
     iat: new Date().getTime(),
