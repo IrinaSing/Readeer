@@ -8,7 +8,7 @@ const performFetch = async (path) => {
     headers: {
       "Content-Type": "application/json",
       Authorization: state.token === undefined ? "" : `Bearer ${state.token}`,
-      Username: state.username === undefined ? "" : state.username, 
+      Email: state.email === undefined ? "" : state.email,
     },
   });
   if (!response.ok) {
@@ -27,7 +27,7 @@ const performPost = async (path, body) => {
     headers: {
       "Content-Type": "application/json",
       Authorization: state.token === undefined ? "" : `Bearer ${state.token}`,
-      Username: state.username === undefined ? "" : state.username, 
+      Email: state.email === undefined ? "" : state.email,
     },
     body: JSON.stringify(body),
   });
@@ -41,14 +41,14 @@ const performPost = async (path, body) => {
 
 export const postLogin = async (username, password) => {
   return await performPost("login", {
-    username,
+    email,
     password,
   });
 };
 
 export const postRegister = async (username, password) => {
   return await postRegister("register", {
-    username,
+    email,
     password,
   });
 };

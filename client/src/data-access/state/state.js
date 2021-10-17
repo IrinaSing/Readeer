@@ -1,7 +1,7 @@
 export const state = {
   currentBookId: "",
   currentBookName: "",
-  username: "",
+  email: "",
   userId: "",
   isSignedIn: false,
   token: "",
