@@ -3,9 +3,18 @@ const registerManager = require('../business-logic/register');
 const registerController = {
   post: async (req, res) => {
     try {
-      const { username: username, password } = req.body;
+      const { firstName, lastName, birthday, email, username, password, city } =
+        req.body;
 
-      const result = await registerManager.register(username, password);
+      const result = await registerManager.register(
+        firstName,
+        lastName,
+        birthday,
+        email,
+        username,
+        password,
+        city
+      );
       res.status(200).json(result);
     } catch (error) {
       if (error.message === 'User already exists') {
