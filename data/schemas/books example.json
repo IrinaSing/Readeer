@@ -9,7 +9,7 @@
     "rating": "integer",
     "userId": "objectID",
     "pageCount": "integer",
-    "language": "string",
+    "book_language": "string",
     "createdAt": "date",
     "updatedAt": "date",
     "deletedAt": "date",
@@ -27,7 +27,7 @@
     "rating": 5,
     "userId": 21,
     "pageCount": 26,
-    "language": "en",
+    "book_language": "en",
 
     "condition": "Like New",
     "status": "Available",
@@ -42,7 +42,7 @@
     "rating": 4.5,
     "userId": 2,
     "pageCount": 214,
-    "language": "en",
+    "book_language": "en",
 
     "condition": "Good",
     "status": "Available",
@@ -57,10 +57,55 @@
     "rating": 5,
     "userId": 3,
     "pageCount": 49,
-    "language": "de",
+    "book_language": "de",
 
     "condition": "Good",
     "status": "Available",
     "availableAt": "Wed Oct 13 2021 15:10:13 GMT+0200 (Central European Summer Time)"
+  },
+  {
+    "title": "Rose and Daisy",
+    "authors": ["Rosita Steenbeek"],
+    "isbn_10": "9026328613",
+    "isbn_13": "9789026328619",
+    "book_description": "In haar nieuwe boek ‘Rose’ vertelt Rosita Steenbeek het bewogen leven van haar grootmoeder Rose en de lotgevallen van haar joodse familie tijdens de Tweede Wereldoorlog. Rose is de dochter van een joodse moeder en een Duitse vader. In 1929 verliest zij haar hart aan Gerard, een Nederlandse dominee, en samen vestigen zij zich in Klaaswaal, een dorpje onder de rook van Rotterdam In de jaren dertig waaiert Roses joodse familie uit over de wereld, op de vlucht voor Hitlers antisemitische bewind. Op 10 mei 1940 valt het Duitse leger Nederland binnen en op 14 mei ziet Rose de bommen op Rotterdam vallen. Haar man sluit zich aan bij het verzet en wordt opgepakt. Door spelingen van het lot komen leden van Roses familie in de oorlog aan verschillende kanten van het front terecht. Rosita Steenbeek, bekend van haar vele romans en boeken over Rome, schrijft met ‘Rose’ een boek over een grote liefde tussen twee mensen, maar ook over goed en kwaad, over vergeving en over hoe moeilijk het is om de wereld in te delen in zwart en wit.",
+    "rating": 3.5,
+    "userId": 2,
+    "pageCount": 259,
+    "book_language": "nl",
+
+    "condition": "Good",
+    "status": "Available",
+    "availableAt": "Wed Oct 17 2021 15:10:13 GMT+0200 (Central European Summer Time)"
+  },
+  {
+    "title": "Garden Alchemy",
+    "authors": ["Stephanie Rose", "Julia Gerigk"],
+    "isbn_10": "0760367094",
+    "isbn_13": "9780760367094",
+    "book_description": "Garden Alchemy is a hands-on guide for do-it-yourself gardeners who want to turn their garden into gold using natural recipes and herbal concoctions (while saving both time and money!). This gardening recipe and project book is packed with over 80 ideas to naturally beautify your garden, using organic methods that regenerate your soil and revitalize your plants. By following the processes that are closest to nature, it brings the gardener in sync with the garden, allowing plants to thrive with less effort and less cost. Recipes for mixing your own potting soils and homemadeorganic fertilizers give you the freedom to choose what ingredients make their way into your garden. Step-by-step instructions for building a compost pile, concocting soil tests, and constructing inexpensive DIY seed-starting equipment are accompanied by gorgeous, full-color, step-by-step photography. You'll also find recipes for natural pest deterrents and traps, garden teas, and growth-boosting foliar sprays to help your garden grow strong all season long. Garden Alchemy starts with home experiments to help you get to know your soil and customize recipes for your individual needs. The rest of the chapters share how to decipher and combine natural ingredients to make the best quality amendments and elixirs. Detailed descriptions of earth-based materials demystify common ingredients, such as mycorrhizae, biochar, and greensand, and help you learn how to fix common garden problems with minimal effort. The simple method of making use of what you have available supports plants better than brand-name products. Dozens of recipes and projects include: Homemade seed bombs, disks, and tapes Granular and liquid natural fertilizer recipes DIY rooting hormone Herbal anti-fungal spray Plant propagation instructions Soil care recipes to adjust the pH and manage fertility 13 specialty potting mixes 7 clever traps for common garden pests Written by Stephanie Rose, the creative gardener, permaculturist, and herbalist behind the popular website Garden Therapy, this fun and beautifully illustrated book is packed with great ideas and inspiration for DIY gardeners who want to embrace their creativity and have more control of the garden's care.",
+    "rating": 4.6,
+    "userId": 3,
+    "pageCount": 128,
+    "book_language": "en",
+
+    "condition": "Good",
+    "status": "Available",
+    "availableAt": "Wed Oct 15 2021 15:10:13 GMT+0200 (Central European Summer Time)"
+  },
+  {
+    "title": "The Doctor",
+    "authors": ["Phd Gary a Ritchie", "Julia Gerigk"],
+    "isbn_10": "1796853631",
+    "isbn_13": "9781796853636",
+    "book_description": "If you grow roses you have no doubt encountered any manner of problems affecting your plants - from diseases and insects to browsing animals, abiotic factors and other agents. Before these maladies can be effectively addressed they first must be correctly diagnosed. That is the subject of this book.\"The Rose Doctor\" is designed around a diagnostic key - a tool for identifying problems using a logical step-by-step process of elimination. Once a diagnosis is made, the reader is directed to a page containing a description of the problem, along with colored photographs, to assist in confirming the diagnosis. Written by a plant scientist and Master Rosarian, \"The Rose Doctor\" covers a comprehensive range of rose disorders common to North America. Over 70 pages in length, with an extensive list of on-line references, this book is the only one of its kind; a must have reference for both casual and serious rose growers, as well as professional growers, retail nursery workers, horticulturists and Master Gardeners.",
+    "rating": 5,
+    "userId": 3,
+    "pageCount": 76,
+    "book_language": "en",
+
+    "condition": "Good",
+    "status": "Available",
+    "availableAt": "Wed Oct 16 2021 10:10:13 GMT+0200 (Central European Summer Time)"
   }
 ]

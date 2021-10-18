@@ -115,14 +115,16 @@ searches the books without login. This search returns basic and limited informat
     "title":"The Very Hungry Caterpillar",
     "isbn_10":"0399226907",
     "isbn_13":"978-0399226908",
-    "description":"some useful string"
+    "description":"some useful string",
+    "book_language":"en"
   },
   {
     "id":"6166dbe484c8cbd1a3169c4a",
     "title":"Dutch Short Stories for Beginners",
     "isbn_10":"1951949196",
     "isbn_13":"978-1951949198",
-    "description":"Do you know what the hardest thing for a Dutch learner is? Finding PROPER reading material that they can handle...which is precisely the reason we've written this book!"
+    "description":"Do you know what the hardest thing for a Dutch learner is? Finding PROPER reading material that they can handle...which is precisely the reason we've written this book!",
+    "book_language":"en"
   },
   {
     "id":"6166dc8b84c8cbd1a3169c4b",
@@ -130,6 +132,7 @@ searches the books without login. This search returns basic and limited informat
     "isbn_10":"3649634171",
     "isbn_13":"978-3649634171",
     "description":"In diesem Malblock finden Einhorn-Fans 24 hübsche Ausmalmotive und eine Seite mit zauberhaften Stickern."
+    "book_language":"de"
   }
 ]
 ```
@@ -167,14 +170,20 @@ searches a book with given id. This search returns basic and limited information
   "description":"some useful string",
   "rating":5,
   "pageCount":26,
-  "language":"en"
+  "book_language":"en"
 }
 
 ```
 
 ### Query Searching the Books
 
-Creates a new message in the specified channel.
+Searches the books using a filter or fuzzy search. In the body of the request a "filter" object should be defined. In the filter object specified property and value pairs must be defined. If more than one property is specified then all properties in the filter object is united with "AND" operator to perform the search.
+
+If there is a 'text' property in the filter object then the filter only does the fuzzy search and ignores the other properties. In fuzzy search the words in text property are used separately and search is performed in the fields of "title", "description" and "author".
+
+If there is a "-" before a word in the text property, then the fuzzy search excludes the search results which have that word.
+
+Fuzzy search only returns limited information about the book. To
 
 - **URL**
 
@@ -204,7 +213,7 @@ Creates a new message in the specified channel.
       "isbn_10":"1951949196",
       "isbn_13":"978-1951949198",
       "description":"Do you know what the hardest thing for a Dutch learner is? Finding PROPER reading material that they can handle...which is precisely the reason we've written this book!",
-      "language":"en"
+      "book_language":"en"
     },
     {
       "id":"6166dc8b84c8cbd1a3169c4b",
@@ -212,7 +221,7 @@ Creates a new message in the specified channel.
       "isbn_10":"3649634171",
       "isbn_13":"978-3649634171",
       "description":"In diesem Malblock finden Einhorn-Fans 24 hübsche Ausmalmotive und eine Seite mit zauberhaften Stickern.",
-      "language":"de"
+      "book_language":"de"
     }
   ]
   ```
@@ -223,7 +232,7 @@ Creates a new message in the specified channel.
   {
     "filter":{
         "condition":"Good",
-        "language":"de"
+        "book_language":"de"
     }
   }
   ```
@@ -238,7 +247,51 @@ Creates a new message in the specified channel.
       "isbn_10":"3649634171",
       "isbn_13":"978-3649634171",
       "description":"In diesem Malblock finden Einhorn-Fans 24 hübsche Ausmalmotive und eine Seite mit zauberhaften Stickern.",
-      "language":"de"
+      "book_language":"de"
+    }
+  ]
+  ```
+
+- **Body**
+
+  ```
+  {
+    "filter":{
+        "condition":"Good",
+        "language":"de",
+        "text":"rose"
+    }
+  }
+  ```
+
+- **Result:**
+
+  ```
+  [
+    {
+      "id":"616cd621eaa3d564382b2057",
+      "title":"Rose and Daisy",
+      "isbn_10":"9026328613",
+      "isbn_13":"9789026328619",
+      "description":"In haar nieuwe boek ‘Rose’ vertelt Rosita...",
+      "book_language":"nl"
+    },
+    {
+      "id":"616cd09d6d4f3fa527efbf5e",
+      "title":"Garden Alchemy",
+      "isbn_10":"0760367094",
+      "isbn_13":"9780760367094",
+      "description":"Garden Alchemy is a hands-on guide for     do-it-yourself gardeners who want to turn their garden into gold using natural recipes and herbal concoctions ... ",
+      "book_language":"en"
+    },
+    {
+      "id":"616c321e79212d858e0e56e8",
+      "title":"The Doctor",
+      "isbn_10":"1796853631",
+      "isbn_13":"9781796853636",
+      "description":"If you grow roses you have no doubt encountered
+      any manner of problems affecting your plants ...",
+      "book_language":"nl"
     }
   ]
   ```

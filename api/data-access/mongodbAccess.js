@@ -26,6 +26,21 @@ const persistentDataAccess = (collectionName) => {
 
       return result;
     },
+    textSearch: async (textToSearch) => {
+      let result;
+      try {
+        await client.connect();
+        result = await collection
+          .find({ $text: { $search: textToSearch } })
+          .toArray();
+      } catch (err) {
+        return err;
+      } finally {
+        await client.close();
+      }
+
+      return result;
+    },
     getById: async (id) => {
       let result;
       try {

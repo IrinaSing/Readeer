@@ -39,13 +39,20 @@ const booksManager = {
       description: book.book_description,
       rating: book.rating,
       pageCount: book.pageCount,
-      language: book.language,
+      book_language: book.language,
     };
 
     return bookWithLimitedAccess;
   },
   searchBooksWithLimit: async (searchFilter) => {
-    const books = await booksStore.getAll(searchFilter);
+    let books = [];
+
+    //check if the filter has text search
+    if (searchFilter.text) {
+      books = await booksStore.textSearch(searchFilter.text);
+    } else {
+      books = await booksStore.getAll(searchFilter);
+    }
 
     const searchBooksWithLimitedAccess = [];
 
@@ -53,13 +60,13 @@ const booksManager = {
       const bookWithLimitedAccess = {
         id: book._id.toString(),
         title: book.title,
-        // author: book.author,
+        author: book.author,
         isbn_10: book.isbn_10,
         isbn_13: book.isbn_13,
         description: book.book_description,
         // rating: book.rating,
         // pageCount: book.pageCount,
-        language: book.language,
+        book_language: book.book_language,
       };
 
       searchBooksWithLimitedAccess.push(bookWithLimitedAccess);

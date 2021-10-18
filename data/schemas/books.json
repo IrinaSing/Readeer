@@ -39,7 +39,7 @@
       "minimum": 0,
       "description": "number of pages"
     },
-    "language": {
+    "book_language": {
       "type": "string",
       "description": "language of the book"
     },
