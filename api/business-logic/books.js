@@ -18,7 +18,7 @@ const booksManager = {
         description: book.book_description,
         // rating: book.rating,
         // pageCount: book.pageCount,
-        // language: book.language,
+        // book_language: book.language,
       };
 
       searchBooksWithLimitedAccess.push(bookWithLimitedAccess);
@@ -47,7 +47,7 @@ const booksManager = {
   searchBooksWithLimit: async (searchFilter) => {
     let books = [];
 
-    //check if the filter has text search
+    //check if the filter for fuzzy search
     if (searchFilter.text) {
       books = await booksStore.textSearch(searchFilter.text);
     } else {
