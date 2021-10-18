@@ -12,7 +12,7 @@ const booksManager = {
       const bookWithLimitedAccess = {
         id: book._id.toString(),
         title: book.title,
-        // author: book.author,
+        // authors: book.authors,
         isbn_10: book.isbn_10,
         isbn_13: book.isbn_13,
         description: book.book_description,
@@ -33,7 +33,7 @@ const booksManager = {
     const bookWithLimitedAccess = {
       id: book._id.toString(),
       title: book.title,
-      author: book.author,
+      authors: book.authors,
       isbn_10: book.isbn_10,
       isbn_13: book.isbn_13,
       description: book.book_description,

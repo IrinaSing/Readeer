@@ -165,6 +165,7 @@ searches a book with given id. This search returns basic and limited information
 {
   "id":"6166dbab84c8cbd1a3169c49",
   "title":"The Very Hungry Caterpillar",
+  "authors":["Eric Carle"],
   "isbn_10":"0399226907",
   "isbn_13":"978-0399226908",
   "description":"some useful string",
