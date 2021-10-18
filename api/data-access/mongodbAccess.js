@@ -1,4 +1,5 @@
 const { MongoClient } = require('mongodb');
+const ObjectId = require('mongodb').ObjectID;
 
 const persistentDataAccess = (collectionName) => {
   const uri =
@@ -7,7 +8,7 @@ const persistentDataAccess = (collectionName) => {
   // const uri = process.env.MONGODB_URI;
   const client = new MongoClient(uri);
 
-  const dbName = 'HYF-Chat';
+  const dbName = 'HYF_FP_DB';
   const db = client.db(dbName);
   const collection = db.collection(collectionName);
 
@@ -29,7 +30,7 @@ const persistentDataAccess = (collectionName) => {
       let result;
       try {
         await client.connect();
-        result = await collection.findOne({ _id: id });
+        result = await collection.findOne({ _id: new ObjectId(id) });
       } catch (err) {
         return err;
       } finally {
@@ -56,8 +57,13 @@ const persistentDataAccess = (collectionName) => {
       let result;
       try {
         await client.connect();
-        result = await collection.updateOne({ _id: id }, { $set: data });
+
+        result = await collection.updateOne(
+          { _id: new ObjectId(id) },
+          { $set: data }
+        );
       } catch (err) {
+        // console.error(err);
         return err;
       } finally {
         await client.close();

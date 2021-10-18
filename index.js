@@ -32,8 +32,6 @@ app.use("/api", api);
 
 app.use("/", express.static(path.join(__dirname, config.STATIC_DIR)));
 
-console.log("here");
-
 /* eslint-disable */
 app.use((err, req, res, next) => {
   console.error(err.stack);

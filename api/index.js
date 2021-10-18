@@ -2,7 +2,7 @@
 
 const express = require('express');
 
-const routes = require('./routes');
+// const routes = require('./routes');
 const booksRoute = require('./routes/books');
 const registerRoute = require('./routes/register');
 const loginRoute = require('./routes/login');
@@ -25,7 +25,7 @@ router.use('/register', registerRoute);
 router.use('/login', loginRoute);
 
 // authentication with token
-// router.use(authenticateUser);
+router.use('/users/:userId', authenticateUser);
 
 // use routes
 router.use('/users', userRoutes);
