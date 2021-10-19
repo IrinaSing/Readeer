@@ -11,7 +11,10 @@
     "document": "node ./dev-scripts/document client api",
     "lint:js": "eslint --max-warnings=0 --ext=.js --format=codeframe --fix",
     "lint": "npm run lint:js",
-    "format": "prettier --write ./"
+    "format": "prettier --write ./",
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
   },
   "author": "",
   "license": "ISC",
