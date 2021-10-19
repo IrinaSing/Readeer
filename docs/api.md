@@ -13,18 +13,34 @@
 <!-- BEGIN TOC -->
 
 - business-logic
+  - [books.js](#apibusiness-logicbooksjs)
+  - [login.js](#apibusiness-logicloginjs)
+  - [register.js](#apibusiness-logicregisterjs)
+  - [users.js](#apibusiness-logicusersjs)
 - config
   - [default.js](#apiconfigdefaultjs)
   - [development.js](#apiconfigdevelopmentjs)
   - [index.js](#apiconfigindexjs)
   - [production.js](#apiconfigproductionjs)
+  - [tokens.js](#apiconfigtokensjs)
 - controllers
+  - [books.js](#apicontrollersbooksjs)
+  - [login.js](#apicontrollersloginjs)
+  - [register.js](#apicontrollersregisterjs)
+  - [users.js](#apicontrollersusersjs)
 - data-access
+  - [mongodbAccess.js](#apidata-accessmongodbAccessjs)
 - middleware
+  - [authenticate.js](#apimiddlewareauthenticatejs)
 - routes
-  - [index.js](#apiroutesindexjs)
-  - [resource.js](#apiroutesresourcejs)
+  - [books.js](#apiroutesbooksjs)
+  - [login.js](#apiroutesloginjs)
+  - [register.js](#apiroutesregisterjs)
+  - [users.js](#apiroutesusersjs)
 - utils
+  - [createToken.js](#apiutilscreateTokenjs)
+  - [hashPassword.js](#apiutilshashPasswordjs)
+  - [validateToken.js](#apiutilsvalidateTokenjs)
 - [index.js](#apiindexjs)
 
 ---
@@ -36,6 +52,22 @@
 <!-- BEGIN DOCS -->
 
 # /business-logic
+
+<details><summary><a href="../../api/business-logic/books.js" id="apibusiness-logicbooksjs">../api/business-logic/books.js</a></summary>
+
+</details>
+
+<details><summary><a href="../../api/business-logic/login.js" id="apibusiness-logicloginjs">../api/business-logic/login.js</a></summary>
+
+</details>
+
+<details><summary><a href="../../api/business-logic/register.js" id="apibusiness-logicregisterjs">../api/business-logic/register.js</a></summary>
+
+</details>
+
+<details><summary><a href="../../api/business-logic/users.js" id="apibusiness-logicusersjs">../api/business-logic/users.js</a></summary>
+
+</details>
 
 ---
 
@@ -57,33 +89,81 @@
 
 </details>
 
+<details><summary><a href="../../api/config/tokens.js" id="apiconfigtokensjs">../api/config/tokens.js</a></summary>
+
+</details>
+
 ---
 
 # /controllers
+
+<details><summary><a href="../../api/controllers/books.js" id="apicontrollersbooksjs">../api/controllers/books.js</a></summary>
+
+</details>
+
+<details><summary><a href="../../api/controllers/login.js" id="apicontrollersloginjs">../api/controllers/login.js</a></summary>
+
+</details>
+
+<details><summary><a href="../../api/controllers/register.js" id="apicontrollersregisterjs">../api/controllers/register.js</a></summary>
+
+</details>
+
+<details><summary><a href="../../api/controllers/users.js" id="apicontrollersusersjs">../api/controllers/users.js</a></summary>
+
+</details>
 
 ---
 
 # /data-access
 
+<details><summary><a href="../../api/data-access/mongodbAccess.js" id="apidata-accessmongodbAccessjs">../api/data-access/mongodbAccess.js</a></summary>
+
+</details>
+
 ---
 
 # /middleware
+
+<details><summary><a href="../../api/middleware/authenticate.js" id="apimiddlewareauthenticatejs">../api/middleware/authenticate.js</a></summary>
+
+</details>
 
 ---
 
 # /routes
 
-<details><summary><a href="../../api/routes/index.js" id="apiroutesindexjs">../api/routes/index.js</a></summary>
+<details><summary><a href="../../api/routes/books.js" id="apiroutesbooksjs">../api/routes/books.js</a></summary>
 
 </details>
 
-<details><summary><a href="../../api/routes/resource.js" id="apiroutesresourcejs">../api/routes/resource.js</a></summary>
+<details><summary><a href="../../api/routes/login.js" id="apiroutesloginjs">../api/routes/login.js</a></summary>
+
+</details>
+
+<details><summary><a href="../../api/routes/register.js" id="apiroutesregisterjs">../api/routes/register.js</a></summary>
+
+</details>
+
+<details><summary><a href="../../api/routes/users.js" id="apiroutesusersjs">../api/routes/users.js</a></summary>
 
 </details>
 
 ---
 
 # /utils
+
+<details><summary><a href="../../api/utils/createToken.js" id="apiutilscreateTokenjs">../api/utils/createToken.js</a></summary>
+
+</details>
+
+<details><summary><a href="../../api/utils/hashPassword.js" id="apiutilshashPasswordjs">../api/utils/hashPassword.js</a></summary>
+
+</details>
+
+<details><summary><a href="../../api/utils/validateToken.js" id="apiutilsvalidateTokenjs">../api/utils/validateToken.js</a></summary>
+
+</details>
 
 ---
 
