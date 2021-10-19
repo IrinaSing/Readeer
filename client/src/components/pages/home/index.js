@@ -1,3 +1,5 @@
+import { search } from './searchbar';
+
 /**
  * The home page.
  *
@@ -7,7 +9,11 @@ export const home = () => {
   const container = document.createElement('div');
   container.className = 'body';
 
-  container.innerHTML = `welcome to the home page`;
+  container.appendChild(document.createTextNode('Welcome to HomePage!'));
+
+  container.appendChild(document.createElement('br'));
+
+  container.appendChild(search());
 
   return container;
 };
