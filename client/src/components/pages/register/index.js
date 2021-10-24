@@ -1,4 +1,4 @@
-import { registerForm } from "./components/register-form.js";
+import { registerForm } from "./register-form.js";
 /**
  * The register page. Loads when the register page is requested.
  *

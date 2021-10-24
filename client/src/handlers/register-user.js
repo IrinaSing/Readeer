@@ -1,6 +1,6 @@
 import { postRegister } from "../data-access/api-calls/calls.js";
-import { errorAlert } from "../components/pages/register/components/error-alert.js";
-import { userRegistered } from "../components/pages/register/components/user-registered.js";
+import { errorAlert } from "../components/pages/register/error-alert.js";
+import { userRegistered } from "../components/pages/register/user-registered.js";
 
 /**
  * This function validated user input and submits the data to the database.
