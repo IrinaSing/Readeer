@@ -1,4 +1,5 @@
 import { router } from '../../../../init/router.js';
+import { navigateToLoginPage } from '../../../../handlers/navigateToLogin.js';
 
 export const userRegistered = (username) => {
   const successCard = document.createElement('div');
@@ -19,9 +20,11 @@ export const userRegistered = (username) => {
   button.className = 'btn btn-primary';
   button.textContent = 'Log in';
 
-  button.addEventListener('click', () => {
-    router.navigate('/login');
-  });
+  button.addEventListener('click', navigateToLoginPage);
+
+  // button.addEventListener('click', () => {
+  //   router.navigate('/login');
+  // });
 
   // const button = document.createElement('a');
   // button.href = '/login';
