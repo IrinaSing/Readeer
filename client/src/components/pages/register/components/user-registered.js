@@ -1,3 +1,4 @@
+// TODO: Remove unnecessary router below
 import { router } from '../../../../init/router.js';
 import { navigateToLoginPage } from '../../../../handlers/navigateToLogin.js';
 
@@ -22,16 +23,18 @@ export const userRegistered = (username) => {
 
   button.addEventListener('click', navigateToLoginPage);
 
+  // TODO: remove previous working version
   // button.addEventListener('click', () => {
   //   router.navigate('/login');
   // });
 
+  //TODO delete below
   // const button = document.createElement('a');
   // button.href = '/login';
   // button.setAttribute('data-navigo', true);
   // button.textContent = 'Log in';
 
-  /*
+  /*TODO delete below
   const button = document.createElement("a");
   button.href = router.navigate("/login");
   button.setAttribute("data-navigo", true);
