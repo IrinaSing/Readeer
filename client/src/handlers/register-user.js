@@ -31,7 +31,6 @@ export const registerUser = async (event) => {
 
   // validation
   const regName = /\b([A-zÀ-ÿ][-,A-z. ']+[ ]*)+/;
-  // const regName = /\b([A-ZÀ-ÿ][-,a-z. ']+[ ]*)+/;
   if (!regName.test(firstName.value)) {
     const statusMessageDiv = document.getElementById("statusMessageDiv");
     statusMessageDiv.appendChild(
