@@ -1,5 +1,11 @@
 import { registerUser } from "../../../../handlers/register-user.js";
 
+/**
+ * This component creates a registration form inside a div.
+ *
+ * @returns {object} - A div element.
+ */
+
 export const registerForm = () => {
   const divContainer = document.createElement("div");
   divContainer.classList = "container py-5 h-100";
@@ -146,7 +152,6 @@ export const registerForm = () => {
   const inputContainer = document.createElement("div");
 
   const inputGroup = document.createElement("div");
-  // inputGroup.classList = "input-group date";
   inputGroup.id = "datepicker";
 
   const bdayInput = document.createElement("input");

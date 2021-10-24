@@ -34,7 +34,9 @@ export const registerUser = async (event) => {
   if (!regName.test(firstName.value)) {
     const statusMessageDiv = document.getElementById("statusMessageDiv");
     statusMessageDiv.appendChild(
-      errorAlert("First name should not contain numbers.")
+      errorAlert(
+        "First name should start with a capital letter and should not contain numbers."
+      )
     );
     setTimeout(() => {
       statusMessageDiv.innerHTML = "";
@@ -45,7 +47,9 @@ export const registerUser = async (event) => {
   if (!regName.test(lastName.value)) {
     const statusMessageDiv = document.getElementById("statusMessageDiv");
     statusMessageDiv.appendChild(
-      errorAlert("Last name should not contain numbers.")
+      errorAlert(
+        "Last name should start with a capital letter and should not contain numbers."
+      )
     );
     setTimeout(() => {
       statusMessageDiv.innerHTML = "";
@@ -56,7 +60,9 @@ export const registerUser = async (event) => {
   if (!regName.test(city.value)) {
     const statusMessageDiv = document.getElementById("statusMessageDiv");
     statusMessageDiv.appendChild(
-      errorAlert("City name should not contain numbers.")
+      errorAlert(
+        "City name should start with a capital letter and should not contain numbers."
+      )
     );
     setTimeout(() => {
       statusMessageDiv.innerHTML = "";
@@ -67,7 +73,7 @@ export const registerUser = async (event) => {
   if (password.value.length <= 5) {
     const statusMessageDiv = document.getElementById("statusMessageDiv");
     statusMessageDiv.appendChild(
-      errorAlert("Password should at least 6 characters long.")
+      errorAlert("Password should be at least 6 characters long.")
     );
     setTimeout(() => {
       statusMessageDiv.innerHTML = "";
