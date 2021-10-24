@@ -1,6 +1,6 @@
-import { postRegister } from "../data-access/api-calls/calls.js";
-import { errorAlert } from "../components/pages/register/components/error-alert.js";
-import { userRegistered } from "../components/pages/register/components/user-registered.js";
+import { postRegister } from '../data-access/api-calls/calls.js';
+import { errorAlert } from '../components/pages/register/components/error-alert.js';
+import { userRegistered } from '../components/pages/register/components/user-registered.js';
 
 /**
  * This function validated user input and submits the data to the database.
@@ -10,6 +10,9 @@ import { userRegistered } from "../components/pages/register/components/user-reg
  */
 
 export const registerUser = async (event) => {
+  event.preventDefault();
+  event.stopPropagation();
+
   const firstName = event.target[0];
   const lastName = event.target[1];
   const username = event.target[2];
@@ -19,10 +22,7 @@ export const registerUser = async (event) => {
   const password = event.target[6];
   const pswConfInput = event.target[7];
 
-  event.preventDefault();
-  event.stopPropagation();
-
-  const btn = document.getElementById("registerSubmitButton");
+  const btn = document.getElementById('registerSubmitButton');
   btn.disabled = true;
 
   setTimeout(() => {
@@ -30,67 +30,68 @@ export const registerUser = async (event) => {
   }, 2000);
 
   // validation
-  const regName = /\b([A-ZÀ-ÿ][-,a-z. ']+[ ]*)+/;
+  const regName = /\b([A-zÀ-ÿ][-,A-z. ']+[ ]*)+/;
+  // const regName = /\b([A-ZÀ-ÿ][-,a-z. ']+[ ]*)+/;
   if (!regName.test(firstName.value)) {
-    const statusMessageDiv = document.getElementById("statusMessageDiv");
+    const statusMessageDiv = document.getElementById('statusMessageDiv');
     statusMessageDiv.appendChild(
-      errorAlert("First name should not contain numbers.")
+      errorAlert('First name should not contain numbers.')
     );
     setTimeout(() => {
-      statusMessageDiv.innerHTML = "";
+      statusMessageDiv.innerHTML = '';
     }, 3000);
     return;
   }
 
   if (!regName.test(lastName.value)) {
-    const statusMessageDiv = document.getElementById("statusMessageDiv");
+    const statusMessageDiv = document.getElementById('statusMessageDiv');
     statusMessageDiv.appendChild(
-      errorAlert("Last name should not contain numbers.")
+      errorAlert('Last name should not contain numbers.')
     );
     setTimeout(() => {
-      statusMessageDiv.innerHTML = "";
+      statusMessageDiv.innerHTML = '';
     }, 3000);
     return;
   }
 
   if (!regName.test(city.value)) {
-    const statusMessageDiv = document.getElementById("statusMessageDiv");
+    const statusMessageDiv = document.getElementById('statusMessageDiv');
     statusMessageDiv.appendChild(
-      errorAlert("City name should not contain numbers.")
+      errorAlert('City name should not contain numbers.')
     );
     setTimeout(() => {
-      statusMessageDiv.innerHTML = "";
+      statusMessageDiv.innerHTML = '';
     }, 3000);
     return;
   }
 
   if (password.value.length <= 5) {
-    const statusMessageDiv = document.getElementById("statusMessageDiv");
+    const statusMessageDiv = document.getElementById('statusMessageDiv');
     statusMessageDiv.appendChild(
-      errorAlert("Password should at least 6 characters long.")
+      errorAlert('Password should at least 6 characters long.')
     );
     setTimeout(() => {
-      statusMessageDiv.innerHTML = "";
+      statusMessageDiv.innerHTML = '';
     }, 3000);
     return;
   }
 
   if (password.value.length >= 15) {
-    const statusMessageDiv = document.getElementById("statusMessageDiv");
+    const statusMessageDiv = document.getElementById('statusMessageDiv');
     statusMessageDiv.appendChild(
-      errorAlert("Password should not be longer than 15 characters.")
+      errorAlert('Password should not be longer than 15 characters.')
     );
     setTimeout(() => {
-      statusMessageDiv.innerHTML = "";
+      statusMessageDiv.innerHTML = '';
     }, 3000);
     return;
   }
 
   if (password.value !== pswConfInput.value) {
-    const statusMessageDiv = document.getElementById("statusMessageDiv");
-    statusMessageDiv.appendChild(errorAlert("Passwords do not match!"));
+    const statusMessageDiv = document.getElementById('statusMessageDiv');
+    statusMessageDiv.appendChild(errorAlert('Passwords do not match!'));
     setTimeout(() => {
-      statusMessageDiv.innerHTML = "";
+      statusMessageDiv.innerHTML = '';
     }, 3000);
     return;
   }
@@ -107,19 +108,19 @@ export const registerUser = async (event) => {
   );
 
   if (response.error) {
-    const statusMessageDiv = document.getElementById("statusMessageDiv");
+    const statusMessageDiv = document.getElementById('statusMessageDiv');
     statusMessageDiv.appendChild(
       errorAlert(`<i class="fa fa-times-circle"></i> ${response.error}`)
     );
     setTimeout(() => {
-      statusMessageDiv.innerHTML = "";
+      statusMessageDiv.innerHTML = '';
     }, 3000);
     return;
   }
 
   if (response.username) {
-    const divContainer = document.getElementById("divContainer");
-    divContainer.innerHTML = "";
+    const divContainer = document.getElementById('divContainer');
+    divContainer.innerHTML = '';
     divContainer.appendChild(userRegistered(response.username));
   }
 };
