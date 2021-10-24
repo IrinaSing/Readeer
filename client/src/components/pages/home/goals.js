@@ -12,6 +12,11 @@ export const goalsContent = () => {
   content.innerText =
     "Readeer promotes reading and exchange of children’s books and can be used both by parents and children.";
 
+  goalSection.appendChild(goalContainer);
+  goalContainer.appendChild(goals);
+  goals.appendChild(title);
+  goals.appendChild(content);
+
   const goalSocial = document.createElement("div");
   goalSocial.className = "goals-social";
 
@@ -21,9 +26,7 @@ export const goalsContent = () => {
   const contentSocial = document.createElement("p");
   contentSocial.innerText = "blabla";
 
-  goalSection.appendChild(goalContainer);
   goalContainer.appendChild(goalSocial);
-  goalContainer.appendChild(goals);
   goalSocial.appendChild(titleSocial);
   goalSocial.appendChild(contentSocial);
 
