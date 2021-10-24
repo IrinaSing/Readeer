@@ -5,6 +5,7 @@ export const goalsContent = () => {
   const goalContainer = document.createElement("div");
   goalContainer.className = "goals-container";
 
+  const goals = document.createElement("div");
   const title = document.createElement("h1");
   const content = document.createElement("p");
   title.innerText = "Goals of the project";
@@ -22,6 +23,7 @@ export const goalsContent = () => {
 
   goalSection.appendChild(goalContainer);
   goalContainer.appendChild(goalSocial);
+  goalContainer.appendChild(goals);
   goalSocial.appendChild(titleSocial);
   goalSocial.appendChild(contentSocial);
 
