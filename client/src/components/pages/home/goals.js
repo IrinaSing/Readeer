@@ -5,11 +5,17 @@ export const goalsContent = () => {
   const goalContainer = document.createElement("div");
   goalContainer.className = "goals-container";
 
+  const title = document.createElement("h1");
+  const content = document.createElement("p");
+  title.innerText = "Goals of the project";
+  content.innerText =
+    "Readeer promotes reading and exchange of children’s books and can be used both by parents and children.";
+
   const goalSocial = document.createElement("div");
   goalSocial.className = "goals-social";
 
   const titleSocial = document.createElement("h1");
-  titleSocial.innerText = "SOCIAL";
+  titleSocial.innerText = "Goals of the project";
 
   const contentSocial = document.createElement("p");
   contentSocial.innerText = "blabla";
@@ -27,7 +33,6 @@ export const goalsContent = () => {
   const contentMoney = document.createElement("p");
   contentMoney.innerText = "blabla";
 
-  //
   goalContainer.appendChild(goalMoney);
   goalMoney.appendChild(titleMoney);
   goalMoney.appendChild(contentMoney);
@@ -41,7 +46,6 @@ export const goalsContent = () => {
   const contentEnv = document.createElement("p");
   contentEnv.innerText = "blabla";
 
-  // goalSection.appendChild(goalContainer);
   goalContainer.appendChild(goalEnviroment);
   goalEnviroment.appendChild(titleEnv);
   goalEnviroment.appendChild(contentEnv);
