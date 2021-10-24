@@ -57,3 +57,29 @@
 /* .content-container p h1 {
   margin-left: 200px;
 } */
+
+/* Section : Will it be useful for me? */
+.useful-section {
+  width: 100%;
+  height: 200px;
+  margin-top: 400px;
+}
+
+.useful-containar {
+  width: 100%;
+  height: 200px;
+}
+
+.useful-containar h1 {
+  text-align: center;
+  font-size: large;
+  font-family: "Courier New", Courier, monospace;
+  color: black;
+}
+
+.useful-containar p {
+  text-align: center;
+  font-size: large;
+  font-family: "Courier New", Courier, monospace;
+  color: black;
+}

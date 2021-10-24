@@ -1,5 +1,6 @@
 import { search } from "./searchbar";
 import { showcase } from "./showCase.js";
+import { usefulContent } from "./useful.js";
 
 
 /**
@@ -25,6 +26,7 @@ export const home = () => {
   You want to connect with some other family and find friends for your child to speak their mother language with.
   You are a child who likes to read and finds it fun to exchange books with peers.`;
   container.appendChild(showcase(title, imgURL, content));
+  container.appendChild(usefulContent("Will it be useful for me?", contentUseful));
 
 
   return container;
