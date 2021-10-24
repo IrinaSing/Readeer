@@ -7,9 +7,9 @@ import { registerForm } from "./register-form.js";
 export const register = () => {
   const container = document.createElement("div");
   container.className = "body";
-  container.innerHTML = `Welcome to the Registration page.`;
+  // container.innerHTML = `Welcome to the Registration page.`;
 
-  container.appendChild(document.createElement("br"));
+  // container.appendChild(document.createElement("br"));
   container.appendChild(registerForm());
   return container;
 };

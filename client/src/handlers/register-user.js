@@ -10,6 +10,9 @@ import { userRegistered } from "../components/pages/register/user-registered.js"
  */
 
 export const registerUser = async (event) => {
+  event.preventDefault();
+  event.stopPropagation();
+
   const firstName = event.target[0];
   const lastName = event.target[1];
   const username = event.target[2];
@@ -19,9 +22,6 @@ export const registerUser = async (event) => {
   const password = event.target[6];
   const pswConfInput = event.target[7];
 
-  event.preventDefault();
-  event.stopPropagation();
-
   const btn = document.getElementById("registerSubmitButton");
   btn.disabled = true;
 
@@ -30,7 +30,8 @@ export const registerUser = async (event) => {
   }, 2000);
 
   // validation
-  const regName = /\b([A-ZÀ-ÿ][-,a-z. ']+[ ]*)+/;
+  const regName = /\b([A-zÀ-ÿ][-,A-z. ']+[ ]*)+/;
+  // const regName = /\b([A-ZÀ-ÿ][-,a-z. ']+[ ]*)+/;
   if (!regName.test(firstName.value)) {
     const statusMessageDiv = document.getElementById("statusMessageDiv");
     statusMessageDiv.appendChild(
