@@ -27,7 +27,7 @@ export const goalsContent = () => {
   const contentMoney = document.createElement("p");
   contentMoney.innerText = "blabla";
 
-  goalSection.appendChild(goalContainer);
+  //
   goalContainer.appendChild(goalMoney);
   goalMoney.appendChild(titleMoney);
   goalMoney.appendChild(contentMoney);
@@ -41,7 +41,7 @@ export const goalsContent = () => {
   const contentEnv = document.createElement("p");
   contentEnv.innerText = "blabla";
 
-  goalSection.appendChild(goalContainer);
+  // goalSection.appendChild(goalContainer);
   goalContainer.appendChild(goalEnviroment);
   goalEnviroment.appendChild(titleEnv);
   goalEnviroment.appendChild(contentEnv);
