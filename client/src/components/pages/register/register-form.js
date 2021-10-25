@@ -8,8 +8,13 @@ import { registerUser } from "../../../handlers/register-user.js";
 
 export const registerForm = () => {
   const divContainer = document.createElement("div");
-  divContainer.classList = "container py-5 h-100";
+  divContainer.classList = "container py-5 w-75";
   divContainer.id = "divContainer";
+
+  const logoSuccess = document.createElement("img");
+  logoSuccess.src = "../../client/public/icons/party.png";
+  logoSuccess.className = "img-thumbnail";
+  divContainer.appendChild(logoSuccess);
 
   const form = document.createElement("form");
   form.action = "/api/register";
@@ -184,7 +189,7 @@ export const registerForm = () => {
 
   const passwordLabel = document.createElement("label");
   passwordLabel.htmlFor = "password";
-  passwordLabel.innerHTML = "Password";
+  passwordLabel.innerHTML = "Password (6-15 symbols)";
   passwordLabel.classList = "col-form-label";
 
   const passwordInput = document.createElement("input");
