@@ -1,4 +1,5 @@
 import { registerUser } from "../../../handlers/register-user.js";
+import animalReadingReading from "../../../../public/icons/reading_pig.jpg";
 
 /**
  * This component creates a registration form inside a div.
@@ -11,11 +12,30 @@ export const registerForm = () => {
   divContainer.classList = "container py-5 w-75";
   divContainer.id = "divContainer";
 
-  const logoSuccess = document.createElement("img");
-  logoSuccess.src = "client/public/icons/party.png";
-  logoSuccess.className = "rounded";
-  logoSuccess.style.maxWidth = "20%";
-  divContainer.appendChild(logoSuccess);
+  const introDiv = document.createElement("div");
+  introDiv.className = "row";
+
+  const pictureDiv = document.createElement("div");
+  pictureDiv.className = "col-sm";
+
+  const headerDiv = document.createElement("div");
+  headerDiv.className = "col-md";
+
+  const animalReading = document.createElement("img");
+  animalReading.src = animalReadingReading;
+  animalReading.className = "rounded";
+  animalReading.style.maxWidth = "20%";
+  pictureDiv.appendChild(animalReading);
+
+  const header = document.createElement("h1");
+  header.textContent = "Join Readeer to find a book for your child!";
+  headerDiv.appendChild(header);
+  introDiv.appendChild(pictureDiv);
+  introDiv.appendChild(headerDiv);
+  divContainer.appendChild(introDiv);
+
+  const cardBody = document.createElement("div");
+  cardBody.className = "card-body";
 
   const form = document.createElement("form");
   form.action = "/api/register";

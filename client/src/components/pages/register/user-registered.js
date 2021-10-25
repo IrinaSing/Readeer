@@ -1,4 +1,5 @@
 import { navigateToLoginPage } from "../../../handlers/navigateToLogin.js";
+import partyIcon from "../../../../public/icons/party.png";
 
 export const userRegistered = (username) => {
   const successCard = document.createElement("div");
@@ -7,17 +8,14 @@ export const userRegistered = (username) => {
   const cardHeader = document.createElement("div");
   cardHeader.className = "card-header bg-success";
 
-  /*
   const logoSuccess = document.createElement("img");
-  // logoSuccess.src = { require( "../../../client/public/icons/party.png" ) };
-  logoSuccess.src = "https://cdn-icons-png.flaticon.com/512/3656/3656845.png";
+  logoSuccess.src = partyIcon;
   logoSuccess.className = "rounded";
   logoSuccess.style.maxWidth = "20%";
   cardHeader.appendChild(logoSuccess);
-*/
+
   const cardBody = document.createElement("div");
   cardBody.className = "card-body";
-  // cardBody.appendChild(logoSuccess);
 
   const title = document.createElement("h3");
   title.className = "card-title";
