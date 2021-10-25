@@ -3,7 +3,7 @@ import partyIcon from "../../../../public/icons/party.png";
 
 export const userRegistered = (username) => {
   const successCard = document.createElement("div");
-  successCard.classList = "card card-primary text-center w-50";
+  successCard.classList = "card card-primary text-center w-75";
 
   const cardHeader = document.createElement("div");
   cardHeader.className = "card-header bg-success";
@@ -18,7 +18,7 @@ export const userRegistered = (username) => {
   cardBody.className = "card-body";
 
   const title = document.createElement("h3");
-  title.className = "card-title";
+  title.classList = "card-title h3";
   title.textContent = `Thank you for joining us, ${username}!`;
 
   const p = document.createElement("p");

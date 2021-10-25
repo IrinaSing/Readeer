@@ -1,5 +1,5 @@
 import { registerUser } from "../../../handlers/register-user.js";
-import animalReadingReading from "../../../../public/icons/reading_pig.jpg";
+import animalReadingReading from "../../../../public/icons/lion_reading.png";
 
 /**
  * This component creates a registration form inside a div.
@@ -13,22 +13,25 @@ export const registerForm = () => {
   divContainer.id = "divContainer";
 
   const introDiv = document.createElement("div");
-  introDiv.className = "row";
+  introDiv.className = "row p-3 rounded";
+  introDiv.style.backgroundColor = "#9ed7f0";
 
   const pictureDiv = document.createElement("div");
-  pictureDiv.className = "col-sm";
+  pictureDiv.className = "col-3";
 
   const headerDiv = document.createElement("div");
-  headerDiv.className = "col-md";
+  headerDiv.className = "col-9";
 
   const animalReading = document.createElement("img");
   animalReading.src = animalReadingReading;
   animalReading.className = "rounded";
-  animalReading.style.maxWidth = "20%";
+  animalReading.style.maxWidth = "70%";
   pictureDiv.appendChild(animalReading);
 
   const header = document.createElement("h1");
   header.textContent = "Join Readeer to find a book for your child!";
+  header.className = "h1";
+  header.style.color = "white";
   headerDiv.appendChild(header);
   introDiv.appendChild(pictureDiv);
   introDiv.appendChild(headerDiv);
