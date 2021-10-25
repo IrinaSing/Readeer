@@ -12,8 +12,9 @@ export const registerForm = () => {
   divContainer.id = "divContainer";
 
   const logoSuccess = document.createElement("img");
-  logoSuccess.src = "../../client/public/icons/party.png";
-  logoSuccess.className = "img-thumbnail";
+  logoSuccess.src = "client/public/icons/party.png";
+  logoSuccess.className = "rounded";
+  logoSuccess.style.maxWidth = "20%";
   divContainer.appendChild(logoSuccess);
 
   const form = document.createElement("form");

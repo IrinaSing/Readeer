@@ -7,12 +7,17 @@ export const userRegistered = (username) => {
   const cardHeader = document.createElement("div");
   cardHeader.className = "card-header bg-success";
 
-  const logoSuccess = document.createElement("i");
-  logoSuccess.classList = "fas fa-check-square";
-
+  /*
+  const logoSuccess = document.createElement("img");
+  // logoSuccess.src = { require( "../../../client/public/icons/party.png" ) };
+  logoSuccess.src = "https://cdn-icons-png.flaticon.com/512/3656/3656845.png";
+  logoSuccess.className = "rounded";
+  logoSuccess.style.maxWidth = "20%";
+  cardHeader.appendChild(logoSuccess);
+*/
   const cardBody = document.createElement("div");
   cardBody.className = "card-body";
-  cardBody.appendChild(logoSuccess);
+  // cardBody.appendChild(logoSuccess);
 
   const title = document.createElement("h3");
   title.className = "card-title";
@@ -29,7 +34,7 @@ export const userRegistered = (username) => {
   button.addEventListener("click", navigateToLoginPage);
 
   cardBody.appendChild(title);
-  // cardBody.appendChild(p);
+  title.appendChild(p);
   cardBody.appendChild(button);
   successCard.appendChild(cardHeader);
   successCard.appendChild(cardBody);
