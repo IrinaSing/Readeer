@@ -1,7 +1,44 @@
 .goals-section {
-  text-align: center;
+  margin: 10px 10px 10px 10px;
+  justify-content: center;
+  width: 88%;
+  height: 60%;
+  position: relative;
+  box-shadow: none;
+  background: none;
+  margin-left: 6%;
 }
 
 .goals {
   text-align: center;
+  margin: 20px 20px 20px 20px;
+}
+
+.title_h1 {
+  font-family: "Greycliff CF", Helvetica, Arial, sans-serif;
+  font-size: 30px;
+}
+
+.column {
+  float: left;
+  width: 50%;
+  padding: 40px;
+  box-sizing: border-box;
+  line-height: 160%;
+  font-size: 16px;
+  font-family: "Greycliff CF", Helvetica, Arial, sans-serif;
+  height: 50%;
+}
+
+.title_h2 {
+  font-size: 20px;
+  line-height: 140%;
+  font-family: "Greycliff CF", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  color: rgb(30, 30, 31);
+}
+.p_text {
+  color: rgb(45, 48, 55);
+  float: left;
+  font-family: "Greycliff CF", Helvetica, Arial, sans-serif;
 }
