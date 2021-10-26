@@ -1,6 +1,7 @@
 import { postLogin } from "../data-access/api-calls/calls.js";
 import { errorAlert } from "../components/pages/register/error-alert.js";
 import { navigateToHomepage } from "./navigate-to-homepage.js";
+import { state } from "../data-access/state/state.js";
 
 /**
  * This function validated user input and submits the data to the database.
@@ -37,6 +38,13 @@ export const logIn = async (event) => {
   }
 
   if (response.username) {
-    navigateToHomepage(event);
+    // push data into state
+    state.token = response.token;
+    state.email = response.email;
+    state.isSignedIn = true;
+
+    if (state.isSignedIn) {
+      navigateToHomepage(event);
+    }
   }
 };

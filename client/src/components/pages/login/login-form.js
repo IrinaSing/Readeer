@@ -1,5 +1,5 @@
 import { logIn } from "../../../handlers/login.js";
-import animalReadingReading from "../../../../public/icons/lion_reading.png";
+import animalReadingReading from "../../../../public/icons/elephant_reading.png";
 
 /**
  * This component creates a registration form inside a div.
@@ -15,7 +15,7 @@ export const loginForm = () => {
 
   const introDiv = document.createElement("div");
   introDiv.className = "row p-3 rounded";
-  introDiv.style.backgroundColor = "#9ed7f0";
+  introDiv.style.backgroundColor = "#36406E";
 
   const pictureDiv = document.createElement("div");
   pictureDiv.className = "col-3";
@@ -30,12 +30,12 @@ export const loginForm = () => {
   pictureDiv.appendChild(animalReading);
 
   const header = document.createElement("h1");
-  header.textContent = "Join Readeer to find a book for your child!";
+  header.textContent = "Search for books available in your neighbourhood!";
   header.className = "h1";
   header.style.color = "white";
   headerDiv.appendChild(header);
-  introDiv.appendChild(pictureDiv);
   introDiv.appendChild(headerDiv);
+  introDiv.appendChild(pictureDiv);
   divContainer.appendChild(introDiv);
 
   // cardbody for the form
@@ -49,7 +49,6 @@ export const loginForm = () => {
   form.addEventListener("submit", logIn);
 
   const fieldsContainer = document.createElement("div");
-  // fieldsContainer.className = "w-50";
 
   // email
   const emailField = document.createElement("div");
