@@ -2,7 +2,7 @@ import { logIn } from "../../../handlers/login.js";
 import animalReadingReading from "../../../../public/icons/elephant_reading.png";
 
 /**
- * This component creates a registration form inside a div.
+ * This component creates a login form inside a div.
  *
  * @returns {object} - A div element.
  */
