@@ -1,4 +1,7 @@
-import { fetchBooks } from "../../../data-access/api-calls/calls";
+import { fetchBooks, fetchSpecificBook } from "../../../data-access/api-calls/calls";
+import { setBook } from "../../../handlers/set-book";
+import { state } from "../../../init/state";
+import { reloadPage } from "../../layout/page";
 import { bookPreview } from "../../shared/bookPreview";
 
 import classes from './index.module.css';
@@ -12,6 +15,25 @@ export const searchList = () => {
   const container = document.createElement('section');
   container.classList.add(classes.list);
 
+  if (state.currentBookId) {
+    fetchSpecificBook(state.currentBookId)
+      .then((book) => {
+        const element = bookPreview(
+          book.id,
+          book.title,
+          book.description,
+          book.isbn_10,
+          book.isbn_13,
+          (id) => {
+            // 
+          }
+        );
+
+        container.appendChild(element);
+      })
+    return container;
+  }
+
   fetchBooks()
     .then((books) => {
         const previews = books.map((book) => {
@@ -20,7 +42,11 @@ export const searchList = () => {
               book.title,
               book.description,
               book.isbn_10,
-              book.isbn_13
+              book.isbn_13,
+              (id) => {
+                setBook(id);
+                reloadPage(searchList);
+              }
             );
         });
 

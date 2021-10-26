@@ -1,4 +1,4 @@
-import { state } from "../state/state.js";
+import { state } from "../../../src/init/state";
 
 // Check if the api is not hosted on a different origin if so use that.
 const getOrigin = () => {

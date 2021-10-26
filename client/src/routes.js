@@ -69,8 +69,8 @@ const routeHandler =
     callback: routeHandler(about),
   },
   {
-    name: 'search',
-    path: `/search`,
+    name: 'books',
+    path: `/books`,
     callback: routeHandler(searchList),
   },
 ].forEach((route) => routes.push(route));

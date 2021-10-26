@@ -6,6 +6,7 @@ export const bookPreview = (
     description = '',
     isbn_10 = '',
     isbn_13 = '',
+    onClick = (id) => {}
   ) => {
     const container = document.createElement("article");
     container.classList.add(classes.preview);
@@ -26,7 +27,11 @@ export const bookPreview = (
 
     const viewListings = document.createElement('a');
     viewListings.innerText = 'View listings';
-    viewListings.href = `/books/${id}`;
+    viewListings.href = '#';
+    viewListings.addEventListener('click', (event) => {
+      event.preventDefault();
+      onClick(id);
+    });
 
     container.appendChild(image);
     container.appendChild(header);
