@@ -1,7 +1,5 @@
 import classes from './bookPreview.module.css';
 
-console.log(classes);
-
 export const bookPreview = (
     id,
     title = 'Unknown',
