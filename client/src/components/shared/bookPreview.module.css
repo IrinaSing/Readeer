@@ -1,0 +1,43 @@
+.preview {
+    width: 20em;
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    background-color: #F4E2D3;
+    margin: 1%;
+    border-radius: 1em;
+    justify-content: space-between;
+}
+
+.preview h1 {
+    font-size: 2em;
+    text-align: center;
+    margin: 0.5em;
+}
+
+.preview a {
+    padding: 1em;
+    text-align: center;
+    color: #FCFCFC;
+    background-color: #F9D63E;
+    border-radius: 1em;
+}
+
+.descriptor { 
+    text-overflow: ellipsis;
+    max-height: 4em;
+    overflow: hidden;
+    margin-bottom: 1em;
+    position: relative;
+}
+
+.descriptor:before {
+    content:'';
+    width:100%;
+    height:100%;    
+    position:absolute;
+    left:0;
+    top:0;
+    background:linear-gradient(transparent 2em, #F4E2D3);
+  }
+  

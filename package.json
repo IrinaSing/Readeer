@@ -12,7 +12,7 @@
     "lint:js": "eslint --max-warnings=0 --ext=.js --format=codeframe --fix",
     "lint": "npm run lint:js",
     "format": "prettier --write ./",
-    "dev": "vite",
+    "dev": "vite --mode development",
     "build": "vite build",
     "serve": "vite preview"
   },
