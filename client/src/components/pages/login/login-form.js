@@ -38,18 +38,22 @@ export const loginForm = () => {
   introDiv.appendChild(headerDiv);
   divContainer.appendChild(introDiv);
 
-  // body of the form
+  // cardbody for the form
   const cardBody = document.createElement("div");
-  cardBody.className = "card-body";
+  cardBody.className =
+    "card-body align-items-center d-flex justify-content-center";
 
   const form = document.createElement("form");
-  form.action = "/api/register";
+  form.action = "/api/login";
   form.method = "POST";
   form.addEventListener("submit", logIn);
 
+  const fieldsContainer = document.createElement("div");
+  // fieldsContainer.className = "w-50";
+
   // email
   const emailField = document.createElement("div");
-  emailField.classList = "form-group col-md-6";
+  emailField.classList = "form-group";
 
   const emailLabel = document.createElement("label");
   emailLabel.htmlFor = "email";
@@ -69,7 +73,7 @@ export const loginForm = () => {
 
   // Password
   const passwordField = document.createElement("div");
-  passwordField.classList = "form-group col-md-6";
+  passwordField.classList = "form-group";
   passwordField.id = "passwordField";
 
   const passwordLabel = document.createElement("label");
@@ -93,9 +97,9 @@ export const loginForm = () => {
   statusMessageDiv.id = "statusMessageDiv";
   statusMessageDiv.className = "p-3";
 
-  // button register in div
-  const formRow5 = document.createElement("div");
-  formRow5.className = "form-row";
+  // submit button div
+  const submitDiv = document.createElement("DIV");
+  submitDiv.classList = "row justify-content-center";
 
   // submit button
   const submitBtn = document.createElement("BUTTON");
@@ -105,25 +109,29 @@ export const loginForm = () => {
   submitBtn.innerHTML = "Login";
   submitBtn.id = "loginSubmitButton";
 
+  submitDiv.appendChild(submitBtn);
+
   // if you don't have an account - register
   const registerDiv = document.createElement("div");
   registerDiv.classList = "m-3";
 
-  const singInP = document.createElement("p");
+  const logInP = document.createElement("p");
 
   const registerLink = document.createElement("a");
   registerLink.href = "/register";
   registerLink.setAttribute("data-navigo", true);
   registerLink.textContent = "Don't have an account yet? Register";
 
-  singInP.appendChild(registerLink);
+  logInP.appendChild(registerLink);
   registerDiv.appendChild(registerLink);
 
-  formRow5.appendChild(submitBtn);
-  formRow5.appendChild(registerDiv);
-
-  form.appendChild(formRow5);
-  form.appendChild(statusMessageDiv);
-  divContainer.appendChild(form);
+  fieldsContainer.appendChild(emailField);
+  fieldsContainer.appendChild(passwordField);
+  fieldsContainer.appendChild(submitDiv);
+  fieldsContainer.appendChild(registerDiv);
+  form.appendChild(fieldsContainer);
+  cardBody.appendChild(form);
+  divContainer.appendChild(cardBody);
+  divContainer.appendChild(statusMessageDiv);
   return divContainer;
 };

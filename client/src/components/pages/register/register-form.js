@@ -314,6 +314,7 @@ export const registerForm = () => {
   form.appendChild(agreementDivContainer);
   form.appendChild(formRow5);
   form.appendChild(statusMessageDiv);
-  divContainer.appendChild(form);
+  cardBody.appendChild(form);
+  divContainer.appendChild(cardBody);
   return divContainer;
 };
