@@ -9,7 +9,7 @@ export const bookPreview = (
   ) => {
     const container = document.createElement("article");
     container.classList.add(classes.preview);
-  
+
     const image = document.createElement('img');
     image.alt = 'book cover';
     image.src = "https://via.placeholder.com/150x200";
@@ -19,7 +19,7 @@ export const bookPreview = (
 
     const isbn = document.createElement('p');
     isbn.innerText = `${isbn_10} - ${isbn_13}`;
-    
+
     const descriptor = document.createElement('p');
     descriptor.innerText = description;
     descriptor.classList.add(classes.descriptor);
@@ -35,5 +35,4 @@ export const bookPreview = (
     container.appendChild(viewListings);
 
     return container;
-  };
-  
+};
