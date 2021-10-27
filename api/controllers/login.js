@@ -7,7 +7,7 @@ const loginController = {
       const result = await loginManager.checkPassword(email, password);
       res.status(200).json(result);
     } catch (error) {
-      if (error.message === "Invalid username or password!") {
+      if (error.message === "Invalid email or password!") {
         res.json({ error: error.message });
       } else {
         res.status(500).json({ error: error.message });

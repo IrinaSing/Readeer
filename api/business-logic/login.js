@@ -24,7 +24,7 @@ const loginManager = {
     );
 
     if (!existingUser) {
-      throw new Error("Invalid username or password!");
+      throw new Error("Invalid email or password!");
     }
 
     const token = createToken(existingUser);
