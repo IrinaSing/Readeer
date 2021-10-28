@@ -7,6 +7,7 @@ import { setBook } from "../../../handlers/set-book.js";
 import { state } from "../../../init/state.js";
 import { reloadPage } from "../../layout/page.js";
 import { bookPreview } from "../../shared/bookPreview.js";
+import { bookDetail } from './book';
 
 /**
  * The login page.
