@@ -61,8 +61,16 @@ export const postLogin = async (email, password) => {
 };
 
 // register the app
-export const postRegister = async (email, username, password, firstName, lastName, birthday, city) => {
-  return await postRegister("register", {
+export const postRegister = async (
+  email,
+  username,
+  password,
+  firstName,
+  lastName,
+  birthday,
+  city
+) => {
+  return await performPost("/register", {
     email,
     username,
     password,

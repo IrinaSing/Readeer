@@ -1,21 +1,17 @@
-const loginManager = require('../business-logic/login');
+const loginManager = require("../business-logic/login");
 
 const loginController = {
   post: async (req, res) => {
     try {
       const { email: email, password } = req.body;
-
       const result = await loginManager.checkPassword(email, password);
-
-      if (result) {
-        res.status(200).json(result);
-      } else {
-        res.status(401).json({
-          message: 'Invalid username or password',
-        });
-      }
+      res.status(200).json(result);
     } catch (error) {
-      res.status(500).json({ error: error.message });
+      if (error.message === "Invalid email or password!") {
+        res.json({ error: error.message });
+      } else {
+        res.status(500).json({ error: error.message });
+      }
     }
   },
 };

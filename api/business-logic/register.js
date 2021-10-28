@@ -1,8 +1,8 @@
-const dataAccess = require('../data-access/mongodbAccess');
+const dataAccess = require("../data-access/mongodbAccess");
 
-const usersStore = dataAccess('Users');
+const usersStore = dataAccess("Users");
 
-const hashPassword = require('../utils/hashPassword');
+const hashPassword = require("../utils/hashPassword");
 
 const registerManager = {
   register: async function (
@@ -38,13 +38,13 @@ const registerManager = {
     );
 
     if (existingUser) {
-      throw new Error('User already exists');
+      throw new Error("User already exists");
     }
 
     const response = await usersStore.insert(user);
 
     if (response.insertedCount === 0) {
-      throw new Error('User could not be created');
+      throw new Error("User could not be created");
     }
 
     return { username, email };

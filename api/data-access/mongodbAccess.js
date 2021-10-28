@@ -1,14 +1,14 @@
-const { MongoClient } = require('mongodb');
-const ObjectId = require('mongodb').ObjectID;
+const { MongoClient } = require("mongodb");
+const ObjectId = require("mongodb").ObjectID;
 
 const persistentDataAccess = (collectionName) => {
   const uri =
-    'mongodb+srv://HYF-FP-G1:K9i8lCCRD1LqYY2u@hfycluster.n96tz.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+    "mongodb+srv://HYF-FP-G1:K9i8lCCRD1LqYY2u@hfycluster.n96tz.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
   // const uri = process.env.MONGODB_URI;
   const client = new MongoClient(uri);
 
-  const dbName = 'HYF_FP_DB';
+  const dbName = "HYF_FP_DB";
   const db = client.db(dbName);
   const collection = db.collection(collectionName);
 

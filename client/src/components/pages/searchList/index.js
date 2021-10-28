@@ -1,11 +1,12 @@
-import { fetchBooks, fetchSpecificBook } from "../../../data-access/api-calls/calls";
-import { setBook } from "../../../handlers/set-book";
-import { state } from "../../../init/state";
-import { reloadPage } from "../../layout/page";
-import { bookPreview } from "../../shared/bookPreview";
-import { bookDetail } from "./book";
-
 import classes from './index.module.css';
+import {
+  fetchBooks,
+  fetchSpecificBook,
+} from "../../../data-access/api-calls/calls.js";
+import { setBook } from "../../../handlers/set-book.js";
+import { state } from "../../../init/state.js";
+import { reloadPage } from "../../layout/page.js";
+import { bookPreview } from "../../shared/bookPreview.js";
 
 /**
  * The login page.
