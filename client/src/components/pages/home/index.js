@@ -1,4 +1,5 @@
 import { search } from './searchbar';
+import { showcase } from "./showcase";
 
 /**
  * The home page.
@@ -14,6 +15,7 @@ export const home = () => {
   container.appendChild(document.createElement('br'));
 
   container.appendChild(search());
+  container.appendChild(showcase());
 
   return container;
 };
