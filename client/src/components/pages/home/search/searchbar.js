@@ -7,20 +7,21 @@ export const search = () => {
 
   const searchBoxContainer = document.createElement("div");
   searchBoxContainer.id = "search-box-container";
-  searchBoxContainer.className = "form";
+  searchBoxContainer.className = "d-flex form";
   wrapper.appendChild(searchBoxContainer);
 
   const inputElement = document.createElement("input");
   inputElement.name = "search-box";
   inputElement.type = "text";
   inputElement.id = "search";
-  inputElement.className = "form-control";
+  inputElement.className = "form-control me-5";
   inputElement.placeholder = "Search for books here...";
   searchBoxContainer.appendChild(inputElement);
 
   const buttonElement = document.createElement("button");
   buttonElement.id = "button";
-  buttonElement.className = "btn";
+  buttonElement.className = "btn btn-outline-success";
+  buttonElement.type = "submit";
   buttonElement.innerText = "Search";
   searchBoxContainer.appendChild(buttonElement);
 
