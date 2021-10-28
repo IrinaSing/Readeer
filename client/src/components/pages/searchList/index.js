@@ -3,6 +3,7 @@ import { setBook } from "../../../handlers/set-book";
 import { state } from "../../../init/state";
 import { reloadPage } from "../../layout/page";
 import { bookPreview } from "../../shared/bookPreview";
+import { bookDetail } from "./book";
 
 import classes from './index.module.css';
 
@@ -18,15 +19,12 @@ export const searchList = () => {
   if (state.currentBookId) {
     fetchSpecificBook(state.currentBookId)
       .then((book) => {
-        const element = bookPreview(
+        const element = bookDetail(
           book.id,
           book.title,
           book.description,
           book.isbn_10,
-          book.isbn_13,
-          (id) => {
-            // 
-          }
+          book.isbn_13
         );
 
         container.appendChild(element);
