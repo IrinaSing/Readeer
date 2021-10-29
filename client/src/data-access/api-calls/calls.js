@@ -2,7 +2,7 @@ import { state } from "../../../src/init/state";
 
 // Check if the api is not hosted on a different origin if so use that.
 const getOrigin = () => {
-  if (import.meta && import.meta.env) {
+  if (import.meta && import.meta.env && import.meta.env.VITE_API_ORIGIN) {
     return import.meta.env.VITE_API_ORIGIN;
   }
 
