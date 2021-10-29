@@ -13,6 +13,30 @@
 - **building documentation**
   - `npm run document`
 
+## Deployment
+
+### Local Development Deployment
+
+- **building the frontend**
+
+  - `npm run build` - uses `vite` to build an optimized frontend bundle
+
+- **running the app**
+
+  - `nodemon index.js` or `npm run dev:api` - uses `nodemon` to restart the server each time you save a change.
+
+### How to Deploy the Application to the Production Environment
+
+This part is needs to be done only once for the project. Once you have completed the above steps, you can deploy the application to the production environment directly.
+
+- **Heroku**
+  - From https://dashboard.heroku.com/apps create a new application.
+  - After the application is created, click "Deploy" tab.
+  - Choose "GitHub" as "Deployment method".
+  - Select the repository you want to deploy.
+  - Enable automatic deployment.
+  - From "Settings" tab, you can add the config variables you need.
+
 ## Using The App
 
 - **from postman**
