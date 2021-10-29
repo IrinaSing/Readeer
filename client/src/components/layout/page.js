@@ -12,15 +12,31 @@ import { footer } from "./footer.js";
 export const page = (bodyComponent, routes) => {
   const container = document.createElement("div");
 
+  const page = document.createElement("div");
+  page.id = "page";
+
   container.appendChild(navbar(routes));
-  if (typeof bodyComponent === "function") {
-    container.appendChild(bodyComponent());
-  } else if (bodyComponent instanceof Element) {
-    container.appendChild(bodyComponent);
-  } else {
-    throw new TypeError("body is not a function or a DOM element");
-  }
+  page.appendChild(createBody(bodyComponent));
+  container.appendChild(page);
+  container.appendChild(page);
   container.appendChild(footer());
 
   return container;
 };
+
+const createBody = (bodyComponent) => {
+  if (typeof bodyComponent === "function") {
+    return bodyComponent();
+  } else if (bodyComponent instanceof Element) {
+    return bodyComponent;
+  } else {
+    throw new TypeError("body is not a function or a DOM element");
+  }
+};
+
+export const reloadPage = (bodyComponent) => {
+  const element = document.getElementById('page');
+  element.innerHTML = '';
+  element.appendChild(createBody(bodyComponent));
+}
+
