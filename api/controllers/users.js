@@ -42,11 +42,14 @@ const usersController = {
   },
   searchBooks: async (req, res) => {
     try {
-      const userId = req.params.userId;
+      const body = req.body;
 
-      const result = await usersManager.searchBooks(userId);
-
-      res.status(200).send(JSON.stringify(result));
+      if (body.filter) {
+        const books = await usersManager.searchBooks(body.filter);
+        res.status(200).send(JSON.stringify(books));
+      } else {
+        res.status(400).send('Bad request');
+      }
     } catch (error) {
       res.status(500).send(error.message);
     }

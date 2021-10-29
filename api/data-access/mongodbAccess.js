@@ -49,6 +49,13 @@ const persistentDataAccess = (collectionName) => {
       let result;
       try {
         await client.connect();
+
+        if (collectionName === 'Books') {
+          collection.aggregate(agg, (cmdErr, result) => {
+            assert.equal(null, cmdErr);
+          });
+        }
+
         result = await collection
           .find({ $text: { $search: textToSearch } })
           .limit(30)
