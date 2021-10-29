@@ -1,6 +1,7 @@
 const dataAccess = require('../data-access/mongodbAccess');
 
 const usersStore = dataAccess('Users');
+const booksStore = dataAccess('Books');
 
 const usersManager = {
   get: async (userId) => {
@@ -25,6 +26,11 @@ const usersManager = {
     } else {
       throw new Error('User not updated');
     }
+  },
+  searchBooks: async (userId) => {
+    // TODO Think twice
+    const user = await booksStore.getById(userId);
+    return user.books;
   },
 };
 
