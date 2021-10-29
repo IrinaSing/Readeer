@@ -27,10 +27,36 @@ const usersManager = {
       throw new Error('User not updated');
     }
   },
-  searchBooks: async (userId) => {
+  searchBooks: async (searchFilter) => {
     // TODO Think twice
-    const user = await booksStore.getById(userId);
-    return user.books;
+    let books = [];
+
+    //check if the filter for fuzzy search
+    if (searchFilter.text) {
+      books = await booksStore.textSearch(searchFilter.text);
+    } else {
+      books = await booksStore.getAll(searchFilter);
+    }
+
+    const searchedBooks = [];
+
+    books.forEach((book) => {
+      const bookWithLimitedAccess = {
+        id: book._id.toString(),
+        title: book.title,
+        author: book.author,
+        isbn_10: book.isbn_10,
+        isbn_13: book.isbn_13,
+        description: book.book_description,
+        rating: book.rating,
+        pageCount: book.pageCount,
+        book_language: book.book_language,
+      };
+
+      searchedBooks.push(bookWithLimitedAccess);
+    });
+
+    return searchedBooks;
   },
 };
 

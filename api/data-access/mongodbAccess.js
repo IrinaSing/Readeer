@@ -1,5 +1,6 @@
 const { MongoClient } = require('mongodb');
 const ObjectId = require('mongodb').ObjectID;
+const assert = require('assert');
 
 const persistentDataAccess = (collectionName) => {
   const uri =
@@ -12,11 +13,29 @@ const persistentDataAccess = (collectionName) => {
   const db = client.db(dbName);
   const collection = db.collection(collectionName);
 
+  const agg = [
+    {
+      $lookup: {
+        from: 'Users',
+        localField: 'userId',
+        foreignField: '_id',
+        as: 'user',
+      },
+    },
+  ];
+
   return {
     getAll: async (filter = {}) => {
       let result;
       try {
         await client.connect();
+
+        if (collectionName === 'Books') {
+          collection.aggregate(agg, (cmdErr, result) => {
+            assert.equal(null, cmdErr);
+          });
+        }
+
         result = await collection.find(filter).limit(30).toArray();
       } catch (err) {
         return err;
