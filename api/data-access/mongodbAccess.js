@@ -104,10 +104,16 @@ const persistentDataAccess = (collectionName) => {
       let result;
       try {
         await client.connect();
+        // let existingData = await collection.findOne({ _id: new ObjectId(id) });
+
+        // updateData = { ...existingData, ...data };
+
+        // console.log('mongo', updateData);
 
         result = await collection.updateOne(
           { _id: new ObjectId(id) },
           { $set: data }
+          // { $set: updateData }
         );
       } catch (err) {
         // console.error(err);

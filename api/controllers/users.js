@@ -84,6 +84,40 @@ const usersController = {
       res.status(500).send(error.message);
     }
   },
+  updateUserBook: async (req, res) => {
+    try {
+      const userId = req.params.userId;
+      const bookId = req.params.bookId;
+
+      const body = req.body;
+
+      if (bookId !== body.id || body.userId !== userId) {
+        throw Error('Cannot change user ID after creation!');
+      }
+
+      const book = {};
+
+      const keys = Object.keys(body);
+
+      for (let index = 0; index < keys.length; index++) {
+        const key = keys[index];
+        if (
+          key !== undefined &&
+          key !== 'id' &&
+          key !== 'userId' &&
+          key !== 'createdAt'
+        ) {
+          book[key] = body[key];
+        }
+      }
+
+      const result = await usersManager.updateUserBook(bookId, book);
+
+      res.status(200).send(JSON.stringify(result));
+    } catch (error) {
+      res.status(500).send(error.message);
+    }
+  },
 };
 
 module.exports = usersController;

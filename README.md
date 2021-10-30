@@ -696,7 +696,7 @@ This route allows user to add a new book to system. It requires the userId in th
 
   ### Changing Details of a Book
 
-This route allows user to change the details of a book which is owned by the specified user.
+This route allows user to change the details of a book which is owned by the specified user. This route is not allowed to change 'id', 'userId' and 'createdAt' fields of the book.
 
 - **URL**
 
@@ -726,7 +726,16 @@ This route allows user to change the details of a book which is owned by the spe
 
   ```
   {
-
+    "id":"617da5ec57ae8f4ce3620e91",
+    "title":"Goodnight Moon",
+    "authors":["Margaret Wise Brown"],
+    "isbn_10":"9780553565904",
+    "isbn_13":"9785535659831",
+    "book_description":"In this classic of children's ...",
+    "rating":4.3,
+    "userId": "61686cf01abb24ff1700d2d1",
+    "pageCount":30,
+    "condition": "Good"
   }
   ```
 
@@ -734,7 +743,7 @@ This route allows user to change the details of a book which is owned by the spe
 
   ```
   {
-
+    "message":"Book updated"
   }
   ```
 

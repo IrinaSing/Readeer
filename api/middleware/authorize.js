@@ -6,7 +6,7 @@ const authorizeTheUser = async (req, res, next) => {
 
   const book = await booksManager.getBookByIdWithOutLimit(bookId);
 
-  if (book.userId === userId) {
+  if (book.userId.toString() === userId) {
     next();
   } else {
     res.status(401).send(' Unauthorized client request');

@@ -1,5 +1,6 @@
 const dataAccess = require('../data-access/mongodbAccess');
 const googleManager = require('./googleBooksAPI');
+const ObjectID = require('mongodb').ObjectID;
 
 const usersStore = dataAccess('Users');
 const booksStore = dataAccess('Books');
@@ -137,13 +138,25 @@ const usersManager = {
     return bookWithFullAccess;
   },
   addUserBook: async (bookDetails) => {
-    bookDetails.userId = { $oid: `${bookDetails.userId}` };
+    bookDetails.userId = new ObjectID(bookDetails.userId);
+
+    // bookDetails.userId = { $oid: `${bookDetails.userId}` };
     console.log('object');
     const response = await booksStore.insert(bookDetails);
 
     console.log(response);
     if (response.acknowledged) {
       return { message: 'Book added' };
+    }
+  },
+
+  updateUserBook: async (bookId, updateDetails) => {
+    const response = await booksStore.update(bookId, updateDetails);
+
+    if (response.acknowledged) {
+      return { message: 'Book updated' };
+    } else {
+      throw new Error('Book not updated');
     }
   },
 };
