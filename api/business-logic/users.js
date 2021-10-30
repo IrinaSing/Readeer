@@ -159,6 +159,17 @@ const usersManager = {
       throw new Error('Book not updated');
     }
   },
+  deleteUserBook: async (bookId) => {
+    const response = await booksStore.delete(bookId);
+
+    console.log(response);
+
+    if (response.acknowledged) {
+      return { message: 'Book is deleted' };
+    } else {
+      throw new Error('Book is not deleted');
+    }
+  },
 };
 
 module.exports = usersManager;

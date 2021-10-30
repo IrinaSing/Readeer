@@ -777,17 +777,11 @@ This deletes the specified book if it is owned by the specified owner.
 
 - **Body**
 
-  ```
-  {
-
-  }
-  ```
-
 - **Result:**
 
   ```
   {
-
+    "message":"Book is deleted"
   }
   ```
 

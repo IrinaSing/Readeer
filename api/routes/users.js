@@ -20,7 +20,7 @@ userRoutes.post('/:userId/books/add', usersController.addUserBook); // add a new
 userRoutes.use('/:userId/books/:bookId', authorizeTheUser);
 
 userRoutes.put('/:userId/books/:bookId', usersController.updateUserBook); // change details of an owned book
-// userRoutes.delete('/:userId/books/:bookId', usersController.userBooks); // delete an owned book
+userRoutes.delete('/:userId/books/:bookId', usersController.deleteUserBook); // delete an owned book
 
 // userRoutes.post('/:userId/request', usersController.userBooks); // request a book
 

@@ -118,6 +118,18 @@ const usersController = {
       res.status(500).send(error.message);
     }
   },
+  deleteUserBook: async (req, res) => {
+    try {
+      const userId = req.params.userId;
+      const bookId = req.params.bookId;
+
+      const result = await usersManager.deleteUserBook(bookId);
+
+      res.status(200).send(JSON.stringify(result));
+    } catch (error) {
+      res.status(500).send(error.message);
+    }
+  },
 };
 
 module.exports = usersController;
