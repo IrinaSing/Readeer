@@ -32,7 +32,7 @@ const booksManager = {
         description: book.book_description,
         // rating: book.rating,
         // pageCount: book.pageCount,
-        // book_language: book.language,
+        book_language: book.book_language,
         thumbnail: googleThumbnail,
       };
 
@@ -67,7 +67,7 @@ const booksManager = {
       description: book.book_description,
       rating: book.rating,
       pageCount: book.pageCount,
-      book_language: book.language,
+      book_language: book.book_language,
       thumbnail: googleThumbnail,
     };
 

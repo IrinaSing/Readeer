@@ -110,7 +110,8 @@ logins an existing user to the system
   "token": <token>,
   "email": <email>,
   "username": <username>,
-  mes"sage: "Session created for user <username>",
+  "message": "Session created for user <username>",
+  "userId": <userId>
 }
 ```
 
@@ -140,7 +141,8 @@ searches the books without login. This search returns basic and limited informat
     "isbn_10":"0399226907",
     "isbn_13":"978-0399226908",
     "description":"some useful string",
-    "book_language":"en"
+    "book_language":"en",
+    "thumbnail":"http://books.google.com/books/content?id=oiMwvgAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
   },
   {
     "id":"6166dbe484c8cbd1a3169c4a",
@@ -148,15 +150,17 @@ searches the books without login. This search returns basic and limited informat
     "isbn_10":"1951949196",
     "isbn_13":"978-1951949198",
     "description":"Do you know what the hardest thing for a Dutch learner is? Finding PROPER reading material that they can handle...which is precisely the reason we've written this book!",
-    "book_language":"en"
+    "book_language":"en",
+    "thumbnail":"http://books.google.com/books/content?id=NmuhzQEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
   },
   {
     "id":"6166dc8b84c8cbd1a3169c4b",
     "title":"Zauberhafter Malblock: Mit Stickern",
     "isbn_10":"3649634171",
     "isbn_13":"978-3649634171",
-    "description":"In diesem Malblock finden Einhorn-Fans 24 hübsche Ausmalmotive und eine Seite mit zauberhaften Stickern."
-    "book_language":"de"
+    "description":"In diesem Malblock finden Einhorn-Fans 24 hübsche Ausmalmotive und eine Seite mit zauberhaften Stickern.",
+    "book_language":"de",
+    "thumbnail":"https://via.placeholder.com/200x200"
   }
 ]
 ```
