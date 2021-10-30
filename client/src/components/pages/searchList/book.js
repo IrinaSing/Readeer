@@ -35,7 +35,6 @@ export const bookDetail = (
 
   const writerElement = document.createElement('p');
   writerElement.innerText = authors.join(', ');
-  // writerElement.innerText = writer;
 
   const isbn = document.createElement('p');
   isbn.innerText = `ISBN: ${isbn_10} - ${isbn_13}`;

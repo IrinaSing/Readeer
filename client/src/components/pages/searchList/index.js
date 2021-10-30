@@ -10,9 +10,9 @@ import { bookPreview } from '../../shared/bookPreview.js';
 import { bookDetail } from './book';
 
 /**
- * The login page.
+ * The Books search result page.
  *
- * @returns {HTMLDivElement} A rendered login page.
+ * @returns {HTMLDivElement} A rendered search result page.
  */
 export const searchList = () => {
   const container = document.createElement('section');
