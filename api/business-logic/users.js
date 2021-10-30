@@ -57,11 +57,13 @@ const usersManager = {
       searchedBooks.push(bookWithLimitedAccess);
     });
 
+    // console.log(searchedBooks);
+
     for (let index = 0; index < searchedBooks.length; index++) {
       const book = searchedBooks[index];
       let user = '';
 
-      console.log(book.book_userId);
+      // console.log(book.book_userId);
 
       // add city
       try {
@@ -72,13 +74,16 @@ const usersManager = {
         console.log('cannot get city for book ' + book.title, error);
       }
 
-      // TODO add picture url
+      // add picture url
 
       try {
-        // console.log(book.isbn_10);
+        /* TODO to improve performance frontend should not make a call to google
+         * while loading books first it should load from our api and show the book data
+         * then make a call to google to get the picture url and then rerender all
+         */
         const thumbnail = await googleManager.getPictureURL(book.isbn_10);
         book.thumbnail = thumbnail;
-        console.log(thumbnail);
+        console.log('manager', thumbnail);
       } catch (error) {
         console.log('cannot get thumbnail for book ' + book.title, error);
       }
@@ -86,6 +91,7 @@ const usersManager = {
 
     // TODO complete to 30 from google api
 
+    console.log(searchedBooks);
     return searchedBooks;
   },
 };
