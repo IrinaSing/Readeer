@@ -638,6 +638,62 @@ This search returns all details about the book.
   }
   ```
 
+### Adding a New Book
+
+This route allows user to add a new book to system. It requires the userId in the route and the userId in the body to be the same
+
+- **URL**
+
+  /api/users/:userId/books/add
+
+- **Method:**
+
+  `POST`
+
+- **URL Params**
+
+  **Required:**
+
+  `userId=[integer]`
+
+  `bookId=[integer]`
+
+- **Header**
+
+```
+{
+  "Authorization": "Bearer [token]"
+}
+```
+
+- **Body**
+
+  ```
+  {
+    "title":"Goodnight Moon",
+    "authors":["Margaret Wise Brown"],
+    "isbn_10":"9780553565983",
+    "isbn_13":"9785535659831",
+    "book_description":"In this classic of children's literature, beloved by generations of readers and listeners, the quiet poetry of the words and the gentle, lulling illustrations combine to make a perfect book for the end of the day. In a great green room, tucked away in bed, is a little bunny. 'Goodnight room, goodnight moon.' And to all the familiar things in the softly lit room—to the picture of the three little bears sitting on chairs, to the clocks and his socks, to the mittens and the kittens, to everything one by one—the little bunny says goodnight. One of the most beloved books of all time, Goodnight Moon is a must for every bookshelf. This board book edition is the right size for little hands and is the perfect gift for baby showers, toddler birthday parties, and holidays.",
+    "rating":-1,
+    "userId": "61686cf01abb24ff1700d2d1",
+    "pageCount":30,
+    "condition": "Like New",
+    "status": "Available",
+    "availableAt": "Wed Oct 13 2021 15:10:13 GMT+0200 (Central European Summer Time)",
+    "createdAt": "Wed Oct 13 2021 15:10:13 GMT+0200 (Central European Summer Time)",
+    "book_language": "en"
+  }
+  ```
+
+- **Result:**
+
+  ```
+  {
+    "message":"Book added"
+  }
+  ```
+
   ### Changing Details of a Book
 
 This route allows user to change the details of a book which is owned by the specified user.

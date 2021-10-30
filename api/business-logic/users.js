@@ -136,6 +136,16 @@ const usersManager = {
 
     return bookWithFullAccess;
   },
+  addUserBook: async (bookDetails) => {
+    bookDetails.userId = { $oid: `${bookDetails.userId}` };
+    console.log('object');
+    const response = await booksStore.insert(bookDetails);
+
+    console.log(response);
+    if (response.acknowledged) {
+      return { message: 'Book added' };
+    }
+  },
 };
 
 module.exports = usersManager;

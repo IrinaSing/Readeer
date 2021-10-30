@@ -66,6 +66,24 @@ const usersController = {
       res.status(500).send(error.message);
     }
   },
+  addUserBook: async (req, res) => {
+    try {
+      const userId = req.params.userId;
+      const bookId = req.params.bookId;
+
+      const body = req.body;
+
+      if (userId !== body.userId) {
+        throw Error('Unauthorized request: User ID does not match!');
+      }
+
+      const result = await usersManager.addUserBook(body);
+
+      res.status(200).send(JSON.stringify(result));
+    } catch (error) {
+      res.status(500).send(error.message);
+    }
+  },
 };
 
 module.exports = usersController;
