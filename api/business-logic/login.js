@@ -1,14 +1,14 @@
-const dataAccess = require("../data-access/mongodbAccess");
+const dataAccess = require('../data-access/mongodbAccess');
 
-const usersStore = dataAccess("Users");
+const usersStore = dataAccess('Users');
 
-const createToken = require("../utils/createToken");
-const hashPassword = require("../utils/hashPassword");
+const createToken = require('../utils/createToken');
+const hashPassword = require('../utils/hashPassword');
 
 const loginManager = {
   checkPassword: async function (email, password) {
     if (!email || !password) {
-      res.status(400).send("Missing email or password");
+      res.status(400).send('Missing email or password');
       return;
     }
     const hashedPassword = hashPassword(`${email}.${password}`);
@@ -24,7 +24,7 @@ const loginManager = {
     );
 
     if (!existingUser) {
-      throw new Error("Invalid email or password!");
+      throw new Error('Invalid email or password!');
     }
 
     const token = createToken(existingUser);
@@ -34,6 +34,7 @@ const loginManager = {
       email: email,
       username: existingUser.username,
       message: `Session created for user ${existingUser.username}`,
+      userId: existingUser._id,
     };
   },
 };

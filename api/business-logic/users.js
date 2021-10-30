@@ -28,7 +28,6 @@ const usersManager = {
     }
   },
   searchBooks: async (searchFilter) => {
-    // TODO Think twice
     let books = [];
 
     //check if the filter for fuzzy search
@@ -51,10 +50,27 @@ const usersManager = {
         rating: book.rating,
         pageCount: book.pageCount,
         book_language: book.book_language,
+        book_userId: book.userId,
       };
 
       searchedBooks.push(bookWithLimitedAccess);
     });
+
+    // TODO add city
+    searchedBooks.forEach(async (book) => {
+      let city = '';
+
+      try {
+        city = await usersStore.getSpecificFieldsById(book.userId, 'city');
+        book.city = city;
+      } catch (error) {
+        console.log('cannot get city for book ' + book.title, error);
+      }
+    });
+
+    // TODO add picture url
+
+    // TODO complete to 30 from google api
 
     return searchedBooks;
   },
