@@ -138,6 +138,7 @@ searches the books without login. This search returns basic and limited informat
   {
     "id":"6166dbab84c8cbd1a3169c49",
     "title":"The Very Hungry Caterpillar",
+    "authors":["Eric Carle"],
     "isbn_10":"0399226907",
     "isbn_13":"978-0399226908",
     "description":"some useful string",
@@ -147,6 +148,7 @@ searches the books without login. This search returns basic and limited informat
   {
     "id":"6166dbe484c8cbd1a3169c4a",
     "title":"Dutch Short Stories for Beginners",
+    "authors":[""],
     "isbn_10":"1951949196",
     "isbn_13":"978-1951949198",
     "description":"Do you know what the hardest thing for a Dutch learner is? Finding PROPER reading material that they can handle...which is precisely the reason we've written this book!",
@@ -156,6 +158,7 @@ searches the books without login. This search returns basic and limited informat
   {
     "id":"6166dc8b84c8cbd1a3169c4b",
     "title":"Zauberhafter Malblock: Mit Stickern",
+    "authors":["Monika Finsterbusch","Julia Gerigk"],
     "isbn_10":"3649634171",
     "isbn_13":"978-3649634171",
     "description":"In diesem Malblock finden Einhorn-Fans 24 hübsche Ausmalmotive und eine Seite mit zauberhaften Stickern.",
@@ -239,6 +242,7 @@ Fuzzy search only returns limited information about the book. This method limits
     {
       "id":"6166dbe484c8cbd1a3169c4a",
       "title":"Dutch Short Stories for Beginners",
+      "authors":[""],
       "isbn_10":"1951949196",
       "isbn_13":"978-1951949198",
       "description":"Do you know what the hardest thing for a Dutch learner is? Finding PROPER reading material that they can handle...which is precisely the reason we've written this book!",
@@ -248,6 +252,7 @@ Fuzzy search only returns limited information about the book. This method limits
     {
       "id":"6166dc8b84c8cbd1a3169c4b",
       "title":"Zauberhafter Malblock: Mit Stickern",
+      "authors":["Monika Finsterbusch","Julia Gerigk"],
       "isbn_10":"3649634171",
       "isbn_13":"978-3649634171",
       "description":"In diesem Malblock finden Einhorn-Fans 24 hübsche Ausmalmotive und eine Seite mit zauberhaften Stickern.",
@@ -275,6 +280,7 @@ Fuzzy search only returns limited information about the book. This method limits
     {
       "id":"6166dc8b84c8cbd1a3169c4b",
       "title":"Zauberhafter Malblock: Mit Stickern",
+      "authors":["Monika Finsterbusch","Julia Gerigk"],
       "isbn_10":"3649634171",
       "isbn_13":"978-3649634171",
       "description":"In diesem Malblock finden Einhorn-Fans 24 hübsche Ausmalmotive und eine Seite mit zauberhaften Stickern.",
@@ -303,6 +309,7 @@ Fuzzy search only returns limited information about the book. This method limits
     {
       "id":"616cd621eaa3d564382b2057",
       "title":"Rose and Daisy",
+      "authors":["Rosita Steenbeek"],
       "isbn_10":"9026328613",
       "isbn_13":"9789026328619",
       "description":"In haar nieuwe boek ‘Rose’ vertelt Rosita...",
@@ -312,6 +319,7 @@ Fuzzy search only returns limited information about the book. This method limits
     {
       "id":"616cd09d6d4f3fa527efbf5e",
       "title":"Garden Alchemy",
+      "authors":["Stephanie Rose","Julia Gerigk"],
       "isbn_10":"0760367094",
       "isbn_13":"9780760367094",
       "description":"Garden Alchemy is a hands-on guide for     do-it-yourself gardeners who want to turn their garden into gold using natural recipes and herbal concoctions ... ",
@@ -321,6 +329,7 @@ Fuzzy search only returns limited information about the book. This method limits
     {
       "id":"616c321e79212d858e0e56e8",
       "title":"The Doctor",
+      "authors":["Phd Gary a Ritchie","Julia Gerigk"],
       "isbn_10":"1796853631",
       "isbn_13":"9781796853636",
       "description":"If you grow roses you have no doubt encountered
@@ -474,6 +483,7 @@ Fuzzy search only returns limited information about the book. This method limits
     {
       "id":"6166dbe484c8cbd1a3169c4a",
       "title":"Dutch Short Stories for Beginners",
+      "authors":[""],
       "isbn_10":"1951949196",
       "isbn_13":"978-1951949198",
       "description":"Do you know what the hardest thing for a ...",
@@ -487,7 +497,9 @@ Fuzzy search only returns limited information about the book. This method limits
     },
     {
       "id":"6166dc8b84c8cbd1a3169c4b",
-      "title":"Zauberhafter Malblock: Mit Stickern","isbn_10":"3649634171",
+      "title":"Zauberhafter Malblock: Mit Stickern",
+      "authors":["Monika Finsterbusch","Julia Gerigk"],
+      "isbn_10":"3649634171",
       "isbn_13":"978-3649634171",
       "description":"In diesem Malblock finden...",
       "rating":5,
@@ -501,6 +513,7 @@ Fuzzy search only returns limited information about the book. This method limits
     {
       "id":"616c321e79212d858e0e56e8",
       "title":"The Doctor",
+      "authors":["Phd Gary a Ritchie","Julia Gerigk"],
       "isbn_10":"1796853631",
       "isbn_13":"9781796853636",
       "description":"If you grow roses you have no doubt encountered...","rating":5,
@@ -532,6 +545,7 @@ Fuzzy search only returns limited information about the book. This method limits
     {
       "id":"616cd621eaa3d564382b2057",
       "title":"Rose and Daisy",
+      "authors":["Rosita Steenbeek"],
       "isbn_10":"9026328613",
       "isbn_13":"9789026328619",
       "description":"In haar nieuwe boek ‘Rose’ vertelt Rosita...",
@@ -546,6 +560,7 @@ Fuzzy search only returns limited information about the book. This method limits
     {
       "id":"616cd09d6d4f3fa527efbf5e",
       "title":"Garden Alchemy",
+      "authors":["Stephanie Rose","Julia Gerigk"],
       "isbn_10":"0760367094",
       "isbn_13":"9780760367094",
       "description":"Garden Alchemy is a hands-on guide for ...",      "rating":4.6,
@@ -559,6 +574,7 @@ Fuzzy search only returns limited information about the book. This method limits
     {
       "id":"616c321e79212d858e0e56e8",
       "title":"The Doctor",
+      "authors":["Phd Gary a Ritchie","Julia Gerigk"],
       "isbn_10":"1796853631",
       "isbn_13":"9781796853636",
       "description":"If you grow roses you have no doubt ...",
