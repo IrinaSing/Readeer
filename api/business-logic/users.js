@@ -41,7 +41,7 @@ const usersManager = {
     const searchedBooks = [];
 
     books.forEach((book) => {
-      const bookWithLimitedAccess = {
+      const bookWithFullAccess = {
         id: book._id.toString(),
         title: book.title,
         author: book.author,
@@ -54,7 +54,7 @@ const usersManager = {
         book_userId: book.userId.toString(),
       };
 
-      searchedBooks.push(bookWithLimitedAccess);
+      searchedBooks.push(bookWithFullAccess);
     });
 
     // console.log(searchedBooks);
@@ -93,6 +93,47 @@ const usersManager = {
 
     console.log(searchedBooks);
     return searchedBooks;
+  },
+  searchBookById: async (bookId) => {
+    const book = await booksStore.getById(bookId);
+
+    const bookWithFullAccess = {
+      id: book._id.toString(),
+      title: book.title,
+      author: book.author,
+      isbn_10: book.isbn_10,
+      isbn_13: book.isbn_13,
+      description: book.book_description,
+      rating: book.rating,
+      pageCount: book.pageCount,
+      book_language: book.book_language,
+      book_userId: book.userId.toString(),
+    };
+
+    // add city
+    try {
+      // TODO improve to only return city field
+      const user = await usersStore.getById(book.userId);
+
+      bookWithFullAccess.city = user.city;
+    } catch (error) {
+      console.log('cannot get city for book ' + book.title, error);
+    }
+
+    // add picture url
+
+    try {
+      /* TODO to improve performance frontend should not make a call to google
+       * while loading books first it should load from our api and show the book data
+       * then make a call to google to get the picture url and then rerender all
+       */
+      const thumbnail = await googleManager.getPictureURL(book.isbn_10);
+      bookWithFullAccess.thumbnail = thumbnail;
+    } catch (error) {
+      console.log('cannot get thumbnail for book ' + book.title, error);
+    }
+
+    return bookWithFullAccess;
   },
 };
 

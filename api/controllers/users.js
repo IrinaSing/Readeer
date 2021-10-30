@@ -54,6 +54,18 @@ const usersController = {
       res.status(500).send(error.message);
     }
   },
+  searchBookById: async (req, res) => {
+    try {
+      const userId = req.params.userId;
+      const bookId = req.params.bookId;
+
+      const book = await usersManager.searchBookById(bookId);
+
+      res.status(200).send(JSON.stringify(book));
+    } catch (error) {
+      res.status(500).send(error.message);
+    }
+  },
 };
 
 module.exports = usersController;
