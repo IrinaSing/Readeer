@@ -41,6 +41,11 @@ const booksManager = {
 
     return searchBooksWithLimitedAccess;
   },
+  getBookByIdWithOutLimit: async (bookId) => {
+    const book = await booksStore.getById(bookId);
+
+    return book;
+  },
 
   getBookByIdWithLimit: async (bookId) => {
     const book = await booksStore.getById(bookId);
