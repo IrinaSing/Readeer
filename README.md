@@ -439,105 +439,15 @@ Fuzzy search only returns limited information about the book. This method limits
 
   /api/users/:userId/books
 
-Method:
-
-POST
-
-Body
-
-{
-"filter":{
-"condition":"Good"
-}
-}
-Result:
-
-[
-{
-"id":"6166dbe484c8cbd1a3169c4a",
-"title":"Dutch Short Stories for Beginners",
-"isbn_10":"1951949196",
-"isbn_13":"978-1951949198",
-"description":"Do you know what the hardest thing for a Dutch learner is? Finding PROPER reading material that they can handle...which is precisely the reason we've written this book!",
-"book_language":"en"
-},
-{
-"id":"6166dc8b84c8cbd1a3169c4b",
-"title":"Zauberhafter Malblock: Mit Stickern",
-"isbn_10":"3649634171",
-"isbn_13":"978-3649634171",
-"description":"In diesem Malblock finden Einhorn-Fans 24 hübsche Ausmalmotive und eine Seite mit zauberhaften Stickern.",
-"book_language":"de"
-}
-]
-Body
-
-{
-"filter":{
-"condition":"Good",
-"book_language":"de"
-}
-}
-Result:
-
-[
-{
-"id":"6166dc8b84c8cbd1a3169c4b",
-"title":"Zauberhafter Malblock: Mit Stickern",
-"isbn_10":"3649634171",
-"isbn_13":"978-3649634171",
-"description":"In diesem Malblock finden Einhorn-Fans 24 hübsche Ausmalmotive und eine Seite mit zauberhaften Stickern.",
-"book_language":"de"
-}
-]
-Body
-
-{
-"filter":{
-"condition":"Good",
-"language":"de",
-"text":"rose"
-}
-}
-Result:
-
-[
-{
-"id":"616cd621eaa3d564382b2057",
-"title":"Rose and Daisy",
-"isbn_10":"9026328613",
-"isbn_13":"9789026328619",
-"description":"In haar nieuwe boek ‘Rose’ vertelt Rosita...",
-"book_language":"nl"
-},
-{
-"id":"616cd09d6d4f3fa527efbf5e",
-"title":"Garden Alchemy",
-"isbn_10":"0760367094",
-"isbn_13":"9780760367094",
-"description":"Garden Alchemy is a hands-on guide for do-it-yourself gardeners who want to turn their garden into gold using natural recipes and herbal concoctions ... ",
-"book_language":"en"
-},
-{
-"id":"616c321e79212d858e0e56e8",
-"title":"The Doctor",
-"isbn_10":"1796853631",
-"isbn_13":"9781796853636",
-"description":"If you grow roses you have no doubt encountered
-any manner of problems affecting your plants ...",
-"book_language":"nl"
-}
-]
-
 - **Method:**
 
-  `GET`
+  `POST`
 
 - **URL Params**
 
-  **Required:**
+**Required:**
 
-  `userId=[integer]`
+`userId=[integer]`
 
 - **Header**
 
@@ -551,16 +461,116 @@ any manner of problems affecting your plants ...",
 
   ```
   {
-
+    "filter": {
+      "condition":"Good"
+    }
   }
   ```
 
 - **Result:**
 
   ```
-  {
+  [
+    {
+      "id":"6166dbe484c8cbd1a3169c4a",
+      "title":"Dutch Short Stories for Beginners",
+      "isbn_10":"1951949196",
+      "isbn_13":"978-1951949198",
+      "description":"Do you know what the hardest thing for a ...",
+      "rating":4.5,
+      "pageCount":214,
+      "book_language":"en",
+      "book_userId":"616cab085244ed4da5db9624",
+      "condition":"Good",
+      "city":"Antwerpen",
+      "thumbnail":"http://books.google.com/books/content?id=NmuhzQEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+    },
+    {
+      "id":"6166dc8b84c8cbd1a3169c4b",
+      "title":"Zauberhafter Malblock: Mit Stickern","isbn_10":"3649634171",
+      "isbn_13":"978-3649634171",
+      "description":"In diesem Malblock finden...",
+      "rating":5,
+      "pageCount":49,
+      "book_language":"de",
+      "book_userId":"61686cf01abb24ff1700d2d1",
+      "condition":"Good",
+      "city":"Ghent",
+      "thumbnail":"https://via.placeholder.com/200x200"
+    },
+    {
+      "id":"616c321e79212d858e0e56e8",
+      "title":"The Doctor",
+      "isbn_10":"1796853631",
+      "isbn_13":"9781796853636",
+      "description":"If you grow roses you have no doubt encountered...","rating":5,
+      "pageCount":76,
+      "book_language":"en",
+      "book_userId":"61686cf01abb24ff1700d2d1",
+      "condition":"Good",
+      "city":"Ghent",
+      "thumbnail":"http://books.google.com/books/content?id=iaxZxQEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+    }
+  ]
+  ```
 
+- **Body**
+
+  ```
+  {
+    "filter": {
+      "condition":"Good",
+      "text":"rose"
+    }
   }
+  ```
+
+- **Result:**
+
+  ```
+  [
+    {
+      "id":"616cd621eaa3d564382b2057",
+      "title":"Rose and Daisy",
+      "isbn_10":"9026328613",
+      "isbn_13":"9789026328619",
+      "description":"In haar nieuwe boek ‘Rose’ vertelt Rosita...",
+      "rating":3.5,
+      "pageCount":259,
+      "book_language":"nl",
+      "book_userId":"616cab085244ed4da5db9624",
+      "condition":"Good",
+      "city":"Antwerpen",
+      "thumbnail":"http://books.google.com/books/content?id=wn1JCAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    },
+    {
+      "id":"616cd09d6d4f3fa527efbf5e",
+      "title":"Garden Alchemy",
+      "isbn_10":"0760367094",
+      "isbn_13":"9780760367094",
+      "description":"Garden Alchemy is a hands-on guide for ...",      "rating":4.6,
+      "pageCount":128,
+      "book_language":"en",
+      "book_userId":"61686cf01abb24ff1700d2d1",
+      "condition":"Good",
+      "city":"Ghent",
+      "thumbnail":"http://books.google.com/books/content?id=IY_TDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    },
+    {
+      "id":"616c321e79212d858e0e56e8",
+      "title":"The Doctor",
+      "isbn_10":"1796853631",
+      "isbn_13":"9781796853636",
+      "description":"If you grow roses you have no doubt ...",
+      "rating":5,
+      "pageCount":76,
+      "book_language":"en",
+      "book_userId":"61686cf01abb24ff1700d2d1",
+      "condition":"Good",
+      "city":"Ghent",
+      "thumbnail":"http://books.google.com/books/content?id=iaxZxQEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+    }
+  ]
   ```
 
 ### Getting Details of a Book

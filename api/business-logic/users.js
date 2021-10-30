@@ -52,6 +52,7 @@ const usersManager = {
         pageCount: book.pageCount,
         book_language: book.book_language,
         book_userId: book.userId.toString(),
+        condition: book.condition,
       };
 
       searchedBooks.push(bookWithFullAccess);
