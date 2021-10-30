@@ -57,11 +57,24 @@ const persistentDataAccess = (collectionName) => {
     },
     getSpecificFieldsById: async (id, ...fields) => {
       let result;
-      let filter = {};
+      let filter = {
+        _id: 0,
+        firstName: 0,
+        lastName: 0,
+        birthday: 0,
+        email: 0,
+        username: 0,
+        password: 0,
+        city: 0,
+        createdAt: 0,
+        updatedAt: 0,
+      };
+
       fields.forEach((field) => {
         filter[field] = 1;
       });
 
+      console.log(filter);
       try {
         await client.connect();
         result = await collection.findOne({ _id: new ObjectId(id) }, filter);

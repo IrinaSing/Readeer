@@ -50,23 +50,28 @@ const usersManager = {
         rating: book.rating,
         pageCount: book.pageCount,
         book_language: book.book_language,
-        book_userId: book.userId,
+        book_userId: book.userId.toString(),
       };
 
       searchedBooks.push(bookWithLimitedAccess);
     });
 
-    // TODO add city
-    searchedBooks.forEach(async (book) => {
-      let city = '';
+    // add city
+    for (let index = 0; index < searchedBooks.length; index++) {
+      const book = searchedBooks[index];
+      let user = '';
+
+      console.log(book.book_userId);
 
       try {
-        city = await usersStore.getSpecificFieldsById(book.userId, 'city');
-        book.city = city;
+        // TODO improve to only return city field
+        user = await usersStore.getById(book.book_userId);
+        book.city = user.city;
+        console.log('city is', user);
       } catch (error) {
         console.log('cannot get city for book ' + book.title, error);
       }
-    });
+    }
 
     // TODO add picture url
 
