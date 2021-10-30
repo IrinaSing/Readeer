@@ -1,4 +1,5 @@
 const dataAccess = require('../data-access/mongodbAccess');
+const googleManager = require('./googleBooksAPI');
 
 const usersStore = dataAccess('Users');
 const booksStore = dataAccess('Books');
@@ -56,24 +57,32 @@ const usersManager = {
       searchedBooks.push(bookWithLimitedAccess);
     });
 
-    // add city
     for (let index = 0; index < searchedBooks.length; index++) {
       const book = searchedBooks[index];
       let user = '';
 
       console.log(book.book_userId);
 
+      // add city
       try {
         // TODO improve to only return city field
         user = await usersStore.getById(book.book_userId);
         book.city = user.city;
-        console.log('city is', user);
       } catch (error) {
         console.log('cannot get city for book ' + book.title, error);
       }
-    }
 
-    // TODO add picture url
+      // TODO add picture url
+
+      try {
+        // console.log(book.isbn_10);
+        const thumbnail = await googleManager.getPictureURL(book.isbn_10);
+        book.thumbnail = thumbnail;
+        console.log(thumbnail);
+      } catch (error) {
+        console.log('cannot get thumbnail for book ' + book.title, error);
+      }
+    }
 
     // TODO complete to 30 from google api
 
