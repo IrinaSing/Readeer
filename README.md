@@ -619,17 +619,22 @@ This search returns all details about the book.
 
 - **Body**
 
-  ```
-  {
-
-  }
-  ```
-
 - **Result:**
 
   ```
   {
-
+    "id":"616cd09d6d4f3fa527efbf5e",
+    "title":"Garden Alchemy",
+    "authors":["Stephanie Rose","Julia Gerigk"],
+    "isbn_10":"0760367094",
+    "isbn_13":"9780760367094",
+    "description":"Garden Alchemy is a hands-on guide for ...",
+    "rating":4.6,
+    "pageCount":128,
+    "book_language":"en",
+    "book_userId":"61686cf01abb24ff1700d2d1",
+    "city":"Ghent",
+    "thumbnail":"http://books.google.com/books/content?id=IY_TDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
   }
   ```
 
