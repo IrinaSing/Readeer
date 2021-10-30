@@ -75,12 +75,12 @@ Registers a new user to the system
 
 - **Result**
 
-```
-{
-  "username": <username>,
-  "email" : <email>,
-}
-```
+  ```
+  {
+    "username": <username>,
+    "email" : <email>,
+  }
+  ```
 
 ## Login
 
@@ -362,11 +362,11 @@ All the paths below require a valid token to be sent in the header.
 
 - **Header**
 
-```
-{
-  "Authorization": "Bearer [token]"
-}
-```
+  ```
+  {
+    "Authorization": "Bearer [token]"
+  }
+  ```
 
 - **Result:**
 
@@ -400,11 +400,11 @@ All the paths below require a valid token to be sent in the header.
 
 - **Header**
 
-```
-{
-  "Authorization": "Bearer [token]"
-}
-```
+  ```
+  {
+    "Authorization": "Bearer [token]"
+  }
+  ```
 
 - **Body**
 
@@ -460,11 +460,11 @@ Fuzzy search only returns limited information about the book. This method limits
 
 - **Header**
 
-```
-{
-  "Authorization": "Bearer [token]"
-}
-```
+  ```
+  {
+    "Authorization": "Bearer [token]"
+  }
+  ```
 
 - **Body**
 
@@ -611,11 +611,11 @@ This search returns all details about the book.
 
 - **Header**
 
-```
-{
-  "Authorization": "Bearer [token]"
-}
-```
+  ```
+  {
+    "Authorization": "Bearer [token]"
+  }
+  ```
 
 - **Body**
 
@@ -660,11 +660,11 @@ This route allows user to add a new book to system. It requires the userId in th
 
 - **Header**
 
-```
-{
-  "Authorization": "Bearer [token]"
-}
-```
+  ```
+  {
+    "Authorization": "Bearer [token]"
+  }
+  ```
 
 - **Body**
 
@@ -694,7 +694,7 @@ This route allows user to add a new book to system. It requires the userId in th
   }
   ```
 
-  ### Changing Details of a Book
+### Changing Details of a Book
 
 This route allows user to change the details of a book which is owned by the specified user. This route is not allowed to change 'id', 'userId' and 'createdAt' fields of the book.
 
@@ -716,11 +716,11 @@ This route allows user to change the details of a book which is owned by the spe
 
 - **Header**
 
-```
-{
-  "Authorization": "Bearer [token]"
-}
-```
+  ```
+  {
+    "Authorization": "Bearer [token]"
+  }
+  ```
 
 - **Body**
 
@@ -769,55 +769,11 @@ This deletes the specified book if it is owned by the specified owner.
 
 - **Header**
 
-```
-{
-  "Authorization": "Bearer [token]"
-}
-```
-
-- **Body**
-
   ```
   {
-
+    "Authorization": "Bearer [token]"
   }
   ```
-
-- **Result:**
-
-  ```
-  {
-
-  }
-  ```
-
-### Add a Book
-
-This search returns all details about the book.
-
-- **URL**
-
-  /api/users/:userId/books
-
-- **Method:**
-
-  `POST`
-
-- **URL Params**
-
-  **Required:**
-
-  `userId=[integer]`
-
-  `bookId=[integer]`
-
-- **Header**
-
-```
-{
-  "Authorization": "Bearer [token]"
-}
-```
 
 - **Body**
 
@@ -855,11 +811,11 @@ This search returns all details about the book.
 
 - **Header**
 
-```
-{
-  "Authorization": "Bearer [token]"
-}
-```
+  ```
+  {
+    "Authorization": "Bearer [token]"
+  }
+  ```
 
 - **Body**
 
