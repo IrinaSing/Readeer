@@ -36,9 +36,7 @@ const booksManager = {
         thumbnail: googleThumbnail,
       };
 
-      console.log('book', bookWithLimitedAccess);
       searchBooksWithLimitedAccess.push(bookWithLimitedAccess);
-      console.log(searchBooksWithLimitedAccess);
     }
 
     return searchBooksWithLimitedAccess;
