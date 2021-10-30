@@ -26,6 +26,7 @@ export const searchList = () => {
         book.description,
         book.isbn_10,
         book.isbn_13,
+        book.authors,
         book.thumbnail
       );
 

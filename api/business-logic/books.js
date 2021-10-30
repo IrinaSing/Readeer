@@ -47,6 +47,17 @@ const booksManager = {
   getBookByIdWithLimit: async (bookId) => {
     const book = await booksStore.getById(bookId);
 
+    let googleThumbnail;
+    try {
+      /* TODO to improve performance frontend should not make a call to google
+       * while loading books first it should load from our api and show the book data
+       * then make a call to google to get the picture url and then rerender all
+       */
+      googleThumbnail = await googleManager.getPictureURL(book.isbn_10);
+    } catch (error) {
+      console.log('cannot get thumbnail for book ' + book.title, error);
+    }
+
     const bookWithLimitedAccess = {
       id: book._id.toString(),
       title: book.title,
@@ -57,6 +68,7 @@ const booksManager = {
       rating: book.rating,
       pageCount: book.pageCount,
       book_language: book.language,
+      thumbnail: googleThumbnail,
     };
 
     return bookWithLimitedAccess;

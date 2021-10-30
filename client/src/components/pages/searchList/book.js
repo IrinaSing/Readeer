@@ -17,7 +17,7 @@ export const bookDetail = (
   description = '',
   isbn_10 = '',
   isbn_13 = '',
-  writer = 'James Dean',
+  authors = ['James Dean'],
   thumbnail = 'https://via.placeholder.com/200x200'
 ) => {
   const container = document.createElement('section');
@@ -34,7 +34,8 @@ export const bookDetail = (
   header.innerText = title;
 
   const writerElement = document.createElement('p');
-  writerElement.innerText = writer;
+  writerElement.innerText = authors.join(', ');
+  // writerElement.innerText = writer;
 
   const isbn = document.createElement('p');
   isbn.innerText = `ISBN: ${isbn_10} - ${isbn_13}`;
