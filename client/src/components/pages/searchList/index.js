@@ -1,34 +1,33 @@
+import classes from './index.module.css';
 import {
   fetchBooks,
   fetchSpecificBook,
-} from "../../../data-access/api-calls/calls.js";
-import { setBook } from "../../../handlers/set-book.js";
-import { state } from "../../../init/state.js";
-import { reloadPage } from "../../layout/page.js";
-import { bookPreview } from "../../shared/bookPreview.js";
-
-import classes from "./index.module.css";
+} from '../../../data-access/api-calls/calls.js';
+import { setBook } from '../../../handlers/set-book.js';
+import { state } from '../../../init/state.js';
+import { reloadPage } from '../../layout/page.js';
+import { bookPreview } from '../../shared/bookPreview.js';
+import { bookDetail } from './book';
 
 /**
- * The login page.
+ * The Books search result page.
  *
- * @returns {HTMLDivElement} A rendered login page.
+ * @returns {HTMLDivElement} A rendered search result page.
  */
 export const searchList = () => {
-  const container = document.createElement("section");
+  const container = document.createElement('section');
   container.classList.add(classes.list);
 
   if (state.currentBookId) {
     fetchSpecificBook(state.currentBookId).then((book) => {
-      const element = bookPreview(
+      const element = bookDetail(
         book.id,
         book.title,
         book.description,
         book.isbn_10,
         book.isbn_13,
-        (id) => {
-          //
-        }
+        book.authors,
+        book.thumbnail
       );
 
       container.appendChild(element);
@@ -44,6 +43,7 @@ export const searchList = () => {
         book.description,
         book.isbn_10,
         book.isbn_13,
+        book.thumbnail,
         (id) => {
           setBook(id);
           reloadPage(searchList);

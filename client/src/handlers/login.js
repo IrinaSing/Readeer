@@ -1,7 +1,7 @@
 import { postLogin } from "../data-access/api-calls/calls.js";
 import { errorAlert } from "../components/pages/register/error-alert.js";
 import { navigateToHomepage } from "./navigate-to-homepage.js";
-import { state } from "../data-access/state/state.js";
+import { state } from "../../src/init/state";
 
 /**
  * This function validated user input and submits the data to the database.
