@@ -2,6 +2,8 @@ export const createFilter = (userInput) => {
   const filter = {};
 
   // "rose,author:Rosita,title:Rose and Daisy,language:en"
+
+  //"author:Julia Gerigk"
   const userSearchParams = userInput.split(',');
 
   for (let index = 0; index < userSearchParams.length; index++) {
@@ -14,6 +16,12 @@ export const createFilter = (userInput) => {
         case 'language':
           filter.book_language = value;
           break;
+
+        case 'authors':
+        case 'author':
+          filter.authors = value;
+          break;
+
         default:
           filter[key] = value;
           break;
