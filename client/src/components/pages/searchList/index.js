@@ -1,14 +1,14 @@
-import classes from './index.module.css';
+import classes from "./index.module.css";
 import {
   fetchBooks,
   fetchSpecificBook,
   performBookSearchPost,
-} from '../../../data-access/api-calls/calls.js';
-import { setBook } from '../../../handlers/set-book.js';
-import { state } from '../../../init/state.js';
-import { reloadPage } from '../../layout/page.js';
-import { bookPreview } from '../../shared/bookPreview.js';
-import { bookDetail } from './book';
+} from "../../../data-access/api-calls/calls.js";
+import { setBook } from "../../../handlers/set-book.js";
+import { state } from "../../../init/state.js";
+import { reloadPage } from "../../layout/page.js";
+import { bookPreview } from "../../shared/bookPreview.js";
+import { bookDetail } from "./book";
 
 /**
  * The Books search result page.
@@ -16,13 +16,10 @@ import { bookDetail } from './book';
  * @returns {HTMLDivElement} A rendered search result page.
  */
 export const searchList = () => {
-  const container = document.createElement('section');
+  const container = document.createElement("section");
   container.classList.add(classes.list);
 
-  console.log('here');
-
   if (state.currentBookId) {
-    console.log('specific');
     fetchSpecificBook(state.currentBookId).then((book) => {
       const element = bookDetail(
         book.id,
@@ -37,24 +34,16 @@ export const searchList = () => {
       container.appendChild(element);
     });
 
-    state.currentBookId = '';
+    state.currentBookId = "";
     return container;
   }
 
-  console.log(state.searchFilter);
-  console.log(state.searchFilter !== undefined && state.searchFilter !== '');
-  console.log(Object.keys(state.searchFilter).length !== 0);
-
   if (
     state.searchFilter !== undefined &&
-    state.searchFilter !== '' &&
+    state.searchFilter !== "" &&
     Object.keys(state.searchFilter).length !== 0
   ) {
-    //TODO post
-    console.log('if');
     performBookSearchPost(state.searchFilter).then((books) => {
-      console.log(books);
-
       if (books.length > 0) {
         const previews = books.map((book) => {
           return bookPreview(
@@ -75,18 +64,17 @@ export const searchList = () => {
           container.appendChild(element);
         });
       } else {
-        const warning = document.createElement('div');
-        warning.className = 'p-3 my-5 bg-danger text-white fs-3';
+        const warning = document.createElement("div");
+        warning.className = "p-3 my-5 bg-danger text-white fs-3";
         warning.innerText = `It looks like there aren't many great matches for your search.`;
         container.appendChild(warning);
       }
     });
-    state.searchFilter = '';
+    state.searchFilter = "";
 
     return container;
   }
 
-  console.log('else');
   fetchBooks().then((books) => {
     const previews = books.map((book) => {
       return bookPreview(

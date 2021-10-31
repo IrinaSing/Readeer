@@ -4,21 +4,21 @@ export const createFilter = (userInput) => {
   // "rose,author:Rosita,title:Rose and Daisy,language:en"
   //"author:Julia Gerigk"
   //author:Rosita Steenbeek,title:Rose and Daisy
-  const userSearchParams = userInput.split(',');
+  const userSearchParams = userInput.split(",");
 
   for (let index = 0; index < userSearchParams.length; index++) {
     const param = userSearchParams[index];
 
-    if (param.includes(':')) {
-      const [key, value] = param.split(':');
+    if (param.includes(":")) {
+      const [key, value] = param.split(":");
 
       switch (key) {
-        case 'language':
+        case "language":
           filter.book_language = value;
           break;
 
-        case 'authors':
-        case 'author':
+        case "authors":
+        case "author":
           filter.authors = value;
           break;
 
@@ -27,10 +27,9 @@ export const createFilter = (userInput) => {
           break;
       }
     } else {
-      filter.text = filter.text ? filter.text + ' ' + param : param;
+      filter.text = filter.text ? filter.text + " " + param : param;
     }
   }
 
-  console.log('filter', filter);
   return filter;
 };
