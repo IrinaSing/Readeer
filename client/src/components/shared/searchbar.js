@@ -7,20 +7,22 @@ export const searchBarComponent = () => {
 
   const searchForm = document.createElement('form');
   searchForm.id = 'search-box-form';
-  searchForm.className = 'd-flex form';
+  searchForm.className = 'd-flex form ';
   container.appendChild(searchForm);
 
   const inputElement = document.createElement('input');
   inputElement.name = 'search-box';
   inputElement.type = 'text';
   inputElement.id = 'search';
-  inputElement.className = 'form-control mr-3';
+  inputElement.className = 'form-control mx-2';
+
   inputElement.placeholder = 'Search for books here...';
   searchForm.appendChild(inputElement);
 
   const buttonElement = document.createElement('button');
   buttonElement.id = 'button';
-  buttonElement.className = 'btn btn-outline-primary';
+  buttonElement.className = 'btn btn-warning rounded-pill';
+  // buttonElement.className = 'btn btn-outline-primary mx-2 ';
   buttonElement.type = 'submit';
   buttonElement.innerText = 'Search';
   searchForm.appendChild(buttonElement);

@@ -36,6 +36,8 @@ export const searchList = () => {
 
       container.appendChild(element);
     });
+
+    state.currentBookId = '';
     return container;
   }
 
@@ -51,50 +53,60 @@ export const searchList = () => {
     //TODO post
     console.log('if');
     performBookSearchPost(state.searchFilter).then((books) => {
-      const previews = books.map((book) => {
-        return bookPreview(
-          book.id,
-          book.title,
-          book.description,
-          book.isbn_10,
-          book.isbn_13,
-          book.thumbnail,
-          (id) => {
-            setBook(id);
-            reloadPage(searchList);
-          }
-        );
-      });
+      console.log(books);
 
-      previews.forEach((element) => {
-        container.appendChild(element);
-      });
+      if (books.length > 0) {
+        const previews = books.map((book) => {
+          return bookPreview(
+            book.id,
+            book.title,
+            book.description,
+            book.isbn_10,
+            book.isbn_13,
+            book.thumbnail,
+            (id) => {
+              setBook(id);
+              reloadPage(searchList);
+            }
+          );
+        });
+
+        previews.forEach((element) => {
+          container.appendChild(element);
+        });
+      } else {
+        const warning = document.createElement('div');
+        warning.className = 'p-3 my-5 bg-danger text-white fs-3';
+        warning.innerText = `It looks like there aren't many great matches for your search.`;
+        container.appendChild(warning);
+      }
     });
-
-    return container;
-  } else {
-    console.log('else');
-    fetchBooks().then((books) => {
-      const previews = books.map((book) => {
-        return bookPreview(
-          book.id,
-          book.title,
-          book.description,
-          book.isbn_10,
-          book.isbn_13,
-          book.thumbnail,
-          (id) => {
-            setBook(id);
-            reloadPage(searchList);
-          }
-        );
-      });
-
-      previews.forEach((element) => {
-        container.appendChild(element);
-      });
-    });
+    state.searchFilter = '';
 
     return container;
   }
+
+  console.log('else');
+  fetchBooks().then((books) => {
+    const previews = books.map((book) => {
+      return bookPreview(
+        book.id,
+        book.title,
+        book.description,
+        book.isbn_10,
+        book.isbn_13,
+        book.thumbnail,
+        (id) => {
+          setBook(id);
+          reloadPage(searchList);
+        }
+      );
+    });
+
+    previews.forEach((element) => {
+      container.appendChild(element);
+    });
+  });
+
+  return container;
 };
