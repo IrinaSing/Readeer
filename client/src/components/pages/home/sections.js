@@ -35,8 +35,9 @@ export const showcase = () => {
   header.style.color = "#1E78C7";
   //   header.classList = "text-xl-start fs-1";
   header.style.paddingTop = "100px";
-  const content = document.createElement("p");
-  content.className = "p";
+  const content = document.createElement("h4");
+  content.className = "h4";
+  header.style.paddingTop = "20px";
   content.textContent =
     `
     Readeer is a platform for exchange of children's books in your neighbourhood.
@@ -56,11 +57,6 @@ export const showcase = () => {
   headerDiv.appendChild(content);
 
   
- 
-
-
-
-
   return divContainer;
 };
 
