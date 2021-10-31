@@ -7,6 +7,7 @@ export const showcase = () => {
   const divContainer = document.createElement("div");
   divContainer.classList = "container-lg py-5 w-75 margin-left:4rem";
   divContainer.style.marginLeft = "150px";
+  divContainer.style.marginTop = "100px";
   divContainer.style.background = "#FBF9F9";
 
   divContainer.id = "divContainer";
