@@ -1,33 +1,30 @@
 // import { displayBooks } from "../components/pages/home/search/displaybooks.js";
 // import { mySearch } from "../components/pages/home/search/loadbooks.js";
-import { navigateToBooksPage } from "./navigateToBooksPage.js";
+import { state } from '../init/state.js';
+import {
+  navigateToBooksPage,
+  navigateToBooksPageWithFilter,
+} from './navigateToBooksPage.js';
 
 // adding event listener on search button
 export const searchButtonHandler = (event) => {
   event.preventDefault();
   event.stopPropagation();
-  // console.log("search clicked");
-  // console.log(event);
-  // console.log(event.target[0]);
-  const userInput = event.target[0];
+
+  const userInput = event.target[0].value;
+
   // TODO add filter options for author, ISBN, city, title etc
+  console.log(userInput);
+
+  let filter = {};
+  if (userInput.length > 0) {
+    filter.text = userInput;
+  }
+
+  state.searchFilter = filter;
+  // const filter = {};
+
   // redirect to Books-Page
-  navigateToBooksPage(event);
-
-
-  // document.createElement("button");
-  // buttonElement.addEventListener("click", () => {
-  //   // getting the value in the search box
-    // const inputValue = document.getElementById("search").value.toLowerCase();
-    // console.log(inputValue);
-  //   // filtering books according to the search(input value)
-  //   const filteredBooks = mySearch.filter((book) => {
-  //     return book.title.toLowerCase().includes(inputValue);
-  //   });
-  //   displayBooks(filteredBooks);
-  //   console.log("hello");
-  //   // Clears the search box after clicking search button
-  //   const input = document.getElementById("search");
-  //   input.value = "";
-  // });
+  // navigateToBooksPage(event);
+  navigateToBooksPageWithFilter();
 };

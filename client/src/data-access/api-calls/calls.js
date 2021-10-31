@@ -1,4 +1,4 @@
-import { state } from "../../../src/init/state";
+import { state } from '../../../src/init/state';
 
 // Check if the api is not hosted on a different origin if so use that.
 const getOrigin = () => {
@@ -7,7 +7,7 @@ const getOrigin = () => {
   }
 
   return window.location.origin;
-}
+};
 
 const origin = getOrigin();
 
@@ -16,11 +16,11 @@ const performFetch = async (path) => {
   const URL = `${origin}/api/${path}`;
   const encodedURL = encodeURI(URL);
   const response = await fetch(encodedURL, {
-    method: "GET",
+    method: 'GET',
     headers: {
-      "Content-Type": "application/json",
-      Authorization: state.token === undefined ? "" : `Bearer ${state.token}`,
-      Email: state.email === undefined ? "" : state.email,
+      'Content-Type': 'application/json',
+      Authorization: state.token === undefined ? '' : `Bearer ${state.token}`,
+      Email: state.email === undefined ? '' : state.email,
     },
   });
   if (!response.ok) {
@@ -36,11 +36,11 @@ const performPost = async (path, body) => {
   const URL = `${origin}/api/${path}`;
   const encodedURL = encodeURI(URL);
   const response = await fetch(encodedURL, {
-    method: "POST",
+    method: 'POST',
     headers: {
-      "Content-Type": "application/json",
-      Authorization: state.token === undefined ? "" : `Bearer ${state.token}`,
-      Email: state.email === undefined ? "" : state.email,
+      'Content-Type': 'application/json',
+      Authorization: state.token === undefined ? '' : `Bearer ${state.token}`,
+      Email: state.email === undefined ? '' : state.email,
     },
     body: JSON.stringify(body),
   });
@@ -54,7 +54,7 @@ const performPost = async (path, body) => {
 
 // login the app
 export const postLogin = async (email, password) => {
-  return await performPost("login", {
+  return await performPost('login', {
     email,
     password,
   });
@@ -70,7 +70,7 @@ export const postRegister = async (
   birthday,
   city
 ) => {
-  return await performPost("/register", {
+  return await performPost('/register', {
     email,
     username,
     password,
@@ -83,7 +83,7 @@ export const postRegister = async (
 
 // fetch all the books
 export const fetchBooks = async () => {
-  return await performFetch("books");
+  return await performFetch('books');
 };
 
 // fetch a specific book
@@ -124,4 +124,8 @@ export const postBookRequest = async (userId) => {
     return [];
   }
   return await performPost(`users/${userId}/request`);
+};
+
+export const performBookSearchPost = async (filter = {}) => {
+  return await performPost('books', { filter: filter });
 };
