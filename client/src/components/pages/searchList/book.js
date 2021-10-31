@@ -1,5 +1,8 @@
-import { fetchBooks, fetchSpecificBook } from "../../../data-access/api-calls/calls";
-import { back } from "../../../handlers/unset-book.js";
+import {
+  fetchBooks,
+  fetchSpecificBook,
+} from '../../../data-access/api-calls/calls';
+import { back } from '../../../handlers/unset-book.js';
 
 import classes from './book.module.css';
 
@@ -8,29 +11,30 @@ import classes from './book.module.css';
  *
  * @returns {HTMLDivElement} A rendered login page.
  */
- export const bookDetail = (
+export const bookDetail = (
   id,
   title = 'Unknown',
   description = '',
   isbn_10 = '',
   isbn_13 = '',
-  writer = 'James Dean'
+  authors = ['James Dean'],
+  thumbnail = 'https://via.placeholder.com/200x200'
 ) => {
-  const container = document.createElement("section");
+  const container = document.createElement('section');
   container.classList.add(classes.book);
 
   const image = document.createElement('img');
   image.alt = 'book cover';
-  image.src = "https://via.placeholder.com/200x200";
+  image.src = thumbnail;
 
-  const details = document.createElement("section");
+  const details = document.createElement('section');
   details.classList.add(classes.details);
 
   const header = document.createElement('h2');
   header.innerText = title;
 
   const writerElement = document.createElement('p');
-  writerElement.innerText = writer;
+  writerElement.innerText = authors.join(', ');
 
   const isbn = document.createElement('p');
   isbn.innerText = `ISBN: ${isbn_10} - ${isbn_13}`;
