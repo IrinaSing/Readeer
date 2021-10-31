@@ -7,7 +7,7 @@ export const search = () => {
   searchEl.appendChild(searchForm);
 
   const inputEl = document.createElement('input');
-  inputEl.className = 'form-control me-5';
+  inputEl.className = 'form-control mr-3';
   inputEl.type = 'search';
   inputEl.placeholder = "Let's search a book";
   inputEl.ariaLabel = 'Search';

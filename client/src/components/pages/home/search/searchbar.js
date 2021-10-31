@@ -3,6 +3,7 @@ export const search = () => {
 
   const wrapper = document.createElement("div");
   wrapper.id = "wrapper";
+  wrapper.className = "container";
   root.appendChild(wrapper);
 
   const searchBoxContainer = document.createElement("div");
@@ -14,7 +15,7 @@ export const search = () => {
   inputElement.name = "search-box";
   inputElement.type = "text";
   inputElement.id = "search";
-  inputElement.className = "form-control me-5";
+  inputElement.className = "form-control mr-3";
   inputElement.placeholder = "Search for books here...";
   searchBoxContainer.appendChild(inputElement);
 

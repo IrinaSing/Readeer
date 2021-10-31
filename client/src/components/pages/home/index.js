@@ -2,7 +2,6 @@
 import { search } from "./searchbar.js";
 // import { displayBooks } from "./search/displaybooks.js";
 // import { loadBooks } from "./search/loadbooks.js";
-// import "./search/buttonhandler.js";
 
 /**
  * The home page.
@@ -18,6 +17,8 @@ export const home = () => {
   container.appendChild(document.createElement("br"));
 
   container.appendChild(search());
+
+
 
   // displayBooks();
 
