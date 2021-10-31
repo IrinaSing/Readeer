@@ -1,7 +1,8 @@
-import { search } from "./search/searchbar.js";
-import { displayBooks } from "./search/displaybooks.js";
-import { loadBooks } from "./search/loadbooks.js";
-import "./search/buttonhandler.js";
+// import { search } from "./search/searchbar.js";
+import { search } from "./searchbar.js";
+// import { displayBooks } from "./search/displaybooks.js";
+// import { loadBooks } from "./search/loadbooks.js";
+// import "./search/buttonhandler.js";
 
 /**
  * The home page.
@@ -18,9 +19,9 @@ export const home = () => {
 
   container.appendChild(search());
 
-  displayBooks();
+  // displayBooks();
 
-  loadBooks();
+  // loadBooks();
 
   return container;
 };
