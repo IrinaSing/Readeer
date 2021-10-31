@@ -25,7 +25,8 @@ export const showcase = () => {
   const showcasePicture = document.createElement("img");
   showcasePicture.src = showcaseImg;
   showcasePicture.className = "img-fluid";
-  showcasePicture.style.maxWidth = "70%";
+  showcasePicture.style.width = "100%";
+  showcasePicture.style.height = "fit-content";
 
   pictureDiv.appendChild(showcasePicture);
 
@@ -33,13 +34,15 @@ export const showcase = () => {
   header.textContent = "What is Readeer?";
   header.className = "h1";
   header.style.color = "#1E78C7";
-  //   header.classList = "text-xl-start fs-1";
-  header.style.paddingTop = "100px";
-  const content = document.createElement("h4");
-  content.className = "h4";
+  header.style.paddingTop = "150px";
+  header.style.marginLeft = "100px";
+
+
+  const content = document.createElement("h3");
+  content.className = "h3 text-muted lead";
   header.style.paddingTop = "20px";
-  content.textContent =
-    `
+  content.style.marginLeft = "100px";
+  content.textContent = `
     Readeer is a platform for exchange of children's books in your neighbourhood.
     
     Currently available only in Belgium.
@@ -56,7 +59,6 @@ export const showcase = () => {
   headerDiv.appendChild(header);
   headerDiv.appendChild(content);
 
-  
   return divContainer;
 };
 
@@ -88,7 +90,7 @@ export const useful = () => {
   // row2.className = "row";
 
   const adultsDiv = document.createElement("img");
-  adultsDiv.style.marginTop = "150px"
+  adultsDiv.style.marginTop = "150px";
   adultsDiv.style.marginBottom = "20px";
   adultsDiv.style.marginLeft = "80px";
 
@@ -124,16 +126,15 @@ export const useful = () => {
 
   const contentDiv = document.createElement("div");
 
-
   const cDiv1 = document.createElement("div");
   cDiv1.className = "section-useful-content";
- 
+
   cDiv1.innerHTML = `You are a parent who lives abroad and experiences
   difficulty finding books for family reading in your mother tongue..`;
 
   const cDiv2 = document.createElement("div");
   cDiv2.className = "section-useful-content";
- 
+
   cDiv2.innerHTML = `You want to involve your children in sharing activities, to socialize them.`;
 
   const cDiv3 = document.createElement("div");
