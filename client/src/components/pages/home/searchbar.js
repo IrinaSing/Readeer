@@ -1,25 +1,36 @@
-export const search = () => {
-  const searchEl = document.createElement('div');
+import { searchButtonHandler } from "../../../handlers/searchButtonHandler.js";
 
-  const searchForm = document.createElement('form');
+export const searchBarComponent = () => {
+  const wrapper = document.createElement("div");
+  wrapper.id = "wrapper";
+  wrapper.className = "container";
 
-  searchForm.className = 'd-flex';
-  searchEl.appendChild(searchForm);
+  const searchForm = document.createElement("form");
+  searchForm.id = "search-box-form";
+  searchForm.className = "d-flex form";
+  wrapper.appendChild(searchForm);
 
-  const inputEl = document.createElement('input');
-  inputEl.className = 'form-control me-5';
-  inputEl.type = 'search';
-  inputEl.placeholder = "Let's search a book";
-  inputEl.ariaLabel = 'Search';
+  const inputElement = document.createElement("input");
+  inputElement.name = "search-box";
+  inputElement.type = "text";
+  inputElement.id = "search";
+  inputElement.className = "form-control mr-3";
+  inputElement.placeholder = "Search for books here...";
+  searchForm.appendChild(inputElement);
 
-  searchForm.appendChild(inputEl);
+  const buttonElement = document.createElement("button");
+  buttonElement.id = "button";
+  buttonElement.className = "btn btn-outline-primary";
+  buttonElement.type = "submit";
+  buttonElement.innerText = "Search";
+  searchForm.appendChild(buttonElement);
 
-  const buttonEl = document.createElement('button');
-  buttonEl.className = 'btn btn-outline-success';
-  buttonEl.type = 'submit';
-  buttonEl.innerHTML = 'Search';
+  const ulElement = document.createElement("ul");
+  ulElement.id = "book-list";
+  wrapper.appendChild(ulElement);
 
-  searchForm.appendChild(buttonEl);
+  searchForm.addEventListener("submit", searchButtonHandler);
+  // wrapper.addEventListener("click", searchButtonHandler);
 
-  return searchEl;
+  return wrapper;
 };

@@ -14,7 +14,7 @@ import { bookDetail } from './book';
  *
  * @returns {HTMLDivElement} A rendered search result page.
  */
-export const searchList = () => {
+export const searchList = (inputFilter={}) => {
   const container = document.createElement('section');
   container.classList.add(classes.list);
 
