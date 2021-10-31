@@ -8,9 +8,27 @@ import deerIcon from "../../../public/icons/deer-icon-without-white.jpg";
  */
 export const navbar = (routes) => {
   const container = document.createElement("div");
-  container.className = "container";
+  container.className = "container-fluid  max-width:md";
   container.style.backgroundColor = "#1E78C7";
-  
+
+  const divInfo = document.createElement("div");
+  divInfo.className = "row";
+
+  const divLogo = document.createElement("div");
+  divLogo.className = "col-4";
+
+  const divImg = document.createElement("div");
+  divImg.className = "col";
+  divImg.src = deerIcon;
+
+  const divTitle = document.createElement("div");
+  divTitle.className = "col";
+  divTitle.innerText = "Readeer";
+
+  container.appendChild(divInfo);
+  divInfo.appendChild(divLogo);
+  divLogo.appendChild(divImg);
+  divLogo.appendChild(divTitle);
 
   // const container = document.createElement("div");
   // container.className = "navbar-container";
@@ -26,9 +44,9 @@ export const navbar = (routes) => {
   // logoText.innerHTML = "Readeer";
   // divLogo.append(logoText);
 
-  // const divNav = document.createElement("div");
-  // divNav.className = "divNav";
-  // container.appendChild(divNav);
+  const divNav = document.createElement("div");
+  divNav.className = "col-8";
+  divInfo.appendChild(divNav);
 
   for (const route of routes) {
     const anchor = document.createElement("a");
