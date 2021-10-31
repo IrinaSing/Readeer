@@ -1,21 +1,22 @@
-import classes from './index.module.css';
+import classes from "./index.module.css";
 import {
   fetchBooks,
   fetchSpecificBook,
-} from '../../../data-access/api-calls/calls.js';
-import { setBook } from '../../../handlers/set-book.js';
-import { state } from '../../../init/state.js';
-import { reloadPage } from '../../layout/page.js';
-import { bookPreview } from '../../shared/bookPreview.js';
-import { bookDetail } from './book';
+} from "../../../data-access/api-calls/calls.js";
+import { setBook } from "../../../handlers/set-book.js";
+import { state } from "../../../init/state.js";
+import { reloadPage } from "../../layout/page.js";
+import { bookPreview } from "../../shared/bookPreview.js";
+import { bookDetail } from "./book";
 
 /**
  * The Books search result page.
  *
  * @returns {HTMLDivElement} A rendered search result page.
  */
-export const searchList = (inputFilter={}) => {
-  const container = document.createElement('section');
+export const searchList = (inputFilter = {}) => {
+
+  const container = document.createElement("section");
   container.classList.add(classes.list);
 
   if (state.currentBookId) {

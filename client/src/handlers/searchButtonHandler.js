@@ -1,6 +1,7 @@
 // import { displayBooks } from "../components/pages/home/search/displaybooks.js";
 // import { mySearch } from "../components/pages/home/search/loadbooks.js";
-import { }
+import { navigateToBooksPage } from "./navigateToBooksPage.js";
+
 // adding event listener on search button
 export const searchButtonHandler = (event) => {
   event.preventDefault();
@@ -11,7 +12,7 @@ export const searchButtonHandler = (event) => {
   const userInput = event.target[0];
   // TODO add filter options for author, ISBN, city, title etc
   // redirect to Books-Page
-
+  navigateToBooksPage(event);
 
 
   // document.createElement("button");
