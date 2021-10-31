@@ -25,15 +25,15 @@ export const searchBarComponent = () => {
   inputElement.placeholder = "Search for books here...";
   searchForm.appendChild(inputElement);
 
-  inputElement.addEventListener("focus", () => {
-    this.parentElement.style.border = "3px solid #86b7fe";
-    this.parentElement.style.borderRadius = "2rem";
-  });
+  // inputElement.addEventListener("focus", () => {
+  //   this.parentElement.style.border = "3px solid #86b7fe";
+  //   this.parentElement.style.borderRadius = "2rem";
+  // });
 
-  inputElement.addEventListener("blur", () => {
-    this.parentElement.style.border = "none";
-    this.parentElement.style.borderRadius = "none";
-  });
+  // inputElement.addEventListener("blur", () => {
+  //   this.parentElement.style.border = "none";
+  //   this.parentElement.style.borderRadius = "none";
+  // });
 
   const buttonElement = document.createElement("button");
   buttonElement.id = "button";
