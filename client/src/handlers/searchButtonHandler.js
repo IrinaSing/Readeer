@@ -17,7 +17,6 @@ export const searchButtonHandler = (event) => {
   let filter = {};
 
   if (userInput.length > 0) {
-    // filter.text = userInput;
     filter = createFilter(userInput);
   }
 

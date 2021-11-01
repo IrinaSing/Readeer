@@ -34,10 +34,10 @@ export const searchBarComponent = () => {
     this.parentElement.style.borderRadius = '2rem';
   });
 
-  inputElement.addEventListener('blur', function () {
-    this.parentElement.style.border = 'none';
-    this.parentElement.style.borderRadius = 'none';
-  });
+  // inputElement.addEventListener("blur", () => {
+  //   this.parentElement.style.border = "none";
+  //   this.parentElement.style.borderRadius = "none";
+  // });
 
   const buttonElement = document.createElement('button');
   buttonElement.id = 'button';
