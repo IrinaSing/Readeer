@@ -8,49 +8,74 @@ import deerIcon from "../../../public/icons/deer-icon-without-white.jpg";
  */
 export const navbar = (routes) => {
   const container = document.createElement("div");
-  container.className = "container-fluid  max-width:md";
+  container.id = "container";
+  container.className = "container-fluid";
   container.style.backgroundColor = "#1E78C7";
+  container.style.marginTop = "50px";
+  container.style.height = "100px";
 
   const divInfo = document.createElement("div");
+  divInfo.id = "divInfo";
   divInfo.className = "row";
+  container.appendChild(divInfo);
+  // Logo and title
 
   const divLogo = document.createElement("div");
-  divLogo.className = "col-4";
+  divLogo.id = "divLogo";
+  divLogo.className = "col";
+
+  divInfo.appendChild(divLogo);
+
+  const divLogoRow = document.createElement("div");
+  divLogoRow.className = "row";
+  divLogoRow.style.width = "50%";
+  divLogo.appendChild(divLogoRow);
 
   const divImg = document.createElement("div");
-  divImg.className = "col";
-  divImg.src = deerIcon;
+  divImg.className = "col-4";
+  divImg.style.paddingLeft = "50px";
+
+  divLogoRow.appendChild(divImg);
+
+  const img = document.createElement("img");
+  img.src = deerIcon;
+  img.style.maxWidth = "100px";
+  img.style.maxHeight = "100px";
+  img.style.borderRadius = "50%";
+
+  divImg.appendChild(img);
 
   const divTitle = document.createElement("div");
-  divTitle.className = "col";
+  divTitle.className = "col-8";
   divTitle.innerText = "Readeer";
+  divTitle.style.color = "white";
+  divTitle.style.alignItems = "center";
+  divTitle.style.fontSize = "x-large";
+  divTitle.style.paddingTop = "35px";
 
-  container.appendChild(divInfo);
-  divInfo.appendChild(divLogo);
-  divLogo.appendChild(divImg);
-  divLogo.appendChild(divTitle);
+  divLogoRow.appendChild(divImg);
+  divLogoRow.appendChild(divTitle);
 
-  // const container = document.createElement("div");
-  // container.className = "navbar-container";
-  // const divLogo = document.createElement("div");
-  // divLogo.className = "divLogo";
-  // container.appendChild(divLogo);
-  // const logoImg = document.createElement("img");
-  // logoImg.className = "logo-image";
-  // logoImg.src = deerIcon;
-  // divLogo.append(logoImg);
-  // const logoText = document.createElement("p");
-  // logoText.className = "logo-text";
-  // logoText.innerHTML = "Readeer";
-  // divLogo.append(logoText);
+  // divLogo.appendChild(divTitle);
 
-  const divNav = document.createElement("div");
-  divNav.className = "col-8";
-  divInfo.appendChild(divNav);
+  //  Navigation
+
+  const divMenu = document.createElement("div");
+  divMenu.className = "col";
+  
+  const divNav = document.createElement("nav");
+  divNav.className = "navbar";
+  divNav.style.justifyContent="flex-end"
+  divNav.style.marginTop = "30px";
+  // divNav.style.marginLeft = "700px";
+
+  divInfo.appendChild(divMenu);
+  divMenu.appendChild(divNav);
 
   for (const route of routes) {
     const anchor = document.createElement("a");
-    anchor.className = "navbar-anchor";
+    anchor.className = "navbar-brand nav-item nav-link";
+    anchor.style.color = "white";
     anchor.innerHTML = route.name;
     anchor.href = route.path;
     anchor.setAttribute("data-navigo", "");
