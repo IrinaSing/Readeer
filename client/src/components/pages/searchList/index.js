@@ -9,6 +9,7 @@ import { state } from '../../../init/state.js';
 import { reloadPage } from '../../layout/page.js';
 import { bookPreview } from '../../shared/bookPreview.js';
 import { bookDetail } from './book';
+import { searchBarComponent } from '../../shared/searchbar';
 
 /**
  * The Books search result page.
@@ -19,10 +20,10 @@ export const searchList = () => {
   const container = document.createElement('section');
   container.classList.add(classes.list);
 
-  console.log('here');
+  const searchBar = searchBarComponent();
+  container.appendChild(searchBar);
 
   if (state.currentBookId) {
-    console.log('specific');
     fetchSpecificBook(state.currentBookId).then((book) => {
       const element = bookDetail(
         book.id,
@@ -41,20 +42,12 @@ export const searchList = () => {
     return container;
   }
 
-  console.log(state.searchFilter);
-  console.log(state.searchFilter !== undefined && state.searchFilter !== '');
-  console.log(Object.keys(state.searchFilter).length !== 0);
-
   if (
     state.searchFilter !== undefined &&
     state.searchFilter !== '' &&
     Object.keys(state.searchFilter).length !== 0
   ) {
-    //TODO post
-    console.log('if');
     performBookSearchPost(state.searchFilter).then((books) => {
-      console.log(books);
-
       if (books.length > 0) {
         const previews = books.map((book) => {
           return bookPreview(
@@ -86,7 +79,6 @@ export const searchList = () => {
     return container;
   }
 
-  console.log('else');
   fetchBooks().then((books) => {
     const previews = books.map((book) => {
       return bookPreview(

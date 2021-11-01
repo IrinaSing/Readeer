@@ -17,14 +17,18 @@ export const searchBarComponent = () => {
   inputElement.type = 'text';
   inputElement.id = 'search';
   inputElement.className = 'form-control searchBox';
+
+  // to override default bootstrap behaviors and add custom styles wrt the design
   inputElement.style.backgroundColor = '#ededed';
   inputElement.style.background = '#ededed';
   inputElement.style.border = 'none';
   inputElement.style.margin = '0 0 0 10px';
   inputElement.style.borderRadius = '2rem';
   inputElement.placeholder = 'Search for books here...';
+
   searchForm.appendChild(inputElement);
 
+  // to override default bootstrap behaviors on focus and blur
   inputElement.addEventListener('focus', function () {
     this.parentElement.style.border = '3px solid #86b7fe';
     this.parentElement.style.borderRadius = '2rem';

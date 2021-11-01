@@ -1,5 +1,3 @@
-// import { displayBooks } from "../components/pages/home/search/displaybooks.js";
-// import { mySearch } from "../components/pages/home/search/loadbooks.js";
 import { state } from '../init/state.js';
 import { createFilter } from '../logic/createFilter.js';
 import {
@@ -14,8 +12,7 @@ export const searchButtonHandler = (event) => {
 
   const userInput = event.target[0].value;
 
-  // TODO add filter options for title author description language (ISBN, city,  etc)
-  console.log(userInput);
+  // add filter options for title author language ISBN (, city,  etc)
 
   let filter = {};
 
@@ -25,9 +22,6 @@ export const searchButtonHandler = (event) => {
   }
 
   state.searchFilter = filter;
-  // const filter = {};
 
-  // redirect to Books-Page
-  // navigateToBooksPage(event);
   navigateToBooksPageWithFilter();
 };

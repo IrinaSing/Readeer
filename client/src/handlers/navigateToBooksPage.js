@@ -7,5 +7,6 @@ export const navigateToBooksPage = (event) => {
   router.navigate('/books');
 };
 export const navigateToBooksPageWithFilter = () => {
+  router.navigate('/');
   router.navigate('/books');
 };
