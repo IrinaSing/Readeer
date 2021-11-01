@@ -1,4 +1,4 @@
-import { navigateToLoginPage } from "../../../handlers/navigateToLogin.js";
+import { navigateToLoginPage } from "../../../handlers/navigate-to-login.js";
 import partyIcon from "../../../../public/icons/party.png";
 
 export const userRegistered = (username) => {

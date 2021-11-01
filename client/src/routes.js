@@ -4,6 +4,7 @@ import { home } from './components/pages/home/index.js';
 import { register } from './components/pages/register/index.js';
 import { login } from './components/pages/login/index.js';
 import { about } from './components/pages/aboutUs/index.js';
+import { searchList } from './components/pages/searchList/index.js';
 
 /**
  * Defines the route URLs, names and callbacks.
@@ -66,5 +67,10 @@ const routeHandler =
     name: 'about',
     path: `/about`,
     callback: routeHandler(about),
+  },
+  {
+    name: 'books',
+    path: `/books`,
+    callback: routeHandler(searchList),
   },
 ].forEach((route) => routes.push(route));

@@ -1,8 +1,19 @@
-import { state } from "../state/state.js";
+import { state } from "../../../src/init/state";
+
+// Check if the api is not hosted on a different origin if so use that.
+const getOrigin = () => {
+  if (import.meta && import.meta.env && import.meta.env.VITE_API_ORIGIN) {
+    return import.meta.env.VITE_API_ORIGIN;
+  }
+
+  return window.location.origin;
+}
+
+const origin = getOrigin();
 
 // Use "GET" method to fetch a path
 const performFetch = async (path) => {
-  const URL = `${window.location.origin}/api/${path}`;
+  const URL = `${origin}/api/${path}`;
   const encodedURL = encodeURI(URL);
   const response = await fetch(encodedURL, {
     method: "GET",
@@ -22,7 +33,7 @@ const performFetch = async (path) => {
 
 // Use "POST" method to post a path
 const performPost = async (path, body) => {
-  const URL = `${window.location.origin}/api/${path}`;
+  const URL = `${origin}/api/${path}`;
   const encodedURL = encodeURI(URL);
   const response = await fetch(encodedURL, {
     method: "POST",
