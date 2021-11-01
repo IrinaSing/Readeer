@@ -1,4 +1,5 @@
 import classes from './index.module.css';
+
 import {
   fetchBooks,
   fetchSpecificBook,
@@ -10,6 +11,7 @@ import { reloadPage } from '../../layout/page.js';
 import { bookPreview } from '../../shared/bookPreview.js';
 import { bookDetail } from './book';
 import { searchBarComponent } from '../../shared/searchbar';
+import { loadingComponent } from '../../shared/loading';
 
 /**
  * The Books search result page.
@@ -18,13 +20,19 @@ import { searchBarComponent } from '../../shared/searchbar';
  */
 export const searchList = () => {
   const container = document.createElement('section');
+  container.classList.add('container');
   container.classList.add(classes.list);
 
   const searchBar = searchBarComponent();
   container.appendChild(searchBar);
 
+  const loadingElement = loadingComponent();
+  container.appendChild(loadingElement);
+
   if (state.currentBookId) {
     fetchSpecificBook(state.currentBookId).then((book) => {
+      container.removeChild(loadingElement);
+
       const element = bookDetail(
         book.id,
         book.title,
@@ -48,6 +56,8 @@ export const searchList = () => {
     Object.keys(state.searchFilter).length !== 0
   ) {
     performBookSearchPost(state.searchFilter).then((books) => {
+      container.removeChild(loadingElement);
+
       if (books.length > 0) {
         const previews = books.map((book) => {
           return bookPreview(
@@ -80,6 +90,8 @@ export const searchList = () => {
   }
 
   fetchBooks().then((books) => {
+    container.removeChild(loadingElement);
+
     const previews = books.map((book) => {
       return bookPreview(
         book.id,
