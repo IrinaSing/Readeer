@@ -15,7 +15,7 @@ export const loginForm = () => {
 
   const introDiv = document.createElement("div");
   introDiv.className = "row p-3 rounded";
-  introDiv.style.backgroundColor = "#36406E";
+  introDiv.style.backgroundColor = "#DEF3FF";
 
   const pictureDiv = document.createElement("div");
   pictureDiv.className = "col-3";
@@ -29,10 +29,10 @@ export const loginForm = () => {
   animalReading.style.maxWidth = "70%";
   pictureDiv.appendChild(animalReading);
 
-  const header = document.createElement("h1");
+  const header = document.createElement("p");
   header.textContent = "Search for books available in your neighbourhood!";
-  header.className = "h1";
-  header.style.color = "white";
+  header.className = "h1 banner-text";
+  header.style.color = "#474747";
   headerDiv.appendChild(header);
   introDiv.appendChild(headerDiv);
   introDiv.appendChild(pictureDiv);
@@ -98,7 +98,7 @@ export const loginForm = () => {
 
   // submit button div
   const submitDiv = document.createElement("DIV");
-  submitDiv.classList = "row justify-content-center";
+  submitDiv.classList = "text-center m-3";
 
   // submit button
   const submitBtn = document.createElement("BUTTON");
