@@ -29,9 +29,10 @@ export const goalsContent = () => {
   goalSocial.classList = 'p-2';
 
   goalSocial.classList = 'social';
+
   const socialImg = document.createElement('img');
   socialImg.src = socialBenefits;
-  socialImg.style.maxWidth = '10%';
+  // socialImg.style.maxWidth = '10%';
   const titleSocial = document.createElement('h2');
   titleSocial.classList = 'h2';
   titleSocial.innerText = 'Social benefits';
