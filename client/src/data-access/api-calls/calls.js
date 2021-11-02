@@ -1,15 +1,26 @@
-import { state } from "../state/state.js";
+import { state } from '../../../src/init/state';
+
+// Check if the api is not hosted on a different origin if so use that.
+const getOrigin = () => {
+  if (import.meta && import.meta.env && import.meta.env.VITE_API_ORIGIN) {
+    return import.meta.env.VITE_API_ORIGIN;
+  }
+
+  return window.location.origin;
+};
+
+const origin = getOrigin();
 
 // Use "GET" method to fetch a path
 const performFetch = async (path) => {
-  const URL = `${window.location.origin}/api/${path}`;
+  const URL = `${origin}/api/${path}`;
   const encodedURL = encodeURI(URL);
   const response = await fetch(encodedURL, {
-    method: "GET",
+    method: 'GET',
     headers: {
-      "Content-Type": "application/json",
-      Authorization: state.token === undefined ? "" : `Bearer ${state.token}`,
-      Email: state.email === undefined ? "" : state.email,
+      'Content-Type': 'application/json',
+      Authorization: state.token === undefined ? '' : `Bearer ${state.token}`,
+      Email: state.email === undefined ? '' : state.email,
     },
   });
   if (!response.ok) {
@@ -22,14 +33,14 @@ const performFetch = async (path) => {
 
 // Use "POST" method to post a path
 const performPost = async (path, body) => {
-  const URL = `${window.location.origin}/api/${path}`;
+  const URL = `${origin}/api/${path}`;
   const encodedURL = encodeURI(URL);
   const response = await fetch(encodedURL, {
-    method: "POST",
+    method: 'POST',
     headers: {
-      "Content-Type": "application/json",
-      Authorization: state.token === undefined ? "" : `Bearer ${state.token}`,
-      Email: state.email === undefined ? "" : state.email,
+      'Content-Type': 'application/json',
+      Authorization: state.token === undefined ? '' : `Bearer ${state.token}`,
+      Email: state.email === undefined ? '' : state.email,
     },
     body: JSON.stringify(body),
   });
@@ -43,15 +54,23 @@ const performPost = async (path, body) => {
 
 // login the app
 export const postLogin = async (email, password) => {
-  return await performPost("login", {
+  return await performPost('login', {
     email,
     password,
   });
 };
 
 // register the app
-export const postRegister = async (email, username, password, firstName, lastName, birthday, city) => {
-  return await postRegister("register", {
+export const postRegister = async (
+  email,
+  username,
+  password,
+  firstName,
+  lastName,
+  birthday,
+  city
+) => {
+  return await performPost('/register', {
     email,
     username,
     password,
@@ -64,7 +83,7 @@ export const postRegister = async (email, username, password, firstName, lastNam
 
 // fetch all the books
 export const fetchBooks = async () => {
-  return await performFetch("books");
+  return await performFetch('books');
 };
 
 // fetch a specific book
@@ -105,4 +124,9 @@ export const postBookRequest = async (userId) => {
     return [];
   }
   return await performPost(`users/${userId}/request`);
+};
+
+// post book search
+export const performBookSearchPost = async (filter = {}) => {
+  return await performPost('books', { filter: filter });
 };

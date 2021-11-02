@@ -24,7 +24,7 @@ const loginManager = {
     );
 
     if (!existingUser) {
-      throw new Error('Invalid username or password !');
+      throw new Error('Invalid email or password!');
     }
 
     const token = createToken(existingUser);
@@ -34,6 +34,7 @@ const loginManager = {
       email: email,
       username: existingUser.username,
       message: `Session created for user ${existingUser.username}`,
+      userId: existingUser._id,
     };
   },
 };
