@@ -15,6 +15,12 @@
   margin-left: -25px;
 }
 
+.banner-text {
+  font-family: "Solway", serif;
+  font-weight: "700";
+  text-align: center;
+}
+
 .reset,
 video,
 audio,

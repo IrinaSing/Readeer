@@ -14,7 +14,7 @@ export const registerForm = () => {
 
   const introDiv = document.createElement("div");
   introDiv.className = "row p-3 rounded";
-  introDiv.style.backgroundColor = "#9ed7f0";
+  introDiv.style.backgroundColor = "#FFEB92";
 
   const pictureDiv = document.createElement("div");
   pictureDiv.className = "col-3";
@@ -24,14 +24,13 @@ export const registerForm = () => {
 
   const animalReading = document.createElement("img");
   animalReading.src = animalReadingReading;
-  animalReading.className = "rounded";
   animalReading.style.maxWidth = "70%";
   pictureDiv.appendChild(animalReading);
 
   const header = document.createElement("h1");
   header.textContent = "Join Readeer to find a book for your child!";
-  header.className = "h1";
-  header.style.color = "white";
+  header.className = "h1 banner-text";
+  header.style.color = "#474747";
   headerDiv.appendChild(header);
   introDiv.appendChild(pictureDiv);
   introDiv.appendChild(headerDiv);
@@ -47,7 +46,7 @@ export const registerForm = () => {
 
   // first row
   const formRow1 = document.createElement("div");
-  formRow1.className = "form-row";
+  formRow1.className = "row";
 
   // name input
   const nameField = document.createElement("div");
@@ -95,7 +94,7 @@ export const registerForm = () => {
 
   // second row
   const formRow2 = document.createElement("div");
-  formRow2.className = "form-row";
+  formRow2.className = "row";
 
   // username
   const userNameField = document.createElement("div");
@@ -146,7 +145,7 @@ export const registerForm = () => {
 
   // start 3 row
   const formRow3 = document.createElement("div");
-  formRow3.className = "form-row";
+  formRow3.className = "row";
 
   // email
   const emailField = document.createElement("div");
@@ -204,7 +203,7 @@ export const registerForm = () => {
 
   // start 4 row
   const formRow4 = document.createElement("div");
-  formRow4.className = "form-row";
+  formRow4.className = "row";
 
   // Password
   const passwordField = document.createElement("div");
@@ -270,7 +269,7 @@ export const registerForm = () => {
   agreementDiv.appendChild(agreementLabel);
 
   const agreementDivContainer = document.createElement("div");
-  agreementDivContainer.classList = "form-group col-md-6";
+  agreementDivContainer.classList = "col-md-6 m-3";
   agreementDivContainer.appendChild(agreementDiv);
 
   // alert div
@@ -280,19 +279,22 @@ export const registerForm = () => {
 
   // button sign in div
   const formRow5 = document.createElement("div");
-  formRow5.className = "form-row";
+  formRow5.className = "row";
 
   // submit button
+  const buttonDiv = document.createElement("div");
+  buttonDiv.className = "col-auto";
   const submitBtn = document.createElement("BUTTON");
   submitBtn.classList = "btn btn-primary";
   submitBtn.type = "submit";
   submitBtn.value = "submit";
   submitBtn.innerHTML = "Register";
   submitBtn.id = "registerSubmitButton";
+  buttonDiv.appendChild(submitBtn);
 
   // if you have an account - sign in
   const signInDiv = document.createElement("div");
-  signInDiv.classList = "m-3";
+  signInDiv.classList = "col-auto m-3";
 
   const singInP = document.createElement("p");
 
@@ -304,7 +306,7 @@ export const registerForm = () => {
   singInP.appendChild(singInLink);
   signInDiv.appendChild(singInLink);
 
-  formRow5.appendChild(submitBtn);
+  formRow5.appendChild(buttonDiv);
   formRow5.appendChild(signInDiv);
 
   form.appendChild(formRow1);
