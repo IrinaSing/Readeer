@@ -11,9 +11,9 @@ import { setBook } from "../../../handlers/set-book.js";
 import { state } from "../../../init/state.js";
 import { reloadPage } from "../../layout/page.js";
 import { bookPreview } from "../../shared/bookPreview.js";
-import { bookDetail } from "./book.js";
-import { searchBarComponent } from "../../shared/searchbar.js";
-import { loadingComponent } from "../../shared/loading.js";
+import { bookDetail } from "./book";
+import { searchBarComponent } from "../../shared/searchbar";
+import { loadingComponent } from "../../shared/loading";
 
 /**
  * The Books search result page.
@@ -63,7 +63,7 @@ export const searchList = () => {
       if (books.length > 0) {
         // filter array to get rid of books with the same isbn
         const uniqueValuesBooks = new Set();
-        const removeDuplicate = books.filter((book) => {
+        const filteredArr = books.filter((book) => {
           // check if name property value is already in the set
           const isPresentInSet = uniqueValuesBooks.has(book.isbn_13);
 
@@ -75,8 +75,7 @@ export const searchList = () => {
           return !isPresentInSet;
         });
 
-        console.log(removeDuplicate);
-        const previews = removeDuplicate.map((book) => {
+        const previews = filteredArr.map((book) => {
           return bookPreview(
             book.id,
             book.title,
@@ -106,10 +105,22 @@ export const searchList = () => {
     return container;
   }
 
-  fetchBooks().then((removeDuplicate) => {
+  fetchBooks().then((books) => {
+    const uniqueValuesBooks = new Set();
+    const filteredArr = books.filter((book) => {
+      // check if name property value is already in the set
+      const isPresentInSet = uniqueValuesBooks.has(book.isbn_13);
+
+      // add name property value to Set
+      uniqueValuesBooks.add(book.isbn_13);
+
+      // return the negated value of
+      // isPresentInSet variable
+      return !isPresentInSet;
+    });
     container.removeChild(loadingElement);
 
-    const previews = removeDuplicate.map((book) => {
+    const previews = filteredArr.map((book) => {
       return bookPreview(
         book.id,
         book.title,
