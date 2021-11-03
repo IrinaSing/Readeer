@@ -1,4 +1,4 @@
-import { navbar } from './navbar.js';
+import { navbar } from './header/navbar.js';
 import { footer } from './footer.js';
 
 /**
