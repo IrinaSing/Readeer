@@ -64,11 +64,6 @@ const routeHandler =
     callback: routeHandler(register),
   },
   {
-    name: 'about',
-    path: `/about`,
-    callback: routeHandler(about),
-  },
-  {
     name: 'books',
     path: `/books`,
     callback: routeHandler(searchList),
