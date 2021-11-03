@@ -1,0 +1,47 @@
+.home-goals {
+  background-color: #ffeb92;
+  font-family: 'Solway', serif;
+  padding: 3rem;
+}
+
+.h1 {
+  text-align: center;
+  font-family: 'Solway', serif;
+}
+
+.h2 {
+  text-align: center;
+  font-family: 'Solway', serif;
+}
+
+.p_text {
+  font-family: 'Poppins', sans-serif;
+}
+
+.social {
+  float: left;
+  width: 50%;
+  padding: 40px;
+  box-sizing: border-box;
+  line-height: 160%;
+  font-size: 16px;
+  height: 50%;
+}
+
+.moneyEnvi {
+  float: right;
+  width: 50%;
+  padding: 40px;
+  box-sizing: border-box;
+  line-height: 160%;
+  font-size: 16px;
+  height: 50%;
+}
+
+.icons {
+  margin: 0;
+  margin: 0;
+  max-width: 10%;
+  position: relative;
+  /* object-fit: contain; */
+}
