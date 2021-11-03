@@ -5,7 +5,7 @@ import showcaseImg from "../../../../public/little-girl.png";
 
 export const showcase = () => {
   const divContainer = document.createElement("div");
-  divContainer.classList = "container-lg py-5 w-75 margin-left:4rem";
+  divContainer.classList = "container-lg w-75";
   divContainer.style.marginLeft = "150px";
   divContainer.style.marginTop = "100px";
   divContainer.style.background = "#FBF9F9";
@@ -76,10 +76,10 @@ export const useful = () => {
   const row = document.createElement("div");
   row.className = "row";
   const col1 = document.createElement("div");
-  col1.className = "col-2";
+  col1.className = "col-3";
 
   const col2 = document.createElement("div");
-  col2.className = "col-10";
+  col2.className = "col-9";
   divContainer.appendChild(row);
   row.appendChild(col1);
   row.appendChild(col2);
@@ -127,18 +127,19 @@ export const useful = () => {
   const contentDiv = document.createElement("div");
 
   const cDiv1 = document.createElement("div");
-  cDiv1.className = "section-useful-content";
+  cDiv1.className = "section-useful-content text-wrap";
+  
 
   cDiv1.innerHTML = `You are a parent who lives abroad and experiences
   difficulty finding books for family reading in your mother tongue..`;
 
   const cDiv2 = document.createElement("div");
-  cDiv2.className = "section-useful-content";
+  cDiv2.className = "section-useful-content text-wrap";
 
   cDiv2.innerHTML = `You want to involve your children in sharing activities, to socialize them.`;
 
   const cDiv3 = document.createElement("div");
-  cDiv3.className = "section-useful-content";
+  cDiv3.className = "section-useful-content text-wrap";
 
   cDiv3.innerHTML = `You want to connect with some other family and find friends
   for your child to speak their mother language with.`;
@@ -146,12 +147,12 @@ export const useful = () => {
   const cDiv4 = document.createElement("div");
 
   cDiv4.innerText = `You are a parent who wants to give away books when children outgrow them.`;
-  cDiv4.className = "section-useful-content";
+  cDiv4.className = "section-useful-content text-wrap";
 
   const cDiv5 = document.createElement("div");
 
   cDiv5.innerHTML = `You are a child who likes to read and finds it fun to exchange books with peers.`;
-  cDiv5.className = "section-useful-content";
+  cDiv5.className = "section-useful-content text-wrap";
 
   col2.appendChild(header);
   col2.appendChild(contentDiv);
