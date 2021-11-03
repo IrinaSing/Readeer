@@ -64,14 +64,8 @@ export const searchList = () => {
         // filter array to get rid of books with the same isbn
         const uniqueValuesBooks = new Set();
         const filteredArr = books.filter((book) => {
-          // check if name property value is already in the set
           const isPresentInSet = uniqueValuesBooks.has(book.isbn_13);
-
-          // add name property value to Set
           uniqueValuesBooks.add(book.isbn_13);
-
-          // return the negated value of
-          // isPresentInSet variable
           return !isPresentInSet;
         });
 
@@ -106,16 +100,11 @@ export const searchList = () => {
   }
 
   fetchBooks().then((books) => {
+    // filter array to get rid of books with the same isbn
     const uniqueValuesBooks = new Set();
     const filteredArr = books.filter((book) => {
-      // check if name property value is already in the set
       const isPresentInSet = uniqueValuesBooks.has(book.isbn_13);
-
-      // add name property value to Set
       uniqueValuesBooks.add(book.isbn_13);
-
-      // return the negated value of
-      // isPresentInSet variable
       return !isPresentInSet;
     });
     container.removeChild(loadingElement);
