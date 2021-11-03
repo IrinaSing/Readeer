@@ -28,7 +28,7 @@ export const navbar = (routes) => {
 
   // create a col for logo & brand
   const logoCol = document.createElement('div');
-  logoCol.className = 'col-md-6';
+  logoCol.className = 'col-sm-6';
   navBarContainerInnerRow.appendChild(logoCol);
   {
     //create inner container
@@ -74,7 +74,7 @@ export const navbar = (routes) => {
 
   // create a col for navbar
   const navCol = document.createElement('div');
-  navCol.className = 'col-md-6';
+  navCol.className = 'col-sm-6';
   navBarContainerInnerRow.appendChild(navCol);
   {
     const divNav = document.createElement('nav');
@@ -85,7 +85,7 @@ export const navbar = (routes) => {
 
     for (const route of routes) {
       const anchor = document.createElement('a');
-      anchor.className = 'nav-item nav-link fs-4';
+      anchor.className = 'nav-item nav-link fs-5';
       anchor.style.color = 'white';
       anchor.innerHTML = route.name;
       anchor.href = route.path;
