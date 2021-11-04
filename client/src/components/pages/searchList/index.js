@@ -11,9 +11,11 @@ import { setBook } from "../../../handlers/set-book.js";
 import { state } from "../../../init/state.js";
 import { reloadPage } from "../../layout/page.js";
 import { bookPreview } from "../../shared/bookPreview.js";
-import { bookDetail } from "./book";
-import { searchBarComponent } from "../../shared/searchbar";
-import { loadingComponent } from "../../shared/loading";
+import { bookDetail } from "./book.js";
+import { searchBarComponent } from "../../shared/searchbar.js";
+import { loadingComponent } from "../../shared/loading.js";
+import { findBookOwners } from "../../../handlers/find-bookowners.js";
+import { bookownersList } from "./bookowners-list.js";
 
 /**
  * The Books search result page.
@@ -35,6 +37,7 @@ export const searchList = () => {
     fetchSpecificBook(state.currentBookId).then((book) => {
       container.removeChild(loadingElement);
 
+      // render card with detailes about the book
       const element = bookDetail(
         book.id,
         book.title,
@@ -45,7 +48,12 @@ export const searchList = () => {
         book.thumbnail
       );
 
+      // get data about all offers
+      const offersArray = findBookOwners(book.isbn_13);
+      const ownersList = bookownersList(offersArray);
+
       container.appendChild(element);
+      container.appendChild(ownersList);
     });
 
     state.currentBookId = "";

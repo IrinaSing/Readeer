@@ -8,7 +8,7 @@ import {
 import { back } from "../../../handlers/unset-book.js";
 */
 import classes from "./book.module.css";
-import { bookownersList } from "./bookowners-list.js";
+// import { bookownersList } from "./bookowners-list.js";
 
 /**
  * The book card.
@@ -26,6 +26,7 @@ export const bookDetail = (
   thumbnail = "https://via.placeholder.com/200x200"
 ) => {
   const bookInfoContainer = document.createElement("div");
+  bookInfoContainer.id = "bookInfoContainer";
 
   const bookCard = document.createElement("section");
   bookCard.classList.add(classes.book);
@@ -51,8 +52,9 @@ export const bookDetail = (
   descriptor.classList.add(classes.descriptor);
 
   const listDiv = document.createElement("div");
-  const ownersList = bookownersList();
-  listDiv.appendChild(ownersList);
+  listDiv.id = "listDiv";
+  // const ownersList = bookownersList(); // isbn_13
+  // listDiv.appendChild(ownersList);
 
   details.appendChild(header);
   details.appendChild(writerElement);
