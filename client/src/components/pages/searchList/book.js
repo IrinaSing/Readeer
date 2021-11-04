@@ -8,7 +8,6 @@ import {
 import { back } from "../../../handlers/unset-book.js";
 */
 import classes from "./book.module.css";
-// import { bookownersList } from "./bookowners-list.js";
 
 /**
  * The book card.
@@ -53,8 +52,6 @@ export const bookDetail = (
 
   const listDiv = document.createElement("div");
   listDiv.id = "listDiv";
-  // const ownersList = bookownersList(); // isbn_13
-  // listDiv.appendChild(ownersList);
 
   details.appendChild(header);
   details.appendChild(writerElement);
