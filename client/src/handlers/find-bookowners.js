@@ -6,6 +6,7 @@
 import { createFilter } from "../logic/createFilter.js";
 import { state } from "../init/state.js";
 import { performBookSearchPost } from "../data-access/api-calls/calls.js";
+import { bookownersList } from "../components/pages/searchList/bookowners-list.js";
 
 export const findBookOwners = (bookIsbn13) => {
   const query = "isbn_13:";
@@ -14,7 +15,8 @@ export const findBookOwners = (bookIsbn13) => {
   state.searchFilter = filter;
 
   performBookSearchPost(state.searchFilter).then((books) => {
-    console.log(books);
-    // const allBookOffers = books.map((book) => {});
+    const tableDiv = document.getElementById("listDiv");
+    const table = bookownersList(books);
+    tableDiv.appendChild(table);
   });
 };

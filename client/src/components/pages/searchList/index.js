@@ -15,7 +15,7 @@ import { bookDetail } from "./book.js";
 import { searchBarComponent } from "../../shared/searchbar.js";
 import { loadingComponent } from "../../shared/loading.js";
 import { findBookOwners } from "../../../handlers/find-bookowners.js";
-import { bookownersList } from "./bookowners-list.js";
+// import { bookownersList } from "./bookowners-list.js";
 
 /**
  * The Books search result page.
@@ -49,11 +49,13 @@ export const searchList = () => {
       );
 
       // get data about all offers
-      const offersArray = findBookOwners(book.isbn_13);
-      const ownersList = bookownersList(offersArray);
+      findBookOwners(book.isbn_13);
+      // const offersArray = findBookOwners(book.isbn_13);
+      // console.log("offersArray", offersArray);
+      // const ownersList = bookownersList(offersArray);
 
       container.appendChild(element);
-      container.appendChild(ownersList);
+      // container.appendChild(ownersList);
     });
 
     state.currentBookId = "";
