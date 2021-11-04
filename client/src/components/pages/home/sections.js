@@ -6,7 +6,7 @@ import showcaseImg from '../../../../public/little-girl.png';
 // section what is readeer
 export const showcase = () => {
   const divContainer = document.createElement('div');
-  divContainer.classList = 'container mt-6';
+  divContainer.className = 'container my-5';
   divContainer.style.background = '#FBF9F9';
   divContainer.id = 'divContainer';
 
@@ -52,7 +52,7 @@ export const showcase = () => {
 // Section : Will it be useful for me?
 export const useful = () => {
   const divContainer = document.createElement('div');
-  divContainer.classList = 'container mt-3';
+  divContainer.className = 'container my-5';
   divContainer.id = 'divContainer';
 
   // first row for title
