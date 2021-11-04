@@ -21,6 +21,16 @@
   text-align: center;
 }
 
+.btn-blue {
+  background-color: #1e78c7;
+  color: white;
+}
+
+.btn-blue:hover {
+  background-color: #1a6bb3;
+  color: white;
+}
+
 .reset,
 video,
 audio,

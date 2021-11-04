@@ -1,6 +1,7 @@
 /* eslint-disable folders/match-regex */
 export const bookownersList = (offersArray) => {
   const tableContainer = document.createElement("div");
+  tableContainer.className = "m-3";
 
   const table = document.createElement("table");
   table.className = "table table-striped";
@@ -36,7 +37,7 @@ export const bookownersList = (offersArray) => {
 
     const tdBtn = document.createElement("td");
     const contactBtn = document.createElement("button");
-    contactBtn.className = "btn btn-primary";
+    contactBtn.className = "btn btn-blue";
     contactBtn.innerHTML = "Contact";
     tdBtn.appendChild(contactBtn);
     trBody.appendChild(tdBtn);

@@ -15,7 +15,6 @@ import { bookDetail } from "./book.js";
 import { searchBarComponent } from "../../shared/searchbar.js";
 import { loadingComponent } from "../../shared/loading.js";
 import { findBookOwners } from "../../../handlers/find-bookowners.js";
-// import { bookownersList } from "./bookowners-list.js";
 
 /**
  * The Books search result page.
@@ -37,7 +36,7 @@ export const searchList = () => {
     fetchSpecificBook(state.currentBookId).then((book) => {
       container.removeChild(loadingElement);
 
-      // render card with detailes about the book
+      // render card with details about the book
       const element = bookDetail(
         book.id,
         book.title,
@@ -50,12 +49,8 @@ export const searchList = () => {
 
       // get data about all offers
       findBookOwners(book.isbn_13);
-      // const offersArray = findBookOwners(book.isbn_13);
-      // console.log("offersArray", offersArray);
-      // const ownersList = bookownersList(offersArray);
 
       container.appendChild(element);
-      // container.appendChild(ownersList);
     });
 
     state.currentBookId = "";
