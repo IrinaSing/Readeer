@@ -3,164 +3,149 @@ import children from '../../../../public/icons/children.png';
 
 import showcaseImg from '../../../../public/little-girl.png';
 
+// section what is readeer
 export const showcase = () => {
   const divContainer = document.createElement('div');
-  // divContainer.classList = "container-lg w-75";
-  divContainer.classList = 'container mt-5';
-  // divContainer.style.marginLeft = "150px";
-  // divContainer.style.marginTop = "100px";
+  divContainer.classList = 'container mt-6';
   divContainer.style.background = '#FBF9F9';
-
   divContainer.id = 'divContainer';
 
   const infoDiv = document.createElement('div');
   infoDiv.id = 'infoDiv';
   infoDiv.className = 'row p-3 rounded';
-
-  const pictureDiv = document.createElement('div');
-  pictureDiv.className = 'col-md-6';
+  divContainer.appendChild(infoDiv);
 
   const headerDiv = document.createElement('div');
-  headerDiv.className = 'col-md-6';
+  headerDiv.className = 'col-md-5 pt-5';
+  infoDiv.appendChild(headerDiv);
 
-  const showcasePicture = document.createElement('img');
-  showcasePicture.src = showcaseImg;
-  showcasePicture.className = 'd-block';
-  // showcasePicture.className = 'img-fluid';
-  showcasePicture.style.width = '100%';
-  // showcasePicture.style.height = 'fit-content';
-
-  pictureDiv.appendChild(showcasePicture);
+  const pictureDiv = document.createElement('div');
+  pictureDiv.className = 'col-md-7';
+  infoDiv.appendChild(pictureDiv);
 
   const header = document.createElement('h1');
   header.textContent = 'What is Readeer?';
   header.className = 'h1';
   header.style.color = '#1E78C7';
   header.style.paddingTop = '150px';
-  header.style.marginLeft = '100px';
+  headerDiv.appendChild(header);
 
   const content = document.createElement('h3');
   content.className = 'h3 text-muted lead';
   header.style.paddingTop = '20px';
-  content.style.marginLeft = '100px';
   content.innerHTML = `
     Readeer is a platform for exchange of children's books in your neighbourhood.
     
     Currently available only in Belgium.
     `;
-  //   content.classList = "text-md-start fs-3";
-
-  // divContainer.appendChild(headerDiv);
-  // divContainer.appendChild(pictureDiv);
-
-  divContainer.appendChild(infoDiv);
-  infoDiv.appendChild(headerDiv);
-  infoDiv.appendChild(pictureDiv);
-
-  headerDiv.appendChild(header);
   headerDiv.appendChild(content);
+
+  const showcasePicture = document.createElement('img');
+  showcasePicture.src = showcaseImg;
+  showcasePicture.className = 'd-block';
+  showcasePicture.style.width = '100%';
+  pictureDiv.appendChild(showcasePicture);
 
   return divContainer;
 };
 
 // Section : Will it be useful for me?
-
 export const useful = () => {
   const divContainer = document.createElement('div');
-  divContainer.classList = 'container-lg py-5 w-75 margin-left:4rem';
-  divContainer.style.marginLeft = '150px';
-
-  divContainer.style.marginTop = '20px';
-
+  divContainer.classList = 'container mt-3';
   divContainer.id = 'divContainer';
 
-  const row = document.createElement('div');
-  row.className = 'row';
-  const col1 = document.createElement('div');
-  col1.className = 'col-3';
+  // first row for title
+  const titleRow = document.createElement('div');
+  titleRow.className = 'row';
+  divContainer.appendChild(titleRow);
 
-  const col2 = document.createElement('div');
-  col2.className = 'col-9';
-  divContainer.appendChild(row);
-  row.appendChild(col1);
-  row.appendChild(col2);
+  const titleColumn = document.createElement('div');
+  titleColumn.className = 'col-md-12';
+  titleRow.appendChild(titleColumn);
 
-  // Icons
-
-  const row2 = document.createElement('div');
-  // row2.className = "row";
-
-  const adultsDiv = document.createElement('img');
-  adultsDiv.style.marginTop = '150px';
-  adultsDiv.style.marginBottom = '20px';
-  adultsDiv.style.marginLeft = '80px';
-
-  adultsDiv.src = adults;
-  adultsDiv.className = 'img-fluid';
-  adultsDiv.style.maxWidth = '40%';
-
-  const row3 = document.createElement('div');
-  // row3.className = "row";
-
-  const childrenDiv = document.createElement('img');
-  childrenDiv.src = children;
-  childrenDiv.style.marginLeft = '80px';
-
-  childrenDiv.className = 'img-fluid';
-  childrenDiv.style.maxWidth = '40%';
-
-  col1.appendChild(row2);
-  col1.appendChild(row3);
-  row2.appendChild(adultsDiv);
-  row3.appendChild(childrenDiv);
-
-  // Header
+  // title
   const header = document.createElement('h1');
   header.className = 'h1';
   header.style.color = '#1E78C7';
   header.style.textAlign = 'center';
   header.style.marginBottom = '50px';
-
   header.innerText = `Will it be useful for me? `;
+  titleColumn.appendChild(header);
 
-  // Content
+  // second row for image and content
+  const contentFirstRow = document.createElement('div');
+  contentFirstRow.className = 'row';
+  divContainer.appendChild(contentFirstRow);
 
-  const contentDiv = document.createElement('div');
+  // first column for image
+  const imageColumn1 = document.createElement('div');
+  imageColumn1.className = 'col-md-3';
+  contentFirstRow.appendChild(imageColumn1);
+
+  // first image
+  const adultsImg = document.createElement('img');
+  adultsImg.src = adults;
+  adultsImg.className = 'd-block mx-auto';
+  adultsImg.style.maxWidth = '40%';
+  imageColumn1.appendChild(adultsImg);
+
+  // second column for content
+  const contentColumn1 = document.createElement('div');
+  contentColumn1.className = 'col-md-9';
+  contentFirstRow.appendChild(contentColumn1);
+
+  // content x2 text
 
   const cDiv1 = document.createElement('div');
   cDiv1.className = 'section-useful-content text-wrap';
-
-  cDiv1.innerHTML = `You are a parent who lives abroad and experiences
+  cDiv1.textContent = `You are a parent who lives abroad and experiences
   difficulty finding books for family reading in your mother tongue..`;
+  contentColumn1.appendChild(cDiv1);
 
   const cDiv2 = document.createElement('div');
   cDiv2.className = 'section-useful-content text-wrap';
+  cDiv2.textContent = `You want to involve your children in sharing activities, to socialize them.`;
+  contentColumn1.appendChild(cDiv2);
 
-  cDiv2.innerHTML = `You want to involve your children in sharing activities, to socialize them.`;
+  // third row for image and content
+  const contentSecondRow = document.createElement('div');
+  contentSecondRow.className = 'row';
+  divContainer.appendChild(contentSecondRow);
 
+  // first column for image
+  const imageColumn2 = document.createElement('div');
+  imageColumn2.className = 'col-md-3';
+  contentSecondRow.appendChild(imageColumn2);
+
+  // second image
+  const childrenImg = document.createElement('img');
+  childrenImg.src = children;
+  childrenImg.className = 'd-block mx-auto';
+  childrenImg.style.maxWidth = '40%';
+  imageColumn2.appendChild(childrenImg);
+
+  // second column for content
+  const contentColumn2 = document.createElement('div');
+  contentColumn2.className = 'col-md-9';
+  contentSecondRow.appendChild(contentColumn2);
+
+  // content x3 text
   const cDiv3 = document.createElement('div');
   cDiv3.className = 'section-useful-content text-wrap';
-
   cDiv3.innerHTML = `You want to connect with some other family and find friends
   for your child to speak their mother language with.`;
+  contentColumn2.appendChild(cDiv3);
 
   const cDiv4 = document.createElement('div');
-
   cDiv4.innerText = `You are a parent who wants to give away books when children outgrow them.`;
   cDiv4.className = 'section-useful-content text-wrap';
+  contentColumn2.appendChild(cDiv4);
 
   const cDiv5 = document.createElement('div');
-
   cDiv5.innerHTML = `You are a child who likes to read and finds it fun to exchange books with peers.`;
   cDiv5.className = 'section-useful-content text-wrap';
-
-  col2.appendChild(header);
-  col2.appendChild(contentDiv);
-  contentDiv.appendChild(cDiv1);
-  contentDiv.appendChild(cDiv2);
-  contentDiv.appendChild(cDiv3);
-  contentDiv.appendChild(cDiv4);
-  contentDiv.appendChild(cDiv5);
+  contentColumn2.appendChild(cDiv5);
 
   return divContainer;
 };

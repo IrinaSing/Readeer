@@ -11,7 +11,7 @@ export const home = () => {
   container.appendChild(searchBar);
 
   container.appendChild(showcase());
-  // container.appendChild(useful());
+  container.appendChild(useful());
 
   container.appendChild(goalsContent());
   return container;
