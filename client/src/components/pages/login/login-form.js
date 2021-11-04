@@ -18,10 +18,10 @@ export const loginForm = () => {
   introDiv.style.backgroundColor = "#DEF3FF";
 
   const pictureDiv = document.createElement("div");
-  pictureDiv.className = "col-md-4";
+  pictureDiv.className = "col-md-2";
 
   const headerDiv = document.createElement("div");
-  headerDiv.className = "col-md-8";
+  headerDiv.className = "col-md-10";
 
   const animalReading = document.createElement("img");
   animalReading.src = animalReadingReading;

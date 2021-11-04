@@ -17,10 +17,10 @@ export const registerForm = () => {
   introDiv.style.backgroundColor = "#FFEB92";
 
   const pictureDiv = document.createElement("div");
-  pictureDiv.className = "col-md-4";
+  pictureDiv.className = "col-md-2";
 
   const headerDiv = document.createElement("div");
-  headerDiv.className = "col-md-8";
+  headerDiv.className = "col-md-10";
 
   const animalReading = document.createElement("img");
   animalReading.src = animalReadingReading;
@@ -33,8 +33,8 @@ export const registerForm = () => {
   header.className = "h1 banner-text";
   header.style.color = "#474747";
   headerDiv.appendChild(header);
-  introDiv.appendChild(pictureDiv);
   introDiv.appendChild(headerDiv);
+  introDiv.appendChild(pictureDiv);
   divContainer.appendChild(introDiv);
 
   const cardBody = document.createElement("div");
