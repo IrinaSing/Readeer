@@ -1,0 +1,16 @@
+.section-useful-content {
+  background-color: #fff7f0;
+  border-radius: 48px;
+  padding: 20px 30px;
+  margin-bottom: 20px;
+
+  text-align: justify;
+  /* height: 70px; */
+  width: 80%;
+}
+
+@media screen and (max-width: 768px) {
+  .section-useful-content {
+    width: 100%;
+  }
+}
