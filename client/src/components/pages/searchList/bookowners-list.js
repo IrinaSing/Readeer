@@ -1,7 +1,12 @@
 /* eslint-disable folders/match-regex */
+/**
+ * Table with data about book owners, book condition and city from books api.
+ *
+ * @returns {object} - A div element.
+ */
+
 export const bookownersList = (offersArray) => {
   const listContainer = document.createElement("div");
-  // listContainer.className = "pt-3";
 
   const headerDiv = document.createElement("div");
   headerDiv.className = "pt-3 pb-3";

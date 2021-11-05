@@ -1,7 +1,8 @@
 /**
- * Data about book owners, book condition etc taken from books api.
+ * Function collects and renders data about offers of a book with specific isbn.
  *
- * @returns {Array} Array of objects with info about book offers.
+ * @param { string } - Takes book Isbn 13.
+ * @param { type } - Handler that calls search by isbn and appends result into DOM.
  */
 import { createFilter } from "../logic/createFilter.js";
 import { state } from "../init/state.js";
