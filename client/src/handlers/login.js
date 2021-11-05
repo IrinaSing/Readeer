@@ -1,7 +1,7 @@
-import { postLogin } from "../data-access/api-calls/calls.js";
-import { errorAlert } from "../components/pages/register/error-alert.js";
-import { navigateToHomepage } from "./navigate-to-homepage.js";
-import { state } from "../../src/init/state";
+import { postLogin } from '../data-access/api-calls/calls.js';
+import { errorAlert } from '../components/pages/register/error-alert.js';
+import { navigateToHomepage } from './navigate-to-homepage.js';
+import { state } from '../../src/init/state';
 
 /**
  * This function validated user input and submits the data to the database.
@@ -16,7 +16,7 @@ export const logIn = async (event) => {
 
   const email = event.target[0];
   const password = event.target[1];
-  const btn = document.getElementById("loginSubmitButton");
+  const btn = document.getElementById('loginSubmitButton');
   btn.disabled = true;
 
   setTimeout(() => {
@@ -27,24 +27,27 @@ export const logIn = async (event) => {
   const response = await postLogin(email.value, password.value);
 
   if (response.error) {
-    const statusMessageDiv = document.getElementById("statusMessageDiv");
+    const statusMessageDiv = document.getElementById('statusMessageDiv');
     statusMessageDiv.appendChild(
       errorAlert(`<i class="fa fa-times-circle"></i> ${response.error}`)
     );
     setTimeout(() => {
-      statusMessageDiv.innerHTML = "";
+      statusMessageDiv.innerHTML = '';
     }, 3000);
     return;
   }
 
+  console.log(response);
   if (response.username) {
     // push data into state
     state.token = response.token;
     state.email = response.email;
     state.isSignedIn = true;
+    state.userId = response.userId;
 
     if (state.isSignedIn) {
       navigateToHomepage(event);
     }
   }
+  console.log(state);
 };
