@@ -1,5 +1,5 @@
 import { postRegister } from "../data-access/api-calls/calls.js";
-import { errorAlert } from "../components/pages/register/error-alert.js";
+import { errorAlert } from "../components/shared/error-alert.js";
 import { userRegistered } from "../components/pages/register/user-registered.js";
 
 /**

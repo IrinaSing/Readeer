@@ -47,12 +47,17 @@ export const searchList = () => {
         book.thumbnail
       );
 
+      container.appendChild(element);
       // TODO Should this be inside if ?
       // get data about all offers
-      const owners = await findBookOwners(book.isbn_13);
-      console.log(owners);
 
-      container.appendChild(element);
+      if (!state.isSignedIn) {
+        const listDiv = document.getElementById("listDiv");
+        listDiv.textContent = "please Log in to exchange offers";
+      } else {
+        const owners = await findBookOwners(book.isbn_13);
+        console.log(owners);
+      }
     });
 
     state.currentBookId = "";
