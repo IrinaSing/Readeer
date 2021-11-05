@@ -52,6 +52,7 @@ export const bookDetail = (
 
   const listDiv = document.createElement("div");
   listDiv.id = "listDiv";
+  listDiv.className = "p-3";
 
   details.appendChild(header);
   details.appendChild(writerElement);
