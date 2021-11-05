@@ -34,7 +34,7 @@ export const searchList = () => {
   container.appendChild(loadingElement);
 
   if (state.currentBookId) {
-    fetchSpecificBook(state.currentBookId).then(async (book) => {
+    fetchSpecificBook(state.currentBookId).then((book) => {
       container.removeChild(loadingElement);
 
       // render card with details about the book
@@ -50,7 +50,6 @@ export const searchList = () => {
 
       container.appendChild(element);
 
-      // TODO Should this be inside if ?
       // get data about all offers
 
       if (!state.isSignedIn) {
@@ -58,7 +57,7 @@ export const searchList = () => {
         const alert = errorAlert("Please log in to see offers");
         listDiv.appendChild(alert);
       } else {
-        await findBookOwners(book.isbn_13);
+        findBookOwners(book.isbn_13);
       }
     });
 

@@ -9,7 +9,7 @@ import animalReadingReading from "../../../../public/icons/lion_reading.png";
 
 export const registerForm = () => {
   const divContainer = document.createElement("div");
-  divContainer.classList = "container py-5 w-75";
+  divContainer.classList = "container pb-5 pt-4 w-75";
   divContainer.id = "divContainer";
 
   const introDiv = document.createElement("div");
