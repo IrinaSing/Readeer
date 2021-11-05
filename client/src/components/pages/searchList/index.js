@@ -15,6 +15,7 @@ import { bookDetail } from "./book.js";
 import { searchBarComponent } from "../../shared/searchbar.js";
 import { loadingComponent } from "../../shared/loading.js";
 import { findBookOwners } from "../../../handlers/find-bookowners.js";
+import { errorAlert } from "../../shared/error-alert.js";
 
 /**
  * The Books search result page.
@@ -48,15 +49,16 @@ export const searchList = () => {
       );
 
       container.appendChild(element);
+
       // TODO Should this be inside if ?
       // get data about all offers
 
       if (!state.isSignedIn) {
         const listDiv = document.getElementById("listDiv");
-        listDiv.textContent = "please Log in to exchange offers";
+        const alert = errorAlert("Please log in to see offers");
+        listDiv.appendChild(alert);
       } else {
-        const owners = await findBookOwners(book.isbn_13);
-        console.log(owners);
+        await findBookOwners(book.isbn_13);
       }
     });
 
