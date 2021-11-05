@@ -72,6 +72,7 @@ const usersManager = {
         // TODO improve to only return city field
         user = await usersStore.getById(book.book_userId);
         book.city = user.city;
+        book.username = user.username;
       } catch (error) {
         console.log('cannot get city for book ' + book.title, error);
       }
@@ -118,6 +119,7 @@ const usersManager = {
       const user = await usersStore.getById(book.userId);
 
       bookWithFullAccess.city = user.city;
+      bookWithFullAccess.username = user.username;
     } catch (error) {
       console.log('cannot get city for book ' + book.title, error);
     }
