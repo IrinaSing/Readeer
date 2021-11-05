@@ -23,17 +23,17 @@ export const bookownersList = (offersArray) => {
   bookOffers.forEach((b) => {
     const trBody = document.createElement("tr");
 
-    const tdTitle = document.createElement("td");
-    tdTitle.innerHTML = b.title;
-    trBody.appendChild(tdTitle);
+    const tdUsername = document.createElement("td");
+    tdUsername.innerHTML = b.username;
+    trBody.appendChild(tdUsername);
 
-    const tdId = document.createElement("td");
-    tdId.innerHTML = b.id;
-    trBody.appendChild(tdId);
+    const tdCity = document.createElement("td");
+    tdCity.innerHTML = b.city;
+    trBody.appendChild(tdCity);
 
-    const tdIsbn13 = document.createElement("td");
-    tdIsbn13.innerHTML = b.isbn_13;
-    trBody.appendChild(tdIsbn13);
+    const tdCondition = document.createElement("td");
+    tdCondition.innerHTML = b.condition;
+    trBody.appendChild(tdCondition);
 
     const tdBtn = document.createElement("td");
     const contactBtn = document.createElement("button");
