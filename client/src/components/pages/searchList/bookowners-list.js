@@ -37,7 +37,17 @@ export const bookownersList = (offersArray) => {
 
   const tbody = document.createElement("tbody");
   const bookOffers = offersArray;
-  bookOffers.forEach((b) => {
+
+  // filter array to remove duplicated offers from the same user
+
+  const uniqueOffers = new Set();
+  const filteredArr = bookOffers.filter((book) => {
+    const isPresentInSet = uniqueOffers.has(book.book_userId);
+    uniqueOffers.add(book.book_userId);
+    return !isPresentInSet;
+  });
+
+  filteredArr.forEach((b) => {
     const trBody = document.createElement("tr");
 
     const tdUsername = document.createElement("td");

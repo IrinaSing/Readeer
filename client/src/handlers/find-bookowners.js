@@ -17,7 +17,7 @@ export const findBookOwners = (bookIsbn13) => {
 
   performBookSearchPost(state.searchFilter).then((books) => {
     const tableDiv = document.getElementById("listDiv");
-    if (books.length !== 0) {
+    if (books.length > 0) {
       const table = bookownersList(books);
       tableDiv.appendChild(table);
     } else {
