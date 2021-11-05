@@ -1,20 +1,20 @@
 /* eslint-disable folders/match-regex */
 /* eslint-disable prettier/prettier */
-import classes from './index.module.css';
+import classes from "./index.module.css";
 
 import {
   fetchBooks,
   fetchSpecificBook,
   performBookSearchPost,
-} from '../../../data-access/api-calls/calls.js';
-import { setBook } from '../../../handlers/set-book.js';
-import { state } from '../../../init/state.js';
-import { reloadPage } from '../../layout/page.js';
-import { bookPreview } from '../../shared/bookPreview.js';
-import { bookDetail } from './book.js';
-import { searchBarComponent } from '../../shared/searchbar.js';
-import { loadingComponent } from '../../shared/loading.js';
-import { findBookOwners } from '../../../handlers/find-bookowners.js';
+} from "../../../data-access/api-calls/calls.js";
+import { setBook } from "../../../handlers/set-book.js";
+import { state } from "../../../init/state.js";
+import { reloadPage } from "../../layout/page.js";
+import { bookPreview } from "../../shared/bookPreview.js";
+import { bookDetail } from "./book.js";
+import { searchBarComponent } from "../../shared/searchbar.js";
+import { loadingComponent } from "../../shared/loading.js";
+import { findBookOwners } from "../../../handlers/find-bookowners.js";
 
 /**
  * The Books search result page.
@@ -22,8 +22,8 @@ import { findBookOwners } from '../../../handlers/find-bookowners.js';
  * @returns {HTMLDivElement} A rendered search result page.
  */
 export const searchList = () => {
-  const container = document.createElement('section');
-  container.classList.add('container');
+  const container = document.createElement("section");
+  container.classList.add("container");
   container.classList.add(classes.list);
 
   const searchBar = searchBarComponent();
@@ -49,19 +49,19 @@ export const searchList = () => {
 
       // TODO Should this be inside if ?
       // get data about all offers
-      const owner = await findBookOwners(book.isbn_13);
-      console.log(owner);
+      const owners = await findBookOwners(book.isbn_13);
+      console.log(owners);
 
       container.appendChild(element);
     });
 
-    state.currentBookId = '';
+    state.currentBookId = "";
     return container;
   }
 
   if (
     state.searchFilter !== undefined &&
-    state.searchFilter !== '' &&
+    state.searchFilter !== "" &&
     Object.keys(state.searchFilter).length !== 0
   ) {
     performBookSearchPost(state.searchFilter).then((books) => {
@@ -95,13 +95,13 @@ export const searchList = () => {
           container.appendChild(element);
         });
       } else {
-        const warning = document.createElement('div');
-        warning.className = 'p-3 my-5 bg-danger text-white fs-3';
+        const warning = document.createElement("div");
+        warning.className = "p-3 my-5 bg-danger text-white fs-3";
         warning.innerText = `It looks like there aren't many great matches for your search.`;
         container.appendChild(warning);
       }
     });
-    state.searchFilter = '';
+    state.searchFilter = "";
 
     return container;
   }
