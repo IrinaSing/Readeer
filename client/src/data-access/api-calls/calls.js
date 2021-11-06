@@ -91,7 +91,12 @@ export const fetchSpecificBook = async (bookId) => {
   if (!bookId) {
     return [];
   }
-  return await performFetch(`books/${bookId}`);
+
+  if (state.isSignedIn && state.token !== undefined && state.token !== '') {
+    return await performFetch(`users/${state.userId}/books/${bookId}`);
+  } else {
+    return await performFetch(`books/${bookId}`);
+  }
 };
 
 // fetch the user details after login or register
@@ -128,5 +133,11 @@ export const postBookRequest = async (userId) => {
 
 // post book search
 export const performBookSearchPost = async (filter = {}) => {
-  return await performPost('books', { filter: filter });
+  if (state.isSignedIn && state.token !== undefined && state.token !== '') {
+    return await performPost(`users/${state.userId}/books`, {
+      filter: filter,
+    });
+  } else {
+    return await performPost('books', { filter: filter });
+  }
 };

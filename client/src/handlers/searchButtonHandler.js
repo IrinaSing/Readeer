@@ -1,9 +1,10 @@
-import { state } from '../init/state.js';
-import { createFilter } from '../logic/createFilter.js';
+/* eslint-disable filenames/match-regex */
+import { state } from "../init/state.js";
+import { createFilter } from "../logic/createFilter.js";
 import {
   navigateToBooksPage,
   navigateToBooksPageWithFilter,
-} from './navigateToBooksPage.js';
+} from "./navigateToBooksPage.js";
 
 // adding event listener on search button
 export const searchButtonHandler = (event) => {

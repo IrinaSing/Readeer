@@ -1,5 +1,5 @@
 import { postLogin } from "../data-access/api-calls/calls.js";
-import { errorAlert } from "../components/pages/register/error-alert.js";
+import { errorAlert } from "../components/shared/error-alert.js";
 import { navigateToHomepage } from "./navigate-to-homepage.js";
 import { state } from "../../src/init/state";
 
@@ -42,6 +42,7 @@ export const logIn = async (event) => {
     state.token = response.token;
     state.email = response.email;
     state.isSignedIn = true;
+    state.userId = response.userId;
 
     if (state.isSignedIn) {
       navigateToHomepage(event);

@@ -1,35 +1,36 @@
-import classes from './bookPreview.module.css';
+/* eslint-disable filenames/match-regex */
+import classes from "./bookPreview.module.css";
 
 export const bookPreview = (
   id,
-  title = 'Unknown',
-  description = '',
-  isbn_10 = '',
-  isbn_13 = '',
-  thumbnail = 'https://via.placeholder.com/150x200',
+  title = "Unknown",
+  description = "",
+  isbn_10 = "",
+  isbn_13 = "",
+  thumbnail = "https://via.placeholder.com/150x200",
   onClick = (id) => {}
 ) => {
-  const container = document.createElement('article');
+  const container = document.createElement("article");
   container.classList.add(classes.preview);
 
-  const image = document.createElement('img');
-  image.alt = 'book cover';
+  const image = document.createElement("img");
+  image.alt = "book cover";
   image.src = thumbnail;
 
-  const header = document.createElement('h1');
+  const header = document.createElement("h1");
   header.innerText = title;
 
-  const isbn = document.createElement('p');
+  const isbn = document.createElement("p");
   isbn.innerText = `${isbn_10} - ${isbn_13}`;
 
-  const descriptor = document.createElement('p');
+  const descriptor = document.createElement("p");
   descriptor.innerText = description;
   descriptor.classList.add(classes.descriptor);
 
-  const viewListings = document.createElement('a');
-  viewListings.innerText = 'View listings';
-  viewListings.href = '#';
-  viewListings.addEventListener('click', (event) => {
+  const viewListings = document.createElement("a");
+  viewListings.innerText = "View listings";
+  viewListings.href = "#";
+  viewListings.addEventListener("click", (event) => {
     event.preventDefault();
     onClick(id);
   });
