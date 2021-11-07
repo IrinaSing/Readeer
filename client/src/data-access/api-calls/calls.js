@@ -141,3 +141,23 @@ export const performBookSearchPost = async (filter = {}) => {
     return await performPost('books', { filter: filter });
   }
 };
+
+export const postBookOffer = async () => {
+  const currentBook = state.currentBook;
+  const book = {
+    title: currentBook.title,
+    authors: currentBook.authors,
+    isbn_10: currentBook.isbn_10,
+    isbn_13: currentBook.isbn_13,
+    book_description: currentBook.description,
+    rating: currentBook.rating,
+    userId: state.userId,
+    pageCount: currentBook.pageCount,
+    condition: currentBook.condition,
+    status: "Available",
+    availableAt: new Date(),
+    createdAt: new Date(),
+    book_language: currentBook.book_language
+  }
+  return await performPost(`users/${state.userId}/books/add`, book);
+}

@@ -1,9 +1,10 @@
-import { navigateToLoginPage } from ".navigate-to-login.js";
-import { state } from "../../../init/state.js";
+import { navigateToLoginPage } from "./navigate-to-login.js";
+import { state } from "../init/state.js";
 
 export const offerBook = async (event) => {
   event.stopPropagation();
   event.preventDefault();
+  console.log(state);
 
   const button = event.target;
 
