@@ -51,6 +51,8 @@ export const footer = () => {
   copyRightText.innerText =
     "© 2020 Copyright: https://readeer-app.herokuapp.com/";
 
+    copyRightText.style.marginTop = "40px";
+
   copyRight.appendChild(copyRightText);
 
   // contact info
