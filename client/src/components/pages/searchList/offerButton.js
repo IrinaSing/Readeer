@@ -1,5 +1,4 @@
-import { navigateToLoginPage } from "../../../handlers/navigate-to-login.js";
-import { state } from "../../../init/state.js";
+import { offerBook } from "../../../handlers/offerButtonHandler.js";
 
 // create a button component for offer
 export const offerButtonComponent = () => {
@@ -15,18 +14,7 @@ export const offerButtonComponent = () => {
   offerButton.style.width = "164px";
   offerButton.style.border = "none";
 
-  offerButton.addEventListener("click", (event) => {
-    console.log(event, "clicked");
-
-    if (!state.isSignedIn) {
-      navigateToLoginPage(event);
-      console.log(state.isSignedIn);
-    } else {
-      alert("The book is offered");
-      // navigateToMyBooksPage(event);
-      offerButton.innerText = "Offered";
-    }
-  });
+  offerButton.addEventListener("click", offerBook);
 
   // container.appendChild(offerButton); // adds the offer button under the book card
 
