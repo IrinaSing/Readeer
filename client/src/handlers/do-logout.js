@@ -3,5 +3,6 @@ import { state } from '../init/state.js';
 
 export const doLogout = () => {
     state.token = undefined;
+    state.isSignedIn = false;
     router.navigate('/');
 };
