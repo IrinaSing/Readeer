@@ -8,6 +8,7 @@ import {
 import { back } from "../../../handlers/unset-book.js";
 */
 import classes from './book.module.css';
+import { offerButtonComponent } from './offerButton.js';
 
 /**
  * The book card.
