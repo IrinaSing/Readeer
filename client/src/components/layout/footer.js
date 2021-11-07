@@ -49,7 +49,7 @@ export const footer = () => {
   copyRightText.className = "text-center text-md-left";
 
   copyRightText.innerText =
-    "© 2020 Copyright: https://readeer-app.herokuapp.com/";
+    "© 2020 Copyright: HYFB Class 13-14";
 
     copyRightText.style.marginTop = "40px";
 
@@ -113,17 +113,47 @@ export const footer = () => {
 
    const socialMedia = document.createElement("div");
    socialMedia.className = "col-12";
-  //  socialMedia.style.justifyContent="center";
+
+   socialMedia.style.justifyContent="center";
    divInfo.appendChild(socialMedia);
+
+
+  const linkImg = document.createElement ("a");
+
+  linkImg.href = "https://github.com/IrinaSing/Readeer";
+  linkImg.target = "_blank";
+
+  
+  // linkImg.innerHTML = `<img alt="gitHub icon" src="Readeer/client/public/icons/githubicon.jpg">`
+
+  //socialMedia.appendChild(linkImg);
+
+  const gitHubImg = document.createElement("img");
+  gitHubImg.src = githubicon;
+  gitHubImg.style.display="block";
+  gitHubImg.style.margin="auto auto";
+
+  socialMedia.appendChild(linkImg);
+  linkImg.appendChild(gitHubImg);
+
+
+  
+
+  // <a href="default.asp"><img src="smiley.gif" alt="HTML tutorial" style="width:42px;height:42px;"></a>
+
+
  
-   const gitHubImg = document.createElement("img");
-   gitHubImg.src = githubicon;
-
-   gitHubImg.style.display="block";
-   gitHubImg.style.margin="auto auto";
+  //  const gitHubImg = document.createElement("img");
+  //  gitHubImg.src = githubicon;
 
 
-   socialMedia.appendChild(gitHubImg);
+  //  gitHubImg.style.display="block";
+  //  gitHubImg.style.margin="auto auto";
+
+
+  //  socialMedia.appendChild(gitHubImg);
+
+
 
   //  const gitHubLink = document.createElement()
 
