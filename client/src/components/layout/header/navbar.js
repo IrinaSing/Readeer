@@ -1,4 +1,5 @@
 import deerIconWithCircle from '../../../../public/icons/deer-icon_white-circle.png';
+import { state } from '../../../init/state';
 
 /**
  * The shared navbar.
@@ -84,6 +85,21 @@ export const navbar = (routes) => {
     navCol.appendChild(divNav);
 
     for (const route of routes) {
+
+      if (
+        !state.token 
+        && route.authenticated === true
+      ) {
+        continue;
+      }
+
+      if (
+        state.token
+        && route.unauthenticated === true
+      ) {
+        continue;
+      }
+
       const anchor = document.createElement('a');
       anchor.className = 'nav-item nav-link fs-5';
       anchor.style.color = 'white';
