@@ -14,6 +14,7 @@
 
 - business-logic
   - [books.js](#apibusiness-logicbooksjs)
+  - [googleBooksAPI.js](#apibusiness-logicgoogleBooksAPIjs)
   - [login.js](#apibusiness-logicloginjs)
   - [register.js](#apibusiness-logicregisterjs)
   - [users.js](#apibusiness-logicusersjs)
@@ -29,9 +30,11 @@
   - [register.js](#apicontrollersregisterjs)
   - [users.js](#apicontrollersusersjs)
 - data-access
+  - [googleBooksAPI.js](#apidata-accessgoogleBooksAPIjs)
   - [mongodbAccess.js](#apidata-accessmongodbAccessjs)
 - middleware
   - [authenticate.js](#apimiddlewareauthenticatejs)
+  - [authorize.js](#apimiddlewareauthorizejs)
 - routes
   - [books.js](#apiroutesbooksjs)
   - [login.js](#apiroutesloginjs)
@@ -54,6 +57,10 @@
 # /business-logic
 
 <details><summary><a href="../../api/business-logic/books.js" id="apibusiness-logicbooksjs">../api/business-logic/books.js</a></summary>
+
+</details>
+
+<details><summary><a href="../../api/business-logic/googleBooksAPI.js" id="apibusiness-logicgoogleBooksAPIjs">../api/business-logic/googleBooksAPI.js</a></summary>
 
 </details>
 
@@ -117,6 +124,10 @@
 
 # /data-access
 
+<details><summary><a href="../../api/data-access/googleBooksAPI.js" id="apidata-accessgoogleBooksAPIjs">../api/data-access/googleBooksAPI.js</a></summary>
+
+</details>
+
 <details><summary><a href="../../api/data-access/mongodbAccess.js" id="apidata-accessmongodbAccessjs">../api/data-access/mongodbAccess.js</a></summary>
 
 </details>
@@ -126,6 +137,10 @@
 # /middleware
 
 <details><summary><a href="../../api/middleware/authenticate.js" id="apimiddlewareauthenticatejs">../api/middleware/authenticate.js</a></summary>
+
+</details>
+
+<details><summary><a href="../../api/middleware/authorize.js" id="apimiddlewareauthorizejs">../api/middleware/authorize.js</a></summary>
 
 </details>
 
