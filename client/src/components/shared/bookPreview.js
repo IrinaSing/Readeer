@@ -28,7 +28,7 @@ export const bookPreview = (
   descriptor.classList.add(classes.descriptor);
 
   const viewListings = document.createElement("a");
-  viewListings.innerText = "View listings";
+  viewListings.innerText = "View";
   viewListings.href = "#";
   viewListings.addEventListener("click", (event) => {
     event.preventDefault();

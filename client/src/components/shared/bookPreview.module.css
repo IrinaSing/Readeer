@@ -1,8 +1,8 @@
 .preview {
-  width: 20em;
+  width: 14em;
   display: flex;
   flex-direction: column;
-  padding: 1em;
+  padding: 1.5em;
   background-color: #fff7f0;
   margin: 1%;
   justify-content: space-between;
@@ -11,9 +11,10 @@
 }
 
 .preview h1 {
-  font-size: 2em;
+  font-size: 1.5em;
   text-align: center;
-  margin: 0.5em;
+  margin: 0.5em 0em;
+  font-family: Solway, 'Times New Roman', Times, serif
 }
 
 .preview a {
@@ -27,12 +28,19 @@
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+.preview img {
+  object-position: top;
+  height: 16em;
+  object-fit: cover;
+}
+
 .descriptor {
   text-overflow: ellipsis;
-  max-height: 4em;
+  max-height: 2em;
   overflow: hidden;
   margin-bottom: 1em;
   position: relative;
+  font-weight: normal;
 }
 
 .descriptor:before {
