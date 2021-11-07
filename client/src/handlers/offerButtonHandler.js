@@ -1,5 +1,7 @@
 import { navigateToLoginPage } from "./navigate-to-login.js";
 import { state } from "../init/state.js";
+import { postBookOffer } from "../data-access/api-calls/calls.js";
+import { offerButtonComponent } from "../components/pages/searchList/offerButton.js";
 
 export const offerBook = async (event) => {
   event.stopPropagation();
@@ -16,11 +18,13 @@ export const offerBook = async (event) => {
     // deactivite offer button
     button.disabled = true;
 
-    // TODO fetch backend
+    // fetch backend
     const response = await postBookOffer();
     if (response.message === "Book added") {
-      document.removeChild(button);
+      document.getElementById("offer").remove(button);
+      
       // TODO offered button without any handlers
+
 
       // TODO beautify alert
       alert("The book is offered");
