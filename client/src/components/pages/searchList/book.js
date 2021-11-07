@@ -7,7 +7,7 @@ import {
 } from "../../../data-access/api-calls/calls.js";
 import { back } from "../../../handlers/unset-book.js";
 */
-import classes from "./book.module.css";
+import classes from './book.module.css';
 
 /**
  * The book card.
@@ -17,61 +17,65 @@ import classes from "./book.module.css";
 
 export const bookDetail = (
   id,
-  title = "Unknown",
-  description = "",
-  isbn_10 = "",
-  isbn_13 = "",
-  authors = ["James Dean"],
-  thumbnail = "https://via.placeholder.com/200x200"
+  title = 'Unknown',
+  description = '',
+  isbn_10 = '',
+  isbn_13 = '',
+  authors = ['James Dean'],
+  thumbnail = 'https://via.placeholder.com/200x200'
 ) => {
-  const bookInfoContainer = document.createElement("div");
-  bookInfoContainer.id = "bookInfoContainer";
+  const bookInfoContainer = document.createElement('div');
+  bookInfoContainer.id = 'bookInfoContainer';
 
-  const bookCard = document.createElement("section");
+  const bookCard = document.createElement('section');
   bookCard.classList.add(classes.book);
 
-  const infoContaner = document.createElement("div");
-  infoContaner.className = "row m-3";
+  const infoContaner = document.createElement('div');
+  infoContaner.className = 'row m-3';
 
-  const imgHolder = document.createElement("div");
-  imgHolder.className = "col-md-2";
+  const imgHolder = document.createElement('div');
+  imgHolder.className = 'col-md-2';
 
-  const textHolder = document.createElement("div");
-  textHolder.className = "col-md-10";
+  const textHolder = document.createElement('div');
+  textHolder.className = 'col-md-10';
 
-  const image = document.createElement("img");
-  image.alt = "book cover";
+  const image = document.createElement('img');
+  image.alt = 'book cover';
   image.src = thumbnail;
-  image.className = "img-fluid rounded-start d-block  mx-auto";
+  image.className = 'img-fluid rounded-start d-block  mx-auto';
   imgHolder.appendChild(image);
 
-  const details = document.createElement("section");
+  const details = document.createElement('section');
   details.classList.add(classes.details);
 
-  const header = document.createElement("h2");
+  const header = document.createElement('h2');
   header.innerText = title;
 
-  const writerElement = document.createElement("p");
-  writerElement.innerText = authors.join(", ");
-  writerElement.style.fontWeight = "bold";
+  const writerElement = document.createElement('p');
+  writerElement.innerText = authors.join(', ');
+  writerElement.style.fontWeight = 'bold';
 
-  const isbn = document.createElement("p");
+  const isbn = document.createElement('p');
   isbn.innerText = `ISBN: ${isbn_10} - ${isbn_13}`;
-  isbn.style.fontSize = "14px";
+  isbn.style.fontSize = '14px';
 
-  const descriptor = document.createElement("p");
+  const descriptor = document.createElement('p');
   descriptor.innerText = description;
   descriptor.classList.add(classes.descriptor);
 
-  const listDiv = document.createElement("div");
-  listDiv.id = "listDiv";
-  listDiv.className = "p-3";
+  const listDiv = document.createElement('div');
+  listDiv.id = 'listDiv';
+  listDiv.className = 'p-3';
+
+  const offerButton = offerButtonComponent();
 
   details.appendChild(header);
   details.appendChild(writerElement);
   details.appendChild(isbn);
   details.appendChild(descriptor);
+
   textHolder.appendChild(details);
+  details.appendChild(offerButton);
 
   infoContaner.appendChild(imgHolder);
   infoContaner.appendChild(textHolder);
