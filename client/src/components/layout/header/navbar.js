@@ -130,5 +130,5 @@ export const navbar = (routes) => {
   }
 
   // return navBarContainer;
-  return navBar;
+  return navbar;
 };
