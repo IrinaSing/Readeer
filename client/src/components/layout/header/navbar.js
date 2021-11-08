@@ -22,7 +22,7 @@ export const navbar = (routes) => {
   navLogo.className = 'navbar-brand fs-3';
   navLogo.href = '#';
   navLogo.style.padding = '0';
-  navLogo.innerHTML = `<img src=${deerIconWithCircle} alt="logo" width='100px' class="d-inline-block align-text-center" >
+  navLogo.innerHTML = `<img src=${deerIconWithCircle} alt="logo" width='100px' class="d-inline-block align-middle" >
   Readeer`;
   navBarContainer.appendChild(navLogo);
 
