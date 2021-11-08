@@ -32,7 +32,7 @@ export const goalsContent = () => {
 
   // sub section 1
   const subSection1 = document.createElement("div");
-  subSection1.classList = "col-md-6";
+  subSection1.classList = "col-md-6 px-5";
   subSections.appendChild(subSection1);
 
   const headerSubsection1Row = document.createElement("div");
@@ -58,7 +58,7 @@ export const goalsContent = () => {
   headerSubsection1Row.appendChild(socialTitleCol);
 
   const contentSocial = document.createElement("p");
-  contentSocial.classList = "p_text lh-base my-5";
+  contentSocial.classList = "p_text lh-base my-3";
   contentSocial.innerText = `We think that using a book swap app is a nice way to involve children into sharing and exchanging activity as a part of socialization. 
     
   Another goal is to make books more accessible: if you came from a different country, you may not be able to buy a book in your language or to find it in a library. But our app can help you. 
@@ -70,10 +70,15 @@ export const goalsContent = () => {
   socialContentCol.appendChild(contentSocial);
   subSection1.appendChild(socialContentCol);
 
+  // col for section 2 and 3
+  const subSections23 = document.createElement("div");
+  subSections23.classList = "col-md-6 px-5";
+  subSections.appendChild(subSections23);
+
   // sub section 2
   const subSection2 = document.createElement("div");
-  subSection2.classList = "col-md-6";
-  subSections.appendChild(subSection2);
+  // subSection2.classList = "col-md-6";
+  subSections23.appendChild(subSection2);
 
   const headerSubsection2Row = document.createElement("div");
   headerSubsection2Row.classList = "d-flex justify-content-start";
@@ -98,7 +103,7 @@ export const goalsContent = () => {
   headerSubsection2Row.appendChild(moneyTitleCol);
 
   const contentMoney = document.createElement("p");
-  contentMoney.classList = "p_text lh-base my-5";
+  contentMoney.classList = "p_text lh-base my-3";
   contentMoney.innerText =
     "Books are getting more expensive, so exchange is a way to cooperate and help each other to save money. Instead of standing in the bookcase for years after reading, a book can bring joy to other children.";
 
@@ -109,8 +114,8 @@ export const goalsContent = () => {
 
   //sub section 3
   const subSection3 = document.createElement("div");
-  subSection3.classList = "col-md-6";
-  subSections.appendChild(subSection3);
+  // subSection3.classList = "col-md-6";
+  subSections23.appendChild(subSection3);
 
   const headerSubsection3Row = document.createElement("div");
   headerSubsection3Row.classList = "d-flex justify-content-start";
@@ -135,7 +140,7 @@ export const goalsContent = () => {
   headerSubsection3Row.appendChild(envTitleCol);
 
   const contentEnv = document.createElement("p");
-  contentEnv.classList = "p_text lh-base my-5";
+  contentEnv.classList = "p_text lh-base my-3";
   contentEnv.innerText =
     "As you know, printing books requires cutting trees, which is not good for nature and climate. But also, books are completely reusable. Thus, book sharing is an ecological way to live.";
 
