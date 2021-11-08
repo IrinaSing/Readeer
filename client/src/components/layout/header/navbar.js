@@ -1,4 +1,4 @@
-import deerIconWithCircle from '../../../../public/icons/deer-icon_white-circle.png';
+import deerIconWithCircle from '../../../../public/icons/deer-icon_white-circle_cut.png';
 import { state } from '../../../init/state';
 
 /**
@@ -8,6 +8,32 @@ import { state } from '../../../init/state';
  * @returns {HTMLDivElement} A rendered nav bar element.
  */
 export const navbar = (routes) => {
+  const navbar = document.createElement('nav');
+  navbar.className = 'navbar navbar-expand-lg navbar-dark bg-primary py-0 my-5';
+  navbar.style.marginTop = '50px';
+  navbar.innerHTML = `
+  <div class="container-fluid">
+    <a class="navbar-brand fs-3" href="#" style = "padding:0">
+      <img src=${deerIconWithCircle} alt="logo" width='100px' class="d-inline-block align-text-center" >
+      Readeer
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        
+      </ul>
+
+    </div>
+  </div>`;
+
   // Create a navbar container-fluid
   const navBarContainer = document.createElement('div');
   navBarContainer.id = 'navbar-container';
@@ -85,18 +111,11 @@ export const navbar = (routes) => {
     navCol.appendChild(divNav);
 
     for (const route of routes) {
-
-      if (
-        !state.token 
-        && route.authenticated === true
-      ) {
+      if (!state.token && route.authenticated === true) {
         continue;
       }
 
-      if (
-        state.token
-        && route.unauthenticated === true
-      ) {
+      if (state.token && route.unauthenticated === true) {
         continue;
       }
 
@@ -110,5 +129,6 @@ export const navbar = (routes) => {
     }
   }
 
-  return navBarContainer;
+  // return navBarContainer;
+  return navBar;
 };
