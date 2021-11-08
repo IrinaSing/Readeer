@@ -44,7 +44,7 @@ export const goalsContent = () => {
   socialImg.style.width = "50%";
 
   const imgcol1 = document.createElement("div");
-  imgcol1.classList = "w-10 mx-auto my-auto";
+  imgcol1.classList = "w-10 my-auto";
   imgcol1.appendChild(socialImg);
   headerSubsection1Row.appendChild(imgcol1);
 
@@ -84,7 +84,7 @@ export const goalsContent = () => {
   moneyImg.style.width = "50%";
 
   const imgcol2 = document.createElement("div");
-  imgcol2.classList = "w-10 mx-auto my-auto";
+  imgcol2.classList = "w-10 my-auto";
   imgcol2.appendChild(moneyImg);
   headerSubsection2Row.appendChild(imgcol2);
 
@@ -93,7 +93,7 @@ export const goalsContent = () => {
   titleMoney.innerText = "Saving money";
 
   const moneyTitleCol = document.createElement("div");
-  moneyTitleCol.classList = "col-md-8 d-flex align-items-center";
+  // moneyTitleCol.classList = "col-md-8 d-flex align-items-center";
   moneyTitleCol.appendChild(titleMoney);
   headerSubsection2Row.appendChild(moneyTitleCol);
 
@@ -121,7 +121,7 @@ export const goalsContent = () => {
   natureImg.style.width = "50%";
 
   const imgcol3 = document.createElement("div");
-  imgcol3.classList = "w-10 mx-auto my-auto";
+  imgcol3.classList = "w-10 my-auto";
   imgcol3.appendChild(natureImg);
   headerSubsection3Row.appendChild(imgcol3);
 
@@ -130,7 +130,7 @@ export const goalsContent = () => {
   titleEnv.innerText = "Care for planet";
 
   const envTitleCol = document.createElement("div");
-  envTitleCol.classList = "col-md-8 d-flex align-items-center";
+  // envTitleCol.classList = "col-md-8 d-flex align-items-center";
   envTitleCol.appendChild(titleEnv);
   headerSubsection3Row.appendChild(envTitleCol);
 
