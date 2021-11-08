@@ -1,6 +1,4 @@
 .book {
-  display: flex;
-  flex-direction: row;
   padding: 1em;
   background-color: #fff7f0;
   margin: 1%;
@@ -11,20 +9,7 @@
 }
 
 .book h2 {
-  font-family: 'Solway' serif;
+  font-family: "Solway" serif;
   font-size: 2em;
   font-weight: bold;
-}
-
-.book img {
-  flex: 1;
-}
-
-.details {
-  flex: 2;
-  padding: 0 1em;
-}
-
-.details p {
-  margin: 1em 0;
 }
