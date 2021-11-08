@@ -53,7 +53,6 @@ export const goalsContent = () => {
   titleSocial.innerText = "Social benefits";
 
   const socialTitleCol = document.createElement("div");
-  // socialTitleCol.classList = "d-flex justify-content-center";
   socialTitleCol.appendChild(titleSocial);
   headerSubsection1Row.appendChild(socialTitleCol);
 
@@ -77,7 +76,6 @@ export const goalsContent = () => {
 
   // sub section 2
   const subSection2 = document.createElement("div");
-  // subSection2.classList = "col-md-6";
   subSections23.appendChild(subSection2);
 
   const headerSubsection2Row = document.createElement("div");
@@ -98,7 +96,6 @@ export const goalsContent = () => {
   titleMoney.innerText = "Saving money";
 
   const moneyTitleCol = document.createElement("div");
-  // moneyTitleCol.classList = "col-md-8 d-flex align-items-center";
   moneyTitleCol.appendChild(titleMoney);
   headerSubsection2Row.appendChild(moneyTitleCol);
 
@@ -114,7 +111,6 @@ export const goalsContent = () => {
 
   //sub section 3
   const subSection3 = document.createElement("div");
-  // subSection3.classList = "col-md-6";
   subSections23.appendChild(subSection3);
 
   const headerSubsection3Row = document.createElement("div");
@@ -135,7 +131,6 @@ export const goalsContent = () => {
   titleEnv.innerText = "Care for planet";
 
   const envTitleCol = document.createElement("div");
-  // envTitleCol.classList = "col-md-8 d-flex align-items-center";
   envTitleCol.appendChild(titleEnv);
   headerSubsection3Row.appendChild(envTitleCol);
 
