@@ -13,3 +13,20 @@
   outline: 0;
   box-shadow: none;
 }
+
+#navbar {
+  margin-top: 50px;
+}
+
+#navbar ul a:hover {
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  #navbar {
+    margin-top: 0;
+  }
+  #navbar ul a:hover {
+    margin-left: 30px;
+  }
+}

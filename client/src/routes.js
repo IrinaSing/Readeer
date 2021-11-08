@@ -4,7 +4,6 @@ import { home } from './components/pages/home/index.js';
 import { register } from './components/pages/register/index.js';
 import { login } from './components/pages/login/index.js';
 import { logout } from './components/pages/logout/index.js';
-import { about } from './components/pages/aboutUs/index.js';
 import { searchList } from './components/pages/searchList/index.js';
 
 /**
@@ -63,18 +62,18 @@ const routeHandler =
     name: 'register',
     path: `/register`,
     callback: routeHandler(register),
-    unauthenticated: true
+    unauthenticated: true,
   },
   {
     name: 'login',
     path: `/login`,
     callback: routeHandler(login),
-    unauthenticated: true
+    unauthenticated: true,
   },
   {
     name: 'logout',
     path: `/logout`,
     callback: routeHandler(logout),
-    authenticated: true
+    authenticated: true,
   },
 ].forEach((route) => routes.push(route));

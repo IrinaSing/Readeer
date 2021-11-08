@@ -9,8 +9,9 @@ import { state } from '../../../init/state';
  */
 export const navbar = (routes) => {
   const navbar = document.createElement('nav');
-  navbar.className = 'navbar navbar-expand-lg navbar-dark bg-primary py-0 my-5';
-  navbar.style.marginTop = '50px';
+  navbar.id = 'navbar';
+  navbar.className = 'navbar navbar-expand-md navbar-dark bg-primary py-0 mb-5';
+  // navbar.style.marginTop = '50px';
 
   // Create a navbar container-fluid
   const navBarContainer = document.createElement('div');
@@ -64,7 +65,8 @@ export const navbar = (routes) => {
     navLinks.appendChild(navLink);
 
     const anchor = document.createElement('a');
-    anchor.className = 'nav-item nav-link fs-5';
+    anchor.id = route.id;
+    anchor.className = 'nav-link fs-5';
     anchor.style.color = 'white';
     anchor.innerHTML = route.name;
     anchor.href = route.path;
