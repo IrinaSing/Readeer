@@ -1,6 +1,7 @@
+/* eslint-disable filenames/match-regex */
 export const howUseApp = () => {
   const useAppSection = document.createElement("div");
-  useAppSection.classList = "container fluid home-useapp";
+  // useAppSection.classList = "container fluid home-useapp";
 
   const useAppContainer = document.createElement("div");
   useAppContainer.classList = "container my-5";
@@ -26,7 +27,7 @@ export const howUseApp = () => {
   // sub section 1
 
   const subSection1 = document.createElement("div");
-  subSection1.classList = "col-md-6";
+  subSection1.classList = "col-md-6 px-5";
   subSections.appendChild(subSection1);
 
   const contentColumn1 = document.createElement("p");
@@ -42,7 +43,7 @@ export const howUseApp = () => {
   // sub section 2
 
   const subSection2 = document.createElement("div");
-  subSection2.classList = "col-md-6";
+  subSection2.classList = "col-md-6 px-5";
   subSections.appendChild(subSection2);
 
   const contentColumn2 = document.createElement("p");
