@@ -11,12 +11,13 @@ export const goalsContent = () => {
   goalSection.appendChild(goalSectionContainer);
 
   const titleRow = document.createElement("div");
-  titleRow.classList = "row";
+  titleRow.classList = "row px-5";
   goalSectionContainer.appendChild(titleRow);
 
   const title = document.createElement("h1");
   title.classList = "h1 mt-4 mb-3";
   const content = document.createElement("p");
+  content.style.fontSize = "18px";
   content.classList = "p_text mt-3 mb-4 lh-base";
   title.innerText = "Goals of the project";
   content.innerText =

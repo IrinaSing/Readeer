@@ -32,7 +32,7 @@ export const showcase = () => {
 
   const content = document.createElement("p");
   content.className = "text-muted lead";
-  content.style.fontSize = "20px";
+  content.style.fontSize = "18px";
   header.style.paddingTop = "20px";
   content.innerHTML = `
     Readeer is a platform for exchange of children's books in your neighbourhood.
