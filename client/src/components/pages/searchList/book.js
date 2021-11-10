@@ -30,9 +30,20 @@ export const bookDetail = (
   const bookCard = document.createElement("section");
   bookCard.classList.add(classes.book);
 
+  const infoContaner = document.createElement("div");
+  infoContaner.className = "row m-3";
+
+  const imgHolder = document.createElement("div");
+  imgHolder.className = "col-md-2";
+
+  const textHolder = document.createElement("div");
+  textHolder.className = "col-md-10";
+
   const image = document.createElement("img");
   image.alt = "book cover";
   image.src = thumbnail;
+  image.className = "img-fluid rounded-start d-block  mx-auto";
+  imgHolder.appendChild(image);
 
   const details = document.createElement("section");
   details.classList.add(classes.details);
@@ -42,9 +53,11 @@ export const bookDetail = (
 
   const writerElement = document.createElement("p");
   writerElement.innerText = authors.join(", ");
+  writerElement.style.fontWeight = "bold";
 
   const isbn = document.createElement("p");
   isbn.innerText = `ISBN: ${isbn_10} - ${isbn_13}`;
+  isbn.style.fontSize = "14px";
 
   const descriptor = document.createElement("p");
   descriptor.innerText = description;
@@ -58,9 +71,11 @@ export const bookDetail = (
   details.appendChild(writerElement);
   details.appendChild(isbn);
   details.appendChild(descriptor);
+  textHolder.appendChild(details);
 
-  bookCard.appendChild(image);
-  bookCard.appendChild(details);
+  infoContaner.appendChild(imgHolder);
+  infoContaner.appendChild(textHolder);
+  bookCard.appendChild(infoContaner);
 
   bookInfoContainer.appendChild(bookCard);
   bookInfoContainer.appendChild(listDiv);
