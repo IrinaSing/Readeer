@@ -8,7 +8,7 @@ import {
 import { back } from "../../../handlers/unset-book.js";
 */
 import classes from './book.module.css';
-import { offerButtonComponent } from './offerButton.js';
+import { offerButtonComponentWithHandler } from './offerButton.js';
 
 /**
  * The book card.
@@ -68,7 +68,8 @@ export const bookDetail = (
   listDiv.id = 'listDiv';
   listDiv.className = 'p-3';
 
-  const offerButton = offerButtonComponent();
+  //TODO check if the book is already offered
+  const offerButton = offerButtonComponentWithHandler();
 
   details.appendChild(header);
   details.appendChild(writerElement);

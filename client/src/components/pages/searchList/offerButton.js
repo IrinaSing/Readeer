@@ -1,22 +1,24 @@
-import { offerBook } from "../../../handlers/offerButtonHandler.js";
+import { offerBook } from '../../../handlers/offerButtonHandler.js';
 
 // create a button component for offer
-export const offerButtonComponent = () => {
-  // const container = document.createElement("div");
+export const offerButtonComponentWithHandler = () => {
+  const offerButton = offerButtonComponent();
 
-  const offerButton = document.createElement("button");
-  offerButton.id = "offer";
-  offerButton.className = "offer-btn";
-  offerButton.innerText = "Offer";
-  offerButton.style.backgroundColor = "#F9D63E";
-  offerButton.style.borderRadius = "20px";
-  offerButton.style.height = "37px";
-  offerButton.style.width = "164px";
-  offerButton.style.border = "none";
+  offerButton.addEventListener('click', offerBook);
 
-  offerButton.addEventListener("click", offerBook);
+  return offerButton;
+};
 
-  // container.appendChild(offerButton); // adds the offer button under the book card
+export const offerButtonComponent = (text = 'Offer') => {
+  const offerButton = document.createElement('button');
+  offerButton.id = text;
+  offerButton.className = 'offer-btn';
+  offerButton.innerText = text;
+  offerButton.style.backgroundColor = '#F9D63E';
+  offerButton.style.borderRadius = '20px';
+  offerButton.style.height = '37px';
+  offerButton.style.width = '164px';
+  offerButton.style.border = 'none';
 
   return offerButton;
 };
