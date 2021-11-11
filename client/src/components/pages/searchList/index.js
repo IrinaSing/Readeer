@@ -40,7 +40,7 @@ export const searchList = () => {
   if (state.currentBookId) {
     fetchSpecificBook(state.currentBookId).then((book) => {
       state.currentBook = book;
-      container.removeChild(loadingElement);
+      section.removeChild(loadingElement);
 
       // render card with details about the book
       const element = bookDetail(
