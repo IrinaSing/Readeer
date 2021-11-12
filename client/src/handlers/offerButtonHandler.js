@@ -7,11 +7,9 @@ import { offerButtonComponent } from '../components/pages/searchList/offerButton
 export const offerBook = async (event) => {
   event.stopPropagation();
   event.preventDefault();
-  console.log(state);
 
   const button = event.target;
 
-  console.log(event, 'clicked');
   if (!state.isSignedIn) {
     navigateToLoginPage(event);
     console.log(state.isSignedIn);
