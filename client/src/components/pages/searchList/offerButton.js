@@ -19,6 +19,7 @@ export const offerButtonComponent = (text = 'Offer') => {
   offerButton.style.height = '37px';
   offerButton.style.width = '164px';
   offerButton.style.border = 'none';
+  offerButton.disabled = true;
 
   return offerButton;
 };

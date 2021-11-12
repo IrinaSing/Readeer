@@ -154,10 +154,11 @@ export const postBookOffer = async () => {
     userId: state.userId,
     pageCount: currentBook.pageCount,
     condition: currentBook.condition,
-    status: "Available",
+    status: 'Available',
     availableAt: new Date(),
     createdAt: new Date(),
-    book_language: currentBook.book_language
-  }
+    book_language: currentBook.book_language,
+    condition: 'Good',
+  };
   return await performPost(`users/${state.userId}/books/add`, book);
-}
+};

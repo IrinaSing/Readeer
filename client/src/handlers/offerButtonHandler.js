@@ -28,10 +28,7 @@ export const offerBook = async (event) => {
 
       document.getElementById('Offer').remove(button);
 
-      navigateToBooksPageWithFilter(offer);
-
-      // TODO beautify alert
-      alert('The book is offered');
+      navigateToBooksPageWithFilter();
     } else {
       button.disabled = false;
     }

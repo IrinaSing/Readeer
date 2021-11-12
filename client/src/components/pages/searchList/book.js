@@ -7,6 +7,7 @@ import {
 } from "../../../data-access/api-calls/calls.js";
 import { back } from "../../../handlers/unset-book.js";
 */
+import { fetchBooks } from '../../../data-access/api-calls/calls';
 import classes from './book.module.css';
 import { offerButtonComponentWithHandler } from './offerButton.js';
 
@@ -68,7 +69,6 @@ export const bookDetail = (
   listDiv.id = 'listDiv';
   listDiv.className = 'p-3';
 
-  //TODO check if the book is already offered
   const offerButton = offerButtonComponentWithHandler();
 
   details.appendChild(header);
