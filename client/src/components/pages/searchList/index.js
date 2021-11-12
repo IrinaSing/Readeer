@@ -52,8 +52,9 @@ export const searchList = () => {
         book.description,
         book.isbn_10,
         book.isbn_13,
-        book.authors,
-        book.thumbnail
+        book.authors
+        // TODO here
+        // book.thumbnail
       );
 
       section.appendChild(element);
@@ -97,7 +98,8 @@ export const searchList = () => {
             book.description,
             book.isbn_10,
             book.isbn_13,
-            book.thumbnail,
+            // TODO here
+            // book.thumbnail,
             (id) => {
               setBook(id);
               reloadPage(searchList);

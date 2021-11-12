@@ -1,5 +1,6 @@
 export const googleBooksAPI = {
   getBookByIsbn: async (isbn) => {
+    console.log('getBookByIsbn');
     const URL = `https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}`;
     const encodedURL = encodeURI(URL);
     const response = await fetch(encodedURL, {
@@ -10,6 +11,7 @@ export const googleBooksAPI = {
     }
     const data = await response.json();
 
+    console.log('data', data);
     return data;
   },
 
