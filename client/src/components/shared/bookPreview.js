@@ -8,10 +8,9 @@ export const bookPreview = (
   description = '',
   isbn_10 = '',
   isbn_13 = '',
-  thumbnail = 'https://via.placeholder.com/150x200',
+
   onClick = (id) => {}
 ) => {
-  console.log('preview', id);
   const container = document.createElement('article');
   container.classList.add(classes.preview);
 

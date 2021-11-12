@@ -38,9 +38,6 @@ export const searchList = () => {
   section.appendChild(loadingElement);
 
   if (state.currentBookId) {
-    //TODO: check this
-    console.log('specific book');
-
     fetchSpecificBook(state.currentBookId).then((book) => {
       state.currentBook = book;
       section.removeChild(loadingElement);
@@ -77,12 +74,10 @@ export const searchList = () => {
     state.searchFilter !== '' &&
     Object.keys(state.searchFilter).length !== 0
   ) {
-    //TODO delete later
-    console.log('filter path');
-
     performBookSearchPost(state.searchFilter).then((books) => {
       section.removeChild(loadingElement);
 
+      console.log('books', books);
       if (books.length > 0) {
         // filter array to get rid of books with the same isbn
         const uniqueValuesBooks = new Set();
@@ -92,6 +87,7 @@ export const searchList = () => {
           return !isPresentInSet;
         });
 
+        console.log('filteredArr', filteredArr);
         const previews = filteredArr.map((book) => {
           return bookPreview(
             book.id,
@@ -99,14 +95,14 @@ export const searchList = () => {
             book.description,
             book.isbn_10,
             book.isbn_13,
-            // TODO here
-            // book.thumbnail,
             (id) => {
               setBook(id);
               reloadPage(searchList);
             }
           );
         });
+
+        console.log('previews', previews);
 
         previews.forEach((element) => {
           section.appendChild(element);
@@ -140,7 +136,6 @@ export const searchList = () => {
         book.description,
         book.isbn_10,
         book.isbn_13,
-        book.thumbnail,
         (id) => {
           setBook(id);
           reloadPage(searchList);

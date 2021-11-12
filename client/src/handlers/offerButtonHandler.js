@@ -16,7 +16,6 @@ export const offerBook = async (event) => {
   } else {
     // deactivite offer button
     button.disabled = true;
-    // button.innerText = "Offered";
 
     // fetch backend
     const response = await postBookOffer();
