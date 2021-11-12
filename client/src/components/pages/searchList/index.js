@@ -53,8 +53,6 @@ export const searchList = () => {
         book.isbn_10,
         book.isbn_13,
         book.authors
-        // TODO here
-        // book.thumbnail
       );
 
       section.appendChild(element);
@@ -79,6 +77,9 @@ export const searchList = () => {
     state.searchFilter !== '' &&
     Object.keys(state.searchFilter).length !== 0
   ) {
+    //TODO delete later
+    console.log('filter path');
+
     performBookSearchPost(state.searchFilter).then((books) => {
       section.removeChild(loadingElement);
 
