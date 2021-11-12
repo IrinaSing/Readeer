@@ -22,7 +22,7 @@ export const searchBarComponent = () => {
   inputElement.style.backgroundColor = '#ededed';
   inputElement.style.background = '#ededed';
   inputElement.style.border = 'none';
-  inputElement.style.margin = '0 0 0 10px';
+  inputElement.style.padding = '0 0 0 20px';
   inputElement.style.borderRadius = '2rem';
   inputElement.placeholder = 'Search for books here...';
 

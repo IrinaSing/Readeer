@@ -36,6 +36,10 @@ const usersManager = {
     if (searchFilter.text) {
       books = await booksStore.textSearch(searchFilter.text);
     } else {
+      if (searchFilter.userId) {
+        searchFilter.userId = new ObjectID(searchFilter.userId);
+      }
+
       books = await booksStore.getAll(searchFilter);
     }
 

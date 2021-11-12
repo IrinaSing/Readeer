@@ -38,7 +38,9 @@ export const searchList = () => {
   section.appendChild(loadingElement);
 
   if (state.currentBookId) {
+    console.log('specific book');
     fetchSpecificBook(state.currentBookId).then((book) => {
+      state.currentBook = book;
       section.removeChild(loadingElement);
 
       // render card with details about the book
