@@ -26,7 +26,7 @@ export const bookOwnersList = (offersArray) => {
   tableContainer.className = 'table-responsive';
 
   const table = document.createElement('table');
-  table.className = 'table table-hover table-borderless';
+  table.className = 'table table-hover table-borderless table-striped';
 
   const thead = document.createElement('thead');
   const trHead = document.createElement('tr');
@@ -77,8 +77,16 @@ export const bookOwnersList = (offersArray) => {
 
     const tdBtn = document.createElement('td');
     const contactBtn = document.createElement('button');
-    contactBtn.className = 'btn btn-blue btn-sm';
+    contactBtn.className = 'btn btn-outline-primary';
     contactBtn.innerHTML = 'Contact';
+
+    // trigger the modal
+    contactBtn.type = 'button';
+    contactBtn.setAttribute('data-bs-toggle', 'modal');
+    contactBtn.setAttribute('data-bs-target', '#contactModal');
+
+    // TODO add each button the data
+
     tdBtn.appendChild(contactBtn);
     trBody.appendChild(tdBtn);
 
@@ -89,5 +97,32 @@ export const bookOwnersList = (offersArray) => {
   table.appendChild(tbody);
   tableContainer.appendChild(table);
   listContainer.appendChild(tableContainer);
+
+  //TODO add modal part
+  const modal = document.createElement('div');
+  modal.className = 'modal fade';
+  modal.id = 'contactModal';
+  modal.tabIndex = '-1';
+  modal.setAttribute('aria-labelledby', 'contactModalLabel');
+  modal.setAttribute('aria-hidden', 'true');
+  modal.innerHTML = `
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>`;
+
+  listContainer.appendChild(modal);
+
   return listContainer;
 };
