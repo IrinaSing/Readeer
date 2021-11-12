@@ -1,4 +1,5 @@
 import deerIconWithCircle from '../../../../public/icons/deer-icon_white-circle_cut.png';
+import { navigateToBooksPageWithFilter } from '../../../handlers/navigateToBooksPage';
 import { state } from '../../../init/state.js';
 
 /**
@@ -77,6 +78,10 @@ export const navbar = (routes) => {
       state.currentBookId = '';
       state.searchFilter = '';
       state.currentBookOwnerIds = {};
+
+      if (route.name === 'books') {
+        navigateToBooksPageWithFilter();
+      }
     });
   }
 
