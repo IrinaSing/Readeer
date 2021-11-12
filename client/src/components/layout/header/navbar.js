@@ -1,5 +1,5 @@
 import deerIconWithCircle from '../../../../public/icons/deer-icon_white-circle_cut.png';
-import { state } from '../../../init/state';
+import { state } from '../../../init/state.js';
 
 /**
  * The shared navbar.
@@ -72,54 +72,12 @@ export const navbar = (routes) => {
     anchor.href = route.path;
     anchor.setAttribute('data-navigo', '');
     navLink.appendChild(anchor);
-  }
 
-  //   navBarContainer.innerHTML = `
-  //   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-  //     <span class="navbar-toggler-icon"></span>
-  //   </button>
-
-  //   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-  //     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-  //       <li class="nav-item">
-  //         <a class="nav-link active" aria-current="page" href="#">Home</a>
-  //       </li>
-  //       <li class="nav-item">
-  //         <a class="nav-link" href="#">Link</a>
-  //       </li>
-
-  //     </ul>
-  //   </div>
-  // `;
-
-  // create a col for navbar
-  const navCol = document.createElement('div');
-  navCol.className = 'col-sm-6';
-  // navBarContainerInnerRow.appendChild(navCol);
-  {
-    const divNav = document.createElement('nav');
-    divNav.className = 'navbar';
-    divNav.style.justifyContent = 'flex-end';
-    divNav.style.marginTop = '20px';
-    navCol.appendChild(divNav);
-
-    for (const route of routes) {
-      if (!state.token && route.authenticated === true) {
-        continue;
-      }
-
-      if (state.token && route.unauthenticated === true) {
-        continue;
-      }
-
-      const anchor = document.createElement('a');
-      anchor.className = 'nav-item nav-link fs-5';
-      anchor.style.color = 'white';
-      anchor.innerHTML = route.name;
-      anchor.href = route.path;
-      anchor.setAttribute('data-navigo', '');
-      divNav.appendChild(anchor);
-    }
+    anchor.addEventListener('click', () => {
+      state.currentBookId = '';
+      state.searchFilter = '';
+      state.currentBookOwnerIds = {};
+    });
   }
 
   return navbar;

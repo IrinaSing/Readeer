@@ -65,7 +65,7 @@ export const searchList = () => {
       }
     });
 
-    state.currentBookId = '';
+    // state.currentBookId = '';
     return container;
   }
 
@@ -77,7 +77,6 @@ export const searchList = () => {
     performBookSearchPost(state.searchFilter).then((books) => {
       section.removeChild(loadingElement);
 
-      console.log('books', books);
       if (books.length > 0) {
         // filter array to get rid of books with the same isbn
         const uniqueValuesBooks = new Set();
@@ -87,7 +86,6 @@ export const searchList = () => {
           return !isPresentInSet;
         });
 
-        console.log('filteredArr', filteredArr);
         const previews = filteredArr.map((book) => {
           return bookPreview(
             book.id,
@@ -101,8 +99,6 @@ export const searchList = () => {
             }
           );
         });
-
-        console.log('previews', previews);
 
         previews.forEach((element) => {
           section.appendChild(element);

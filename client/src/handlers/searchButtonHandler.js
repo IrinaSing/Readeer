@@ -8,6 +8,9 @@ export const searchButtonHandler = (event) => {
   event.preventDefault();
   event.stopPropagation();
 
+  state.currentBookId = '';
+  state.searchFilter = '';
+
   const userInput = event.target[0].value;
 
   // add filter options for title author language ISBN (, city,  etc)

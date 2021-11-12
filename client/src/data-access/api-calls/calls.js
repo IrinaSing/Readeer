@@ -45,6 +45,7 @@ const performPost = async (path, body) => {
     body: JSON.stringify(body),
   });
   if (!response.ok) {
+    console.error(response);
     throw new Error(`HTTP error! status: ${response.status}\n-->${URL}`);
   }
   const data = await response.json();
@@ -160,5 +161,6 @@ export const postBookOffer = async () => {
     book_language: currentBook.book_language,
     condition: 'Good',
   };
+
   return await performPost(`users/${state.userId}/books/add`, book);
 };

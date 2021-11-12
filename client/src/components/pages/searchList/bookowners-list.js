@@ -85,14 +85,12 @@ export const bookOwnersList = (offersArray) => {
     contactBtn.setAttribute('data-bs-toggle', 'modal');
     contactBtn.setAttribute('data-bs-target', `#contactModal${b.book_userId}`);
 
-    // TODO add each button the data
-
     tdBtn.appendChild(contactBtn);
     trBody.appendChild(tdBtn);
 
     tbody.appendChild(trBody);
 
-    //TODO add modal part
+    // add modal part
     const modal = document.createElement('div');
     modal.className = 'modal fade';
     modal.id = `contactModal${b.book_userId}`;
