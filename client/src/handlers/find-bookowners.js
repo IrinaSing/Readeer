@@ -7,7 +7,7 @@
 import { createFilter } from '../logic/createFilter.js';
 import { state } from '../init/state.js';
 import { performBookSearchPost } from '../data-access/api-calls/calls.js';
-import { bookownersList } from '../components/pages/searchList/bookowners-list.js';
+import { bookOwnersList } from '../components/pages/searchList/bookOwners-list.js';
 import { errorAlert } from '../components/shared/error-alert.js';
 import { offerButtonComponent } from '../components/pages/searchList/offerButton.js';
 
@@ -23,7 +23,7 @@ export const findBookOwners = (bookIsbn13) => {
   performBookSearchPost(state.searchFilter).then((books) => {
     const tableDiv = document.getElementById('listDiv');
     if (books.length > 0) {
-      const table = bookownersList(books);
+      const table = bookOwnersList(books);
       tableDiv.appendChild(table);
 
       // check if the book is already offered by the user

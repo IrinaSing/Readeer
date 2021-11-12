@@ -7,7 +7,7 @@
 
 import { state } from '../../../init/state';
 
-export const bookownersList = (offersArray) => {
+export const bookOwnersList = (offersArray) => {
   const listContainer = document.createElement('div');
 
   const headerDiv = document.createElement('div');

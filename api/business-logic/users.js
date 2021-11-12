@@ -77,6 +77,7 @@ const usersManager = {
         user = await usersStore.getById(book.book_userId);
         book.city = user.city;
         book.username = user.username;
+        book.userEmail = user.email;
       } catch (error) {
         console.log('cannot get city for book ' + book.title, error);
       }
