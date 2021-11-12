@@ -18,7 +18,7 @@ const booksManager = {
          * while loading books first it should load from our api and show the book data
          * then make a call to google to get the picture url and then rerender all
          */
-        googleThumbnail = await googleManager.getPictureURL(book.isbn_10);
+        // googleThumbnail = await googleManager.getPictureURL(book.isbn_10);
       } catch (error) {
         console.log('cannot get thumbnail for book ' + book.title, error);
       }
@@ -33,7 +33,7 @@ const booksManager = {
         // rating: book.rating,
         // pageCount: book.pageCount,
         book_language: book.book_language,
-        thumbnail: googleThumbnail,
+        // thumbnail: googleThumbnail,
       };
 
       searchBooksWithLimitedAccess.push(bookWithLimitedAccess);
@@ -56,7 +56,7 @@ const booksManager = {
        * while loading books first it should load from our api and show the book data
        * then make a call to google to get the picture url and then rerender all
        */
-      googleThumbnail = await googleManager.getPictureURL(book.isbn_10);
+      // googleThumbnail = await googleManager.getPictureURL(book.isbn_10);
     } catch (error) {
       console.log('cannot get thumbnail for book ' + book.title, error);
     }
@@ -71,7 +71,7 @@ const booksManager = {
       rating: book.rating,
       pageCount: book.pageCount,
       book_language: book.book_language,
-      thumbnail: googleThumbnail,
+      // thumbnail: googleThumbnail,
     };
 
     return bookWithLimitedAccess;
@@ -98,7 +98,7 @@ const booksManager = {
          * while loading books first it should load from our api and show the book data
          * then make a call to google to get the picture url and then rerender all
          */
-        googleThumbnail = await googleManager.getPictureURL(book.isbn_10);
+        // googleThumbnail = await googleManager.getPictureURL(book.isbn_10);
       } catch (error) {
         console.log('cannot get thumbnail for book ' + book.title, error);
       }
@@ -113,7 +113,7 @@ const booksManager = {
         // rating: book.rating,
         // pageCount: book.pageCount,
         book_language: book.book_language,
-        thumbnail: googleThumbnail,
+        // thumbnail: googleThumbnail,
       };
 
       searchBooksWithLimitedAccess.push(bookWithLimitedAccess);

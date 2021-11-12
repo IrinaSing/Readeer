@@ -89,9 +89,9 @@ const usersManager = {
          * while loading books first it should load from our api and show the book data
          * then make a call to google to get the picture url and then rerender all
          */
-        const thumbnail = await googleManager.getPictureURL(book.isbn_10);
-        book.thumbnail = thumbnail;
-        console.log('manager', thumbnail);
+        // const thumbnail = await googleManager.getPictureURL(book.isbn_10);
+        // book.thumbnail = thumbnail;
+        // console.log('manager', thumbnail);
       } catch (error) {
         console.log('cannot get thumbnail for book ' + book.title, error);
       }
@@ -136,8 +136,8 @@ const usersManager = {
        * while loading books first it should load from our api and show the book data
        * then make a call to google to get the picture url and then rerender all
        */
-      const thumbnail = await googleManager.getPictureURL(book.isbn_10);
-      bookWithFullAccess.thumbnail = thumbnail;
+      // const thumbnail = await googleManager.getPictureURL(book.isbn_10);
+      // bookWithFullAccess.thumbnail = thumbnail;
     } catch (error) {
       console.log('cannot get thumbnail for book ' + book.title, error);
     }
@@ -148,10 +148,10 @@ const usersManager = {
     bookDetails.userId = new ObjectID(bookDetails.userId);
 
     // bookDetails.userId = { $oid: `${bookDetails.userId}` };
-    console.log('object');
-    const response = await booksStore.insert(bookDetails);
+    // console.log('object');
+    // const response = await booksStore.insert(bookDetails);
 
-    console.log(response);
+    // console.log(response);
     if (response.acknowledged) {
       return { message: 'Book added' };
     }
