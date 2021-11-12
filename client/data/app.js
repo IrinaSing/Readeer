@@ -5,5 +5,5 @@ export const data = {
   isSignedIn: false,
   token: '',
   searchFilter: '',
-  currentBookOwnerIds: [],
+  currentBookOwnerIds: {},
 };

@@ -27,7 +27,7 @@ export const findBookOwners = (bookIsbn13) => {
       tableDiv.appendChild(table);
 
       // check if the book is already offered by the user
-      if (state.currentBookOwnerIds.includes(state.userId)) {
+      if (state.currentBookOwnerIds.hasOwnProperty(state.userId)) {
         parentElement.removeChild(btn);
         parentElement.appendChild(offerButtonComponent('Offered'));
       } else {

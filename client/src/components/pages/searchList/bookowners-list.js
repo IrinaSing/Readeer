@@ -55,11 +55,11 @@ export const bookOwnersList = (offersArray) => {
   });
 
   //empty state for book ownership
-  state.currentBookOwnerIds = [];
+  state.currentBookOwnerIds = {};
 
   filteredArr.forEach((b) => {
     // add owner to state
-    state.currentBookOwnerIds.push(b.book_userId);
+    state.currentBookOwnerIds[b.book_userId] = b.userEmail;
 
     const trBody = document.createElement('tr');
 
