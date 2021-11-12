@@ -83,7 +83,7 @@ export const bookOwnersList = (offersArray) => {
     // trigger the modal
     contactBtn.type = 'button';
     contactBtn.setAttribute('data-bs-toggle', 'modal');
-    contactBtn.setAttribute('data-bs-target', '#contactModal');
+    contactBtn.setAttribute('data-bs-target', `#contactModal${b.book_userId}`);
 
     // TODO add each button the data
 
@@ -91,38 +91,37 @@ export const bookOwnersList = (offersArray) => {
     trBody.appendChild(tdBtn);
 
     tbody.appendChild(trBody);
+
+    //TODO add modal part
+    const modal = document.createElement('div');
+    modal.className = 'modal fade';
+    modal.id = `contactModal${b.book_userId}`;
+    modal.tabIndex = '-1';
+    modal.setAttribute('aria-labelledby', 'contactModalLabel');
+    modal.setAttribute('aria-hidden', 'true');
+    modal.innerHTML = `
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header bg-primary text-white">
+          <h5 class="modal-title " id="exampleModalLabel">Contact Details</h5>
+          <button type="button" class="btn-close bg-danger " data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          You can ask the book from the owner: <a href="mailto:${b.userEmail}">${b.userEmail}</a>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>`;
+
+    tdBtn.appendChild(modal);
   });
 
   table.appendChild(thead);
   table.appendChild(tbody);
   tableContainer.appendChild(table);
   listContainer.appendChild(tableContainer);
-
-  //TODO add modal part
-  const modal = document.createElement('div');
-  modal.className = 'modal fade';
-  modal.id = 'contactModal';
-  modal.tabIndex = '-1';
-  modal.setAttribute('aria-labelledby', 'contactModalLabel');
-  modal.setAttribute('aria-hidden', 'true');
-  modal.innerHTML = `
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
-    </div>`;
-
-  listContainer.appendChild(modal);
 
   return listContainer;
 };
