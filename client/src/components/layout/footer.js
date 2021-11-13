@@ -1,5 +1,6 @@
-import githubicon from "../../../public/icons/githubicon.jpg";
-
+import emailIcon from "../../../public/email-icon.svg";
+import githubIcon from "../../../public/git-white.svg";
+import hyfLogo from "../../../public/hyf-logo.svg";
 /**
  * The shared footer.
  *
@@ -7,157 +8,127 @@ import githubicon from "../../../public/icons/githubicon.jpg";
  */
 export const footer = () => {
   const containerFooter = document.createElement("footer");
-  containerFooter.className = "page-footer font-small mdb-color pt-4 ";
+  containerFooter.classList = "page-footer font-small mdb-color pt-4 ";
   containerFooter.style.paddingLeft = "0px";
 
+  // container
+
   const container = document.createElement("div");
-  container.className = "container-fluid  footerr ";
+  container.classList = "container-fluid  footerr ";
 
   containerFooter.appendChild(container);
 
-  const footerLinks = document.createElement("div");
-  footerLinks.className = "row text-center text-md-left mt-3 pb-3";
-  container.appendChild(footerLinks);
+  // sub containers
 
-  // Project name colon
+  const subContainers = document.createElement("div");
+  subContainers.classList = "row py-4";
+  container.appendChild(subContainers);
 
-  const projectName = document.createElement("div");
-  projectName.className = "col-md-3 col-lg-3 col-xl-3 mx-auto mt-3";
+  // Email contact
 
-  footerLinks.appendChild(projectName);
+  const emailContact = document.createElement("div");
+  emailContact.className = "col-md-3 col-lg-3 col-xl-3 mx-auto my-3";
 
-  const brandName = document.createElement("h6");
-  brandName.className = "text-uppercase mb-4";
-  brandName.style.fontWeight = "bold";
-  brandName.innerText = "Readeer";
+  const emailRow = document.createElement("div");
+  emailRow.classList = "row";
+  emailContact.appendChild(emailRow);
 
-  projectName.appendChild(brandName);
+  const emailImg = document.createElement("img");
+  emailImg.src = emailIcon;
 
-  const brandDescription = document.createElement("p");
+  subContainers.appendChild(emailContact);
+  emailContact.appendChild(emailImg);
 
-  brandDescription.innerText =
-    "Readeer is a platform for exchange of children's books in your neighborhood. Currently available only in Belgium.";
-  projectName.appendChild(brandDescription);
+  const imgcol1 = document.createElement("div");
+  imgcol1.classList = "col-auto my-auto";
+  imgcol1.appendChild(emailImg);
+  emailRow.appendChild(imgcol1);
 
-  //  Copyright colon
+  const contentCol1 = document.createElement("div");
+  contentCol1.classList = "col-auto my-auto";
+  const contactUs = document.createElement("p");
+  contactUs.classList = "mb-0";
+  contactUs.innerText = `Contact us
+  readeer@ml.com`;
+  contentCol1.appendChild(contactUs);
+  emailContact.appendChild(contentCol1);
+  emailRow.appendChild(contentCol1);
 
-  const copyRight = document.createElement("div");
-  copyRight.className = "col-md-3 col-lg-3 col-xl-3 mx-auto mt-3";
-  footerLinks.appendChild(copyRight);
+  const mailTo = document.createElement("a");
+  mailTo.href = "mailto:readeer-app@gmail.com";
+  mailTo.style.textDecoration = "none";
+  mailTo.style.color = "white";
+  mailTo.appendChild(emailRow);
+  emailContact.appendChild(mailTo);
 
-  const copyRightText = document.createElement("p");
-  copyRightText.className = "text-center text-md-left";
+  //  GitHub and Copyright
 
-  copyRightText.innerText =
-    "© 2020 Copyright: HYFB Class 13-14";
+  const gitCopyRight = document.createElement("div");
+  gitCopyRight.className = "col-md-3 col-lg-3 col-xl-3 mx-auto my-3";
 
-    copyRightText.style.marginTop = "40px";
-
-  copyRight.appendChild(copyRightText);
-
-  // contact info
-  const contactDiv = document.createElement("div");
-  contactDiv.className = "col-md-3 col-lg-3 col-xl-3 mx-auto mt-3";
-  footerLinks.appendChild(contactDiv);
-  // header
-  const contactHeader = document.createElement("h6");
-  contactHeader.className = "text-uppercase mb-4 font-weight-bold";
-  contactHeader.innerText = "Contact";
-  contactHeader.style.fontWeight = "bold";
-
-  contactDiv.appendChild(contactHeader);
-
-  // home icon
-  const home = document.createElement("p");
-  home.innerText = `Cantersteen 12 1000 Bruxelles`;
-  contactDiv.appendChild(home);
-
-  // const homeIcon = document.createElement("i");
-  // homeIcon.className = "fas fa-home mr-3";
-  // homeIcon.innerText = `Cantersteen 12 1000 Bruxelles`;
-
-  // home.appendChild(homeIcon);
-
-  // mail icon
-  const mail = document.createElement("p");
-  mail.innerText = "contact@hackyourfuture.be ";
-  contactDiv.appendChild(mail);
-
-  // const mailIcon = document.createElement("i");
-  // mailIcon.className = "fas fa-envelope mr-3";
-  // mailIcon.innerText = "contact@hackyourfuture.be ";
-
-  // mail.appendChild(mailIcon);
-
-  // phone icon
-  const phone = document.createElement("p");
-  phone.innerText = "0490444555";
-  contactDiv.appendChild(phone);
-
-  // const phoneIcon = document.createElement("i");
-  // phoneIcon.className = "fas fa-phone mr-3";
-  // // phoneIcon.innerText = "0493075254";
-
-  // phone.appendChild(phoneIcon);
-
- 
-
-
-  // Copyright and social media
-  const divInfo = document.createElement("div");
-  divInfo.className = "row d-flex align-items-center";
-
-  container.appendChild(divInfo);
-
-   // Social media colon
-
-   const socialMedia = document.createElement("div");
-   socialMedia.className = "col-12";
-
-   socialMedia.style.justifyContent="center";
-   divInfo.appendChild(socialMedia);
-
-
-  const linkImg = document.createElement ("a");
-
-  linkImg.href = "https://github.com/IrinaSing/Readeer";
-  linkImg.target = "_blank";
-
-  
-  // linkImg.innerHTML = `<img alt="gitHub icon" src="Readeer/client/public/icons/githubicon.jpg">`
-
-  //socialMedia.appendChild(linkImg);
+  const gitCopyRightRow = document.createElement("div");
+  gitCopyRightRow.classList = "row";
+  gitCopyRight.appendChild(gitCopyRightRow);
 
   const gitHubImg = document.createElement("img");
-  gitHubImg.src = githubicon;
-  gitHubImg.style.display="block";
-  gitHubImg.style.margin="auto auto";
+  gitHubImg.src = githubIcon;
 
-  socialMedia.appendChild(linkImg);
-  linkImg.appendChild(gitHubImg);
+  subContainers.appendChild(gitCopyRight);
 
+  const imgcol2 = document.createElement("div");
+  imgcol2.classList = "col-auto my-auto";
+  imgcol2.appendChild(gitHubImg);
+  gitCopyRightRow.appendChild(imgcol2);
 
-  
+  const contentCol2 = document.createElement("div");
+  contentCol2.classList = "col-auto my-auto";
+  const content = document.createElement("p");
+  content.classList = "mb-0";
+  content.innerText = `Source code
+    © 2021 Readeer`;
+  contentCol2.appendChild(content);
+  gitCopyRightRow.appendChild(contentCol2);
 
-  // <a href="default.asp"><img src="smiley.gif" alt="HTML tutorial" style="width:42px;height:42px;"></a>
+  const gitLink = document.createElement("a");
+  gitLink.href = "https://github.com/IrinaSing/Readeer";
+  gitLink.style.textDecoration = "none";
+  gitLink.style.color = "white";
+  gitLink.appendChild(gitCopyRightRow);
+  gitCopyRight.appendChild(gitLink);
 
+  // Hack your future
 
- 
-  //  const gitHubImg = document.createElement("img");
-  //  gitHubImg.src = githubicon;
+  const hackYourFuture = document.createElement("div");
+  hackYourFuture.className = "col-md-3 col-lg-3 col-xl-3 mx-auto my-3";
+  subContainers.appendChild(hackYourFuture);
 
+  const hackYourFutureRow = document.createElement("div");
+  hackYourFutureRow.classList = "row";
 
-  //  gitHubImg.style.display="block";
-  //  gitHubImg.style.margin="auto auto";
+  const hyfImg = document.createElement("img");
+  hyfImg.src = hyfLogo;
 
+  const imgcol3 = document.createElement("div");
+  imgcol3.classList = "col-auto my-auto";
+  imgcol3.appendChild(hyfImg);
+  hackYourFutureRow.appendChild(imgcol3);
 
-  //  socialMedia.appendChild(gitHubImg);
+  const contentCol3 = document.createElement("div");
+  contentCol3.classList = "col-auto my-auto";
+  const hyfContent = document.createElement("p");
+  hyfContent.classList = "mb-0";
+  hyfContent.innerText = `Final project
+  for HYF Belgium`;
+  contentCol3.appendChild(hyfContent);
 
+  const hyfLink = document.createElement("a");
+  hyfLink.href = "https://hackyourfuture.be/";
+  hyfLink.style.textDecoration = "none";
+  hyfLink.style.color = "white";
 
-
-  //  const gitHubLink = document.createElement()
-
-
+  hackYourFutureRow.appendChild(contentCol3);
+  hyfLink.appendChild(hackYourFutureRow);
+  hackYourFuture.appendChild(hyfLink);
 
   return containerFooter;
 };
