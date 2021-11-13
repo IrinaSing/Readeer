@@ -5,7 +5,7 @@
  * @param { type } - Handler that calls search by isbn and appends result into DOM.
  */
 import { createFilter } from '../logic/createFilter.js';
-import { state } from '../init./init/state.js';
+import { state } from '../init/state.js';
 import { performBookSearchPost } from '../data-access/api-calls/calls.js';
 import { bookOwnersList } from '../components/pages/searchList/bookOwners-list.js';
 import { errorAlert } from '../components/shared/error-alert.js';
