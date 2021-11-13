@@ -14,7 +14,7 @@ import { bookPreview } from '../../shared/bookPreview.js';
 import { bookDetail } from './book.js';
 import { searchBarComponent } from '../../shared/searchbar.js';
 import { loadingComponent } from '../../shared/loading.js';
-import { findBookOwners } from '../../../handlers/find-bookOwners.js';
+import { findBookOwners } from '../../../handlers/find-bookowners.js';
 import { errorAlert } from '../../shared/error-alert.js';
 
 /**
