@@ -57,9 +57,6 @@ export const bookOwnersList = (offersArray) => {
   //empty state for book ownership
   state.currentBookOwnerIds = {};
 
-  //TODO delete
-  console.log(filteredArr);
-
   filteredArr.forEach((b) => {
     // add owner to state
     state.currentBookOwnerIds[b.book_userId] = {

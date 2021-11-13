@@ -79,7 +79,7 @@ const performPut = async (path, body) => {
 const performDelete = async (path) => {
   const URL = `${origin}/api/${path}`;
   const encodedURL = encodeURI(URL);
-  console.log(URL, encodedURL);
+
   const response = await fetch(encodedURL, {
     method: 'DELETE',
     headers: {
@@ -88,9 +88,6 @@ const performDelete = async (path) => {
       Email: state.email === undefined ? '' : state.email,
     },
   });
-
-  //TODO delete later
-  console.log(URL, response);
 
   if (!response.ok) {
     console.error(response);
@@ -214,8 +211,5 @@ export const postBookOffer = async () => {
 };
 
 export const deleteBookOffer = async (bookId) => {
-  const currentBookId = state.currentBookId;
-
-  console.log(state);
   return await performDelete(`users/${state.userId}/books/${bookId}`);
 };
