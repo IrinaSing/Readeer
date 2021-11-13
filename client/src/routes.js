@@ -3,7 +3,7 @@ import { page } from './components/layout/page.js';
 import { home } from './components/pages/home/index.js';
 import { register } from './components/pages/register/index.js';
 import { login } from './components/pages/login/index.js';
-import { about } from './components/pages/aboutUs/index.js';
+import { logout } from './components/pages/logout/index.js';
 import { searchList } from './components/pages/searchList/index.js';
 
 /**
@@ -54,18 +54,26 @@ const routeHandler =
     callback: routeHandler(home),
   },
   {
-    name: 'login',
-    path: `/login`,
-    callback: routeHandler(login),
+    name: 'books',
+    path: `/books`,
+    callback: routeHandler(searchList),
   },
   {
     name: 'register',
     path: `/register`,
     callback: routeHandler(register),
+    unauthenticated: true,
   },
   {
-    name: 'books',
-    path: `/books`,
-    callback: routeHandler(searchList),
+    name: 'login',
+    path: `/login`,
+    callback: routeHandler(login),
+    unauthenticated: true,
+  },
+  {
+    name: 'logout',
+    path: `/logout`,
+    callback: routeHandler(logout),
+    authenticated: true,
   },
 ].forEach((route) => routes.push(route));

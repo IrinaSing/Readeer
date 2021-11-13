@@ -1,9 +1,14 @@
 @import url('./styles.css');
 @import url('./goals.css');
 @import url('./sections.css');
-@import url('https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css');
+@import url('./customBootstrapv5.1.3.min.css');
+/* @import url('https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css'); */
 @import url('https://fonts.googleapis.com/css2?family=Solway:wght@500&display=swap');
+
 @import url('./Sass/_variables.scss');
+
+@import url('./footer.css');
+
 
 .form-control:focus {
   color: #212529;
@@ -17,3 +22,21 @@
 
   --bs-aspect-ratio: 50%;
 } */
+
+#navbar {
+  margin-top: 50px;
+}
+
+#navbar ul a:hover {
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  #navbar {
+    margin-top: 0;
+  }
+  #navbar ul a:hover {
+    margin-left: 30px;
+  }
+}
+

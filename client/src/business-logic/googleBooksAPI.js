@@ -1,12 +1,11 @@
-const googleBooksAPI = require('../data-access/googleBooksAPI');
+import { googleBooksAPI } from '../data-access/api-calls/googleBooksAPI.js';
 
-const googleManager = {
+export const googleManager = {
   getPictureURL: async (isbn) => {
     try {
-      const response = await googleBooksAPI.getByISBN(isbn);
+      const response = await googleBooksAPI.getBookByIsbn(isbn);
 
-      const data = await JSON.parse(response);
-      const items = data.items;
+      const items = response.items;
 
       if (items.length > 0) {
         const item = items[0];
@@ -21,5 +20,3 @@ const googleManager = {
     }
   },
 };
-
-module.exports = googleManager;

@@ -23,19 +23,24 @@ import { errorAlert } from "../../shared/error-alert.js";
  * @returns {HTMLDivElement} A rendered search result page.
  */
 export const searchList = () => {
-  const container = document.createElement("section");
-  container.classList.add("container");
-  container.classList.add(classes.list);
+  const container = document.createElement("div");
+  container.className = "body";
 
   const searchBar = searchBarComponent();
   container.appendChild(searchBar);
 
+  const section = document.createElement("section");
+  section.classList.add("container");
+  section.classList.add(classes.list);
+  container.appendChild(section);
+
   const loadingElement = loadingComponent();
-  container.appendChild(loadingElement);
+  section.appendChild(loadingElement);
 
   if (state.currentBookId) {
     fetchSpecificBook(state.currentBookId).then((book) => {
-      container.removeChild(loadingElement);
+      state.currentBook = book;
+      section.removeChild(loadingElement);
 
       // render card with details about the book
       const element = bookDetail(
@@ -44,11 +49,10 @@ export const searchList = () => {
         book.description,
         book.isbn_10,
         book.isbn_13,
-        book.authors,
-        book.thumbnail
+        book.authors
       );
 
-      container.appendChild(element);
+      section.appendChild(element);
 
       // get data about all offers
 
@@ -61,7 +65,7 @@ export const searchList = () => {
       }
     });
 
-    state.currentBookId = "";
+    // state.currentBookId = '';
     return container;
   }
 
@@ -71,7 +75,7 @@ export const searchList = () => {
     Object.keys(state.searchFilter).length !== 0
   ) {
     performBookSearchPost(state.searchFilter).then((books) => {
-      container.removeChild(loadingElement);
+      section.removeChild(loadingElement);
 
       if (books.length > 0) {
         // filter array to get rid of books with the same isbn
@@ -89,7 +93,6 @@ export const searchList = () => {
             book.description,
             book.isbn_10,
             book.isbn_13,
-            book.thumbnail,
             (id) => {
               setBook(id);
               reloadPage(searchList);
@@ -98,13 +101,13 @@ export const searchList = () => {
         });
 
         previews.forEach((element) => {
-          container.appendChild(element);
+          section.appendChild(element);
         });
       } else {
         const warning = document.createElement("div");
         warning.className = "p-3 my-5 bg-danger text-white fs-3";
         warning.innerText = `It looks like there aren't many great matches for your search.`;
-        container.appendChild(warning);
+        section.appendChild(warning);
       }
     });
     state.searchFilter = "";
@@ -120,7 +123,7 @@ export const searchList = () => {
       uniqueValuesBooks.add(book.isbn_13);
       return !isPresentInSet;
     });
-    container.removeChild(loadingElement);
+    section.removeChild(loadingElement);
 
     const previews = filteredArr.map((book) => {
       return bookPreview(
@@ -129,7 +132,6 @@ export const searchList = () => {
         book.description,
         book.isbn_10,
         book.isbn_13,
-        book.thumbnail,
         (id) => {
           setBook(id);
           reloadPage(searchList);
@@ -138,7 +140,7 @@ export const searchList = () => {
     });
 
     previews.forEach((element) => {
-      container.appendChild(element);
+      section.appendChild(element);
     });
   });
 

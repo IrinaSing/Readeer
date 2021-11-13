@@ -45,6 +45,52 @@ const performPost = async (path, body) => {
     body: JSON.stringify(body),
   });
   if (!response.ok) {
+    console.error(response);
+    throw new Error(`HTTP error! status: ${response.status}\n-->${URL}`);
+  }
+  const data = await response.json();
+
+  return data;
+};
+
+// Use "PUT" method to put a path
+const performPut = async (path, body) => {
+  const URL = `${origin}/api/${path}`;
+  const encodedURL = encodeURI(URL);
+  const response = await fetch(encodedURL, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: state.token === undefined ? '' : `Bearer ${state.token}`,
+      Email: state.email === undefined ? '' : state.email,
+    },
+    body: JSON.stringify(body),
+  });
+  if (!response.ok) {
+    console.error(response);
+    throw new Error(`HTTP error! status: ${response.status}\n-->${URL}`);
+  }
+  const data = await response.json();
+
+  return data;
+};
+
+// Use "DELETE" method to delete a path
+const performDelete = async (path) => {
+  const URL = `${origin}/api/${path}`;
+  const encodedURL = encodeURI(URL);
+
+  const response = await fetch(encodedURL, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: state.token === undefined ? '' : `Bearer ${state.token}`,
+      Email: state.email === undefined ? '' : state.email,
+    },
+  });
+
+  if (!response.ok) {
+    console.error(response);
     throw new Error(`HTTP error! status: ${response.status}\n-->${URL}`);
   }
   const data = await response.json();
@@ -140,4 +186,30 @@ export const performBookSearchPost = async (filter = {}) => {
   } else {
     return await performPost('books', { filter: filter });
   }
+};
+
+export const postBookOffer = async () => {
+  const currentBook = state.currentBook;
+  const book = {
+    title: currentBook.title,
+    authors: currentBook.authors,
+    isbn_10: currentBook.isbn_10,
+    isbn_13: currentBook.isbn_13,
+    book_description: currentBook.description,
+    rating: currentBook.rating,
+    userId: state.userId,
+    pageCount: currentBook.pageCount,
+    condition: currentBook.condition,
+    status: 'Available',
+    availableAt: new Date(),
+    createdAt: new Date(),
+    book_language: currentBook.book_language,
+    condition: 'Good',
+  };
+
+  return await performPost(`users/${state.userId}/books/add`, book);
+};
+
+export const deleteBookOffer = async (bookId) => {
+  return await performDelete(`users/${state.userId}/books/${bookId}`);
 };

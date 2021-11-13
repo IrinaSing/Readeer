@@ -22,7 +22,7 @@ export const searchBarComponent = () => {
   inputElement.style.backgroundColor = '#ededed';
   inputElement.style.background = '#ededed';
   inputElement.style.border = 'none';
-  inputElement.style.margin = '0 0 0 10px';
+  inputElement.style.padding = '0 0 0 20px';
   inputElement.style.borderRadius = '2rem';
   inputElement.placeholder = 'Search for books here...';
 
@@ -33,11 +33,6 @@ export const searchBarComponent = () => {
     this.parentElement.style.border = '3px solid #86b7fe';
     this.parentElement.style.borderRadius = '2rem';
   });
-
-  // inputElement.addEventListener("blur", () => {
-  //   this.parentElement.style.border = "none";
-  //   this.parentElement.style.borderRadius = "none";
-  // });
 
   const buttonElement = document.createElement('button');
   buttonElement.id = 'button';
