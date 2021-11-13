@@ -1,5 +1,5 @@
 import emailIcon from "../../../public/email-icon.svg";
-import githubIcon from "../../../public/github-white.svg";
+import githubIcon from "../../../public/git-white.svg";
 import hyfLogo from "../../../public/hyf-logo.svg";
 /**
  * The shared footer.
@@ -14,50 +14,57 @@ export const footer = () => {
   // container
 
   const container = document.createElement("div");
-  container.classList = "container-fluid  footerr ";
+  container.classList = "container-fluid  footerr";
 
   containerFooter.appendChild(container);
 
   // sub containers
 
   const subContainers = document.createElement("div");
-  subContainers.classList = "row";
+  subContainers.classList = "row py-4";
   container.appendChild(subContainers);
 
   // Email contact
 
   const emailContact = document.createElement("div");
-  emailContact.className = "col-md-3 col-lg-3 col-xl-3 mx-auto mt-3";
+  emailContact.className = "col-md-3 col-lg-3 col-xl-3 mx-auto";
 
   const emailRow = document.createElement("div");
-  emailRow.classList = "d-flex justify-content-start";
+  emailRow.classList = "row";
   emailContact.appendChild(emailRow);
 
   const emailImg = document.createElement("img");
   emailImg.src = emailIcon;
-  // emailImg.style.width = "20%";
 
   subContainers.appendChild(emailContact);
   emailContact.appendChild(emailImg);
 
   const imgcol1 = document.createElement("div");
-  imgcol1.classList = "my-auto";
+  imgcol1.classList = "col-auto my-auto";
   imgcol1.appendChild(emailImg);
-  emailContact.appendChild(imgcol1);
   emailRow.appendChild(imgcol1);
 
   const contentCol1 = document.createElement("div");
+  contentCol1.classList = "col-auto my-auto";
   const contactUs = document.createElement("p");
+  contactUs.classList = "mb-0";
   contactUs.innerText = `Contact us
-  reader-app@gmail.com`;
+  readeer@ml.com`;
   contentCol1.appendChild(contactUs);
   emailContact.appendChild(contentCol1);
   emailRow.appendChild(contentCol1);
 
+  const mailTo = document.createElement("a");
+  mailTo.href = "mailto:readeer-app@gmail.com";
+  mailTo.style.textDecoration = "none";
+  mailTo.style.color = "white";
+  mailTo.appendChild(emailRow);
+  emailContact.appendChild(mailTo);
+
   //  GitHub and Copyright
 
   const gitCopyRight = document.createElement("div");
-  gitCopyRight.className = "col-md-3 col-lg-3 col-xl-3 mx-auto mt-3";
+  gitCopyRight.className = "col-md-3 col-lg-3 col-xl-3 mx-auto";
 
   const gitCopyRightRow = document.createElement("div");
   gitCopyRightRow.classList = "row";
@@ -65,8 +72,6 @@ export const footer = () => {
 
   const gitHubImg = document.createElement("img");
   gitHubImg.src = githubIcon;
-  // gitHubImg.style.width = "50%";
-  // gitHubImg.style = "p-3 mb-2 bg-light text-dark";
 
   subContainers.appendChild(gitCopyRight);
 
@@ -76,9 +81,10 @@ export const footer = () => {
   gitCopyRightRow.appendChild(imgcol2);
 
   const contentCol2 = document.createElement("div");
+  contentCol2.classList = "col-auto my-auto";
   const content = document.createElement("p");
   content.classList = "mb-0";
-  content.innerText = `Source code on GitHub
+  content.innerText = `Source code
     © 2021 Readeer`;
   contentCol2.appendChild(content);
   gitCopyRightRow.appendChild(contentCol2);
@@ -93,7 +99,7 @@ export const footer = () => {
   // Hack your future
 
   const hackYourFuture = document.createElement("div");
-  hackYourFuture.className = "col-md-3 col-lg-3 col-xl-3 mx-auto mt-3";
+  hackYourFuture.className = "col-md-3 col-lg-3 col-xl-3 mx-auto";
   subContainers.appendChild(hackYourFuture);
 
   const hackYourFutureRow = document.createElement("div");
