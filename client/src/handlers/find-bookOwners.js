@@ -9,10 +9,7 @@ import { state } from '../init/state.js';
 import { performBookSearchPost } from '../data-access/api-calls/calls.js';
 import { bookOwnersList } from '../components/pages/searchList/bookOwners-list.js';
 import { errorAlert } from '../components/shared/error-alert.js';
-import {
-  offerButtonComponent,
-  unOfferButtonComponent,
-} from '../components/pages/searchList/offerButton.js';
+import { unOfferButtonComponent } from '../components/pages/searchList/offerButton.js';
 
 export const findBookOwners = (bookIsbn13) => {
   const query = 'isbn_13:';
