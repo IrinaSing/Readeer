@@ -133,6 +133,7 @@ const usersManager = {
 
     let response;
 
+    console.log(book.userId.toString(), userId);
     if (book.userId.toString() === userId) {
       response = await booksStore.delete(bookId);
     }
