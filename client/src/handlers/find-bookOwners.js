@@ -33,7 +33,6 @@ export const findBookOwners = (bookIsbn13) => {
       if (state.currentBookOwnerIds.hasOwnProperty(state.userId)) {
         parentElement.removeChild(btn);
         parentElement.appendChild(unOfferButtonComponent("Unoffer"));
-        // parentElement.appendChild(offerButtonComponent('Offered'));
       } else {
         btn.disabled = false;
       }

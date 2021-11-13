@@ -59,7 +59,11 @@ export const bookOwnersList = (offersArray) => {
 
   filteredArr.forEach((b) => {
     // add owner to state
-    state.currentBookOwnerIds[b.book_userId] = b.userEmail;
+    state.currentBookOwnerIds[b.book_userId] = {
+      email: b.userEmail,
+      username: b.username,
+      bookId: b.id,
+    };
 
     const trBody = document.createElement('tr');
 
