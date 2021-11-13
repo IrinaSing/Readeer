@@ -27,7 +27,7 @@ export const footer = () => {
   // Email contact
 
   const emailContact = document.createElement("div");
-  emailContact.className = "col-md-3 col-lg-3 col-xl-3 mx-auto mt-3";
+  emailContact.className = "col-md-3 col-lg-3 col-xl-3 mx-auto my-3";
 
   const emailRow = document.createElement("div");
   emailRow.classList = "row";
@@ -64,7 +64,7 @@ export const footer = () => {
   //  GitHub and Copyright
 
   const gitCopyRight = document.createElement("div");
-  gitCopyRight.className = "col-md-3 col-lg-3 col-xl-3 mx-auto mt-3";
+  gitCopyRight.className = "col-md-3 col-lg-3 col-xl-3 mx-auto my-3";
 
   const gitCopyRightRow = document.createElement("div");
   gitCopyRightRow.classList = "row";
@@ -99,7 +99,7 @@ export const footer = () => {
   // Hack your future
 
   const hackYourFuture = document.createElement("div");
-  hackYourFuture.className = "col-md-3 col-lg-3 col-xl-3 mx-auto mt-3";
+  hackYourFuture.className = "col-md-3 col-lg-3 col-xl-3 mx-auto my-3";
   subContainers.appendChild(hackYourFuture);
 
   const hackYourFutureRow = document.createElement("div");
