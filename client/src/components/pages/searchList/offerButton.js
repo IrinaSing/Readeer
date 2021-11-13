@@ -10,16 +10,33 @@ export const offerButtonComponentWithHandler = () => {
 };
 
 export const offerButtonComponent = (text = 'Offer') => {
-  const offerButton = document.createElement('button');
-  offerButton.id = text;
+  const offerButton = buttonComponent(text);
+
   offerButton.className = 'offer-btn';
-  offerButton.innerText = text;
   offerButton.style.backgroundColor = '#F9D63E';
-  offerButton.style.borderRadius = '20px';
-  offerButton.style.height = '37px';
-  offerButton.style.width = '164px';
   offerButton.style.border = 'none';
   offerButton.disabled = true;
 
   return offerButton;
+};
+
+export const unOfferButtonComponent = (text = 'Unoffer') => {
+  const unOfferButton = buttonComponent(text);
+
+  unOfferButton.className = 'btn btn-danger';
+  offerButton.addEventListener('click', unOfferBook);
+
+  return unOfferButton;
+};
+
+const buttonComponent = (text = 'Offer') => {
+  const button = document.createElement('button');
+  button.id = text;
+  button.className = 'btn btn-primary';
+  button.innerText = text;
+  button.style.borderRadius = '20px';
+  button.style.height = '37px';
+  button.style.width = '164px';
+
+  return button;
 };
