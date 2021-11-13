@@ -1,10 +1,9 @@
-/* eslint-disable folders/match-regex */
-/* eslint-disable prettier/prettier */
 import classes from "../searchList/index.module.css";
 
 import {
   fetchSpecificBook,
   performBookSearchPost,
+  deleteBookOffer,
 } from "../../../data-access/api-calls/calls.js";
 import { setBook } from "../../../handlers/set-book.js";
 import { state } from "../../../init/state.js";
@@ -16,6 +15,7 @@ import { loadingComponent } from "../../shared/loading.js";
 import { findBookOwners } from "../../../handlers/find-bookowners.js";
 import { errorAlert } from "../../shared/error-alert.js";
 import { createFilter } from "../../../logic/createFilter.js";
+import { button } from "../../shared/button.js";
 
 /**
  * The Books search result page.
@@ -108,7 +108,30 @@ export const myOffers = () => {
         });
 
         previews.forEach((element) => {
-          section.appendChild(element);
+          const elementContainer = document.createElement("div");
+          elementContainer.className = "preview-container";
+          const btnDiv = document.createElement("div");
+          btnDiv.classList = "text-center m-3";
+
+          const removeOfferBtn = button(
+            "submit",
+            "Remove",
+            "btn btn-outline-danger",
+            "removeOfferBtn"
+          );
+          removeOfferBtn.addEventListener("click", (event) => {
+            event.stopPropagation();
+            event.preventDefault();
+            const takeId =
+              removeOfferBtn.parentElement.previousElementSibling.id;
+            deleteBookOffer(takeId);
+            reloadPage(myOffers);
+          });
+
+          btnDiv.appendChild(removeOfferBtn);
+          elementContainer.appendChild(element);
+          elementContainer.appendChild(btnDiv);
+          section.appendChild(elementContainer);
         });
       } else {
         const warning = document.createElement("div");
@@ -118,5 +141,6 @@ export const myOffers = () => {
       }
     });
   }
+  state.searchFilter = "";
   return container;
 };

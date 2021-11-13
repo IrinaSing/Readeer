@@ -12,6 +12,7 @@ export const bookPreview = (
   onClick = (id) => {}
 ) => {
   const container = document.createElement("article");
+  container.id = id;
   container.classList.add(classes.preview);
 
   const image = document.createElement("img");
