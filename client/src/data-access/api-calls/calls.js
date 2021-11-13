@@ -54,7 +54,7 @@ const performPost = async (path, body) => {
 };
 
 // Use "PUT" method to put a path
-const performPost = async (path, body) => {
+const performPut = async (path, body) => {
   const URL = `${origin}/api/${path}`;
   const encodedURL = encodeURI(URL);
   const response = await fetch(encodedURL, {
@@ -76,7 +76,7 @@ const performPost = async (path, body) => {
 };
 
 // Use "DELETE" method to delete a path
-const performPost = async (path, body) => {
+const performDelete = async (path) => {
   const URL = `${origin}/api/${path}`;
   const encodedURL = encodeURI(URL);
   const response = await fetch(encodedURL, {
@@ -86,7 +86,6 @@ const performPost = async (path, body) => {
       Authorization: state.token === undefined ? '' : `Bearer ${state.token}`,
       Email: state.email === undefined ? '' : state.email,
     },
-    body: JSON.stringify(body),
   });
   if (!response.ok) {
     console.error(response);
