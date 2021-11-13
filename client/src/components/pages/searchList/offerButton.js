@@ -1,4 +1,5 @@
 import { offerBook } from '../../../handlers/offerButtonHandler.js';
+import { unOfferBook } from '../../../handlers/unOfferButtonHandler.js';
 
 // create a button component for offer
 export const offerButtonComponentWithHandler = () => {
@@ -24,7 +25,7 @@ export const unOfferButtonComponent = (text = 'Unoffer') => {
   const unOfferButton = buttonComponent(text);
 
   unOfferButton.className = 'btn btn-danger';
-  offerButton.addEventListener('click', unOfferBook);
+  unOfferButton.addEventListener('click', unOfferBook);
 
   return unOfferButton;
 };

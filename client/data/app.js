@@ -1,4 +1,5 @@
 export const data = {
+  currentBook: '',
   currentBookId: '',
   email: '',
   userId: '',
