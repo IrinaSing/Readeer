@@ -1,5 +1,4 @@
 const dataAccess = require('../data-access/mongodbAccess');
-const googleManager = require('./googleBooksAPI');
 
 const booksStore = dataAccess('Books');
 

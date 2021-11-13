@@ -53,6 +53,50 @@ const performPost = async (path, body) => {
   return data;
 };
 
+// Use "PUT" method to put a path
+const performPost = async (path, body) => {
+  const URL = `${origin}/api/${path}`;
+  const encodedURL = encodeURI(URL);
+  const response = await fetch(encodedURL, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: state.token === undefined ? '' : `Bearer ${state.token}`,
+      Email: state.email === undefined ? '' : state.email,
+    },
+    body: JSON.stringify(body),
+  });
+  if (!response.ok) {
+    console.error(response);
+    throw new Error(`HTTP error! status: ${response.status}\n-->${URL}`);
+  }
+  const data = await response.json();
+
+  return data;
+};
+
+// Use "DELETE" method to delete a path
+const performPost = async (path, body) => {
+  const URL = `${origin}/api/${path}`;
+  const encodedURL = encodeURI(URL);
+  const response = await fetch(encodedURL, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: state.token === undefined ? '' : `Bearer ${state.token}`,
+      Email: state.email === undefined ? '' : state.email,
+    },
+    body: JSON.stringify(body),
+  });
+  if (!response.ok) {
+    console.error(response);
+    throw new Error(`HTTP error! status: ${response.status}\n-->${URL}`);
+  }
+  const data = await response.json();
+
+  return data;
+};
+
 // login the app
 export const postLogin = async (email, password) => {
   return await performPost('login', {

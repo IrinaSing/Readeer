@@ -128,8 +128,14 @@ const usersManager = {
       throw new Error('Book not updated');
     }
   },
-  deleteUserBook: async (bookId) => {
-    const response = await booksStore.delete(bookId);
+  deleteUserBook: async (bookId, userId) => {
+    const book = await booksStore.getById(bookId);
+
+    let response;
+
+    if (book.userId.toString() === userId) {
+      response = await booksStore.delete(bookId);
+    }
 
     console.log(response);
 
