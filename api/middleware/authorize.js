@@ -6,6 +6,8 @@ const authorizeTheUser = async (req, res, next) => {
 
   const book = await booksManager.getBookByIdWithOutLimit(bookId);
 
+  //TODO delete later
+  console.log('authorize', book.userId.toString(), userId);
   if (book.userId.toString() === userId) {
     next();
   } else {
