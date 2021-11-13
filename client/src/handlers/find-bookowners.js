@@ -7,9 +7,12 @@
 import { createFilter } from '../logic/createFilter.js';
 import { state } from '../init/state.js';
 import { performBookSearchPost } from '../data-access/api-calls/calls.js';
-import { bookownersList } from '../components/pages/searchList/bookowners-list.js';
+import { bookOwnersList } from '../components/pages/searchList/bookOwners-list.js';
 import { errorAlert } from '../components/shared/error-alert.js';
-import { offerButtonComponent } from '../components/pages/searchList/offerButton.js';
+import {
+  offerButtonComponent,
+  unOfferButtonComponent,
+} from '../components/pages/searchList/offerButton.js';
 
 export const findBookOwners = (bookIsbn13) => {
   const query = 'isbn_13:';
@@ -23,13 +26,14 @@ export const findBookOwners = (bookIsbn13) => {
   performBookSearchPost(state.searchFilter).then((books) => {
     const tableDiv = document.getElementById('listDiv');
     if (books.length > 0) {
-      const table = bookownersList(books);
+      const table = bookOwnersList(books);
       tableDiv.appendChild(table);
 
       // check if the book is already offered by the user
-      if (state.currentBookOwnerIds.includes(state.userId)) {
+      if (state.currentBookOwnerIds.hasOwnProperty(state.userId)) {
         parentElement.removeChild(btn);
-        parentElement.appendChild(offerButtonComponent('Offered'));
+        parentElement.appendChild(unOfferButtonComponent('Unoffer'));
+        // parentElement.appendChild(offerButtonComponent('Offered'));
       } else {
         btn.disabled = false;
       }

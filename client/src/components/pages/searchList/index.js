@@ -14,7 +14,7 @@ import { bookPreview } from '../../shared/bookPreview.js';
 import { bookDetail } from './book.js';
 import { searchBarComponent } from '../../shared/searchbar.js';
 import { loadingComponent } from '../../shared/loading.js';
-import { findBookOwners } from '../../../handlers/find-bookowners.js';
+import { findBookOwners } from '../../../handlers/find-bookOwners.js';
 import { errorAlert } from '../../shared/error-alert.js';
 
 /**
@@ -38,7 +38,6 @@ export const searchList = () => {
   section.appendChild(loadingElement);
 
   if (state.currentBookId) {
-    console.log('specific book');
     fetchSpecificBook(state.currentBookId).then((book) => {
       state.currentBook = book;
       section.removeChild(loadingElement);
@@ -50,8 +49,7 @@ export const searchList = () => {
         book.description,
         book.isbn_10,
         book.isbn_13,
-        book.authors,
-        book.thumbnail
+        book.authors
       );
 
       section.appendChild(element);
@@ -67,7 +65,7 @@ export const searchList = () => {
       }
     });
 
-    state.currentBookId = '';
+    // state.currentBookId = '';
     return container;
   }
 
@@ -95,7 +93,6 @@ export const searchList = () => {
             book.description,
             book.isbn_10,
             book.isbn_13,
-            book.thumbnail,
             (id) => {
               setBook(id);
               reloadPage(searchList);
@@ -135,7 +132,6 @@ export const searchList = () => {
         book.description,
         book.isbn_10,
         book.isbn_13,
-        book.thumbnail,
         (id) => {
           setBook(id);
           reloadPage(searchList);

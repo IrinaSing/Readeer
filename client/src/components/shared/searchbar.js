@@ -34,11 +34,6 @@ export const searchBarComponent = () => {
     this.parentElement.style.borderRadius = '2rem';
   });
 
-  // inputElement.addEventListener("blur", () => {
-  //   this.parentElement.style.border = "none";
-  //   this.parentElement.style.borderRadius = "none";
-  // });
-
   const buttonElement = document.createElement('button');
   buttonElement.id = 'button';
   buttonElement.className = 'btn rounded-pill';

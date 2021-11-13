@@ -493,7 +493,8 @@ Fuzzy search only returns limited information about the book. This method limits
       "book_userId":"616cab085244ed4da5db9624",
       "condition":"Good",
       "city":"Antwerpen",
-      "thumbnail":"http://books.google.com/books/content?id=NmuhzQEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+      "thumbnail":"http://books.google.com/books/content?id=NmuhzQEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "userEmail":"fatih@gmail.com"
     },
     {
       "id":"6166dc8b84c8cbd1a3169c4b",
@@ -508,7 +509,8 @@ Fuzzy search only returns limited information about the book. This method limits
       "book_userId":"61686cf01abb24ff1700d2d1",
       "condition":"Good",
       "city":"Ghent",
-      "thumbnail":"https://via.placeholder.com/200x200"
+      "thumbnail":"https://via.placeholder.com/200x200",
+      "userEmail":"erkamguresen@vmail.com"
     },
     {
       "id":"616c321e79212d858e0e56e8",
@@ -522,7 +524,8 @@ Fuzzy search only returns limited information about the book. This method limits
       "book_userId":"61686cf01abb24ff1700d2d1",
       "condition":"Good",
       "city":"Ghent",
-      "thumbnail":"http://books.google.com/books/content?id=iaxZxQEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+      "thumbnail":"http://books.google.com/books/content?id=iaxZxQEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "userEmail":"fatih@gmail.com"
     }
   ]
   ```

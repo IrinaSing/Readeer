@@ -7,6 +7,7 @@ import {
 } from "../../../data-access/api-calls/calls.js";
 import { back } from "../../../handlers/unset-book.js";
 */
+import { googleManager } from '../../../business-logic/googleBooksAPI';
 import { fetchBooks } from '../../../data-access/api-calls/calls';
 import classes from './book.module.css';
 import { offerButtonComponentWithHandler } from './offerButton.js';
@@ -32,8 +33,8 @@ export const bookDetail = (
   const bookCard = document.createElement('section');
   bookCard.classList.add(classes.book);
 
-  const infoContaner = document.createElement('div');
-  infoContaner.className = 'row m-3';
+  const infoContainer = document.createElement('div');
+  infoContainer.className = 'row m-3';
 
   const imgHolder = document.createElement('div');
   imgHolder.className = 'col-md-2';
@@ -43,7 +44,14 @@ export const bookDetail = (
 
   const image = document.createElement('img');
   image.alt = 'book cover';
-  image.src = thumbnail;
+  image.style.visibility = 'hidden';
+
+  // fetch the image from the google books api
+  googleManager.getPictureURL(isbn_10).then((url) => {
+    image.src = url;
+    image.style.visibility = 'visible';
+  });
+
   image.className = 'img-fluid rounded-start d-block  mx-auto';
   imgHolder.appendChild(image);
 
@@ -79,9 +87,9 @@ export const bookDetail = (
   textHolder.appendChild(details);
   details.appendChild(offerButton);
 
-  infoContaner.appendChild(imgHolder);
-  infoContaner.appendChild(textHolder);
-  bookCard.appendChild(infoContaner);
+  infoContainer.appendChild(imgHolder);
+  infoContainer.appendChild(textHolder);
+  bookCard.appendChild(infoContainer);
 
   bookInfoContainer.appendChild(bookCard);
   bookInfoContainer.appendChild(listDiv);

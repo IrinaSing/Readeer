@@ -123,7 +123,7 @@ const usersController = {
       const userId = req.params.userId;
       const bookId = req.params.bookId;
 
-      const result = await usersManager.deleteUserBook(bookId);
+      const result = await usersManager.deleteUserBook(bookId, userId);
 
       res.status(200).send(JSON.stringify(result));
     } catch (error) {
