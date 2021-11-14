@@ -1,6 +1,7 @@
 /* eslint-disable filenames/match-regex */
 import { googleManager } from "../../business-logic/googleBooksAPI.js";
 import classes from "./bookPreview.module.css";
+import classes1 from "../shared/bookPreview.module.css";
 
 export const bookPreview = (
   id,
@@ -11,6 +12,9 @@ export const bookPreview = (
 
   onClick = (id) => {}
 ) => {
+  const elementContainer = document.createElement("div");
+  elementContainer.classList.add(classes1.container);
+
   const container = document.createElement("article");
   container.id = id;
   container.classList.add(classes.preview);
@@ -43,11 +47,17 @@ export const bookPreview = (
     onClick(id);
   });
 
+  const btnDiv = document.createElement("div");
+  btnDiv.id = "removeBtnDiv";
+  btnDiv.classList = "text-center m-3";
+
   container.appendChild(image);
   container.appendChild(header);
   //container.appendChild(isbn);
   container.appendChild(descriptor);
   container.appendChild(viewListings);
+  elementContainer.appendChild(container);
+  elementContainer.appendChild(btnDiv);
 
-  return container;
+  return elementContainer;
 };

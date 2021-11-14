@@ -107,17 +107,14 @@ export const myOffers = () => {
         });
 
         previews.forEach((element) => {
-          const elementContainer = document.createElement("div");
-          elementContainer.className = "preview-container d-flex flex-column";
-          const btnDiv = document.createElement("div");
-          btnDiv.classList = "text-center m-3";
-
+          const btnDiv = document.getElementById("btnDiv");
           const removeOfferBtn = button(
             "submit",
             "Remove",
             "btn btn-outline-danger",
             "removeOfferBtn"
           );
+          btnDiv.appendChild(removeOfferBtn);
           removeOfferBtn.addEventListener("click", (event) => {
             event.stopPropagation();
             event.preventDefault();
@@ -127,9 +124,6 @@ export const myOffers = () => {
           });
 
           btnDiv.appendChild(removeOfferBtn);
-          elementContainer.appendChild(element);
-          elementContainer.appendChild(btnDiv);
-          section.appendChild(elementContainer);
         });
       } else {
         const warning = document.createElement("div");

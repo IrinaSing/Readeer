@@ -1,10 +1,8 @@
-/*
-.preview-container {
+.container {
   display: flex;
   flex-direction: column;
-  padding: 1.5em;
+  margin: 1%;
 }
-*/
 
 .preview {
   width: 14em;
@@ -12,14 +10,14 @@
   flex-direction: column;
   padding: 1.5em;
   background-color: #fff7f0;
-  margin: 1%;
   justify-content: space-between;
   box-shadow: 0px 0px 12px 1px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
+  flex: 1;
 }
 
 .preview h1 {
-  font-size: 1.5em;
+  font-size: 1.3em;
   text-align: center;
   margin: 0.5em 0em;
   font-family: Solway, "Times New Roman", Times, serif;
@@ -44,7 +42,7 @@
 
 .descriptor {
   text-overflow: ellipsis;
-  max-height: 2em;
+  max-height: 4em;
   overflow: hidden;
   margin-bottom: 1em;
   position: relative;
@@ -58,5 +56,5 @@
   position: absolute;
   left: 0;
   top: 0;
-  background: linear-gradient(transparent 2em, #f4e2d3);
+  background: linear-gradient(transparent 3em, #f4e2d3);
 }
