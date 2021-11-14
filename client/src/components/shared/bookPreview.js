@@ -2,6 +2,7 @@
 import { googleManager } from "../../business-logic/googleBooksAPI.js";
 import classes from "./bookPreview.module.css";
 import classes1 from "../shared/bookPreview.module.css";
+import { button } from "./button.js";
 
 export const bookPreview = (
   id,
@@ -9,8 +10,8 @@ export const bookPreview = (
   description = "",
   isbn_10 = "",
   isbn_13 = "",
-
-  onClick = (id) => {}
+  onClick = (id) => {},
+  onDelete = null
 ) => {
   const elementContainer = document.createElement("div");
   elementContainer.classList.add(classes1.container);
@@ -47,9 +48,24 @@ export const bookPreview = (
     onClick(id);
   });
 
-  const btnDiv = document.createElement("div");
-  btnDiv.id = "removeBtnDiv";
-  btnDiv.classList = "text-center m-3";
+  let btnDiv = null;
+  if (onDelete !== null) {
+    btnDiv = document.createElement("div");
+    btnDiv.id = "removeBtnDiv";
+    btnDiv.classList = "text-center m-3";
+    const removeOfferBtn = button(
+      "submit",
+      "Remove",
+      "btn btn-outline-danger",
+      "removeOfferBtn"
+    );
+    btnDiv.appendChild(removeOfferBtn);
+    removeOfferBtn.addEventListener("click", (event) => {
+      event.stopPropagation();
+      event.preventDefault();
+      onDelete(id);
+    });
+  } 
 
   container.appendChild(image);
   container.appendChild(header);
@@ -57,7 +73,9 @@ export const bookPreview = (
   container.appendChild(descriptor);
   container.appendChild(viewListings);
   elementContainer.appendChild(container);
-  elementContainer.appendChild(btnDiv);
+  if (btnDiv) {
+    elementContainer.appendChild(btnDiv);
+  }
 
   return elementContainer;
 };
