@@ -59,8 +59,7 @@ export const searchList = () => {
 
       section.appendChild(element);
 
-      // get data about all offers
-
+      // get data about all offers for this book
       if (!state.isSignedIn) {
         const listDiv = document.getElementById('listDiv');
         const alert = errorAlert('Please log in to see offers');
