@@ -73,6 +73,7 @@ export const searchList = () => {
 
   // For specific book details form Google
   if (state.currentBookId && state.isCurrentBookFromGoogle) {
+    // TODO delete
     console.log('detail from google.com', state.currentBookId);
 
     // Fetch from google api
@@ -152,35 +153,8 @@ export const searchList = () => {
 
           // convert filter to googleBooksAPI format
           const searchQuery = googleSearchQuery(filter);
-
-          // fetch googleBooksAPI
-          googleManager.searchBooksFromGoogle(searchQuery).then((books) => {
-            // filter google books for mature content
-            const googlePreviews = books
-              .filter(
-                (book) =>
-                  book.volumeInfo.industryIdentifiers &&
-                  book.volumeInfo.industryIdentifiers[0] &&
-                  book.volumeInfo.industryIdentifiers[1] &&
-                  book.volumeInfo.description &&
-                  book.volumeInfo.maturityRating === 'NOT_MATURE'
-              )
-              .map((book) => {
-                // return bookPreviewFromGoogle(book.volumeInfo);
-                return bookPreview(
-                  book.volumeInfo.industryIdentifiers[0].identifier,
-                  book.volumeInfo.title,
-                  book.volumeInfo.description,
-                  book.volumeInfo.industryIdentifiers[0].identifier,
-                  book.volumeInfo.industryIdentifiers[1].identifier,
-                  (id) => {
-                    setBookFromGoogle(id);
-                    reloadPage(searchList);
-                  }
-                );
-              });
-
-            console.log('googlePreviews', googlePreviews);
+          bookPreviewsFromGoogle(searchQuery).then((googlePreviews) => {
+            console.log(googlePreviews);
 
             const numberOfBooksToAdd = Math.min(
               googlePreviews.length,
@@ -193,10 +167,24 @@ export const searchList = () => {
           });
         }
       } else {
-        const warning = document.createElement('div');
-        warning.className = 'p-3 my-5 bg-danger text-white fs-3';
-        warning.innerText = `It looks like there aren't many great matches for your search.`;
-        section.appendChild(warning);
+        // Search for books from Google API
+        const searchQuery = googleSearchQuery(filter);
+        // const bookPreviews =  bookPreviewsFromGoogle(searchQuery);
+
+        bookPreviewsFromGoogle(searchQuery).then((googlePreviews) => {
+          if (googlePreviews.length > 0) {
+            const numberOfBooksToAdd = Math.min(googlePreviews.length, 30);
+
+            for (let index = 0; index < numberOfBooksToAdd; index++) {
+              section.appendChild(googlePreviews[index]);
+            }
+          } else {
+            const warning = document.createElement('div');
+            warning.className = 'p-3 my-5 bg-danger text-white fs-3';
+            warning.innerText = `It looks like there aren't many great matches for your search.`;
+            section.appendChild(warning);
+          }
+        });
       }
     });
     state.searchFilter = '';
@@ -235,4 +223,40 @@ export const searchList = () => {
   });
 
   return container;
+};
+
+const bookPreviewsFromGoogle = async (searchQuery) => {
+  // fetch googleBooksAPI
+  const books = await googleManager.searchBooksFromGoogle(searchQuery);
+  console.log('books from inside', books);
+
+  // filter google books for mature content
+  const googlePreviews = books
+    .filter(
+      (book) =>
+        book.volumeInfo.industryIdentifiers &&
+        book.volumeInfo.industryIdentifiers[0] &&
+        book.volumeInfo.industryIdentifiers[1] &&
+        book.volumeInfo.description &&
+        book.volumeInfo.maturityRating === 'NOT_MATURE'
+    )
+    .map((book) => {
+      // return bookPreviewFromGoogle(book.volumeInfo);
+      return bookPreview(
+        book.volumeInfo.industryIdentifiers[0].identifier,
+        book.volumeInfo.title,
+        book.volumeInfo.description,
+        book.volumeInfo.industryIdentifiers[0].identifier,
+        book.volumeInfo.industryIdentifiers[1].identifier,
+        (id) => {
+          setBookFromGoogle(id);
+          reloadPage(searchList);
+        }
+      );
+    });
+
+  //TODO delete
+  console.log('googlePreviews', googlePreviews);
+
+  return googlePreviews;
 };
