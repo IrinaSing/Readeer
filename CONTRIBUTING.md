@@ -35,4 +35,6 @@ Please consider that in this project we stick to a standard [Contributor Covenan
 ## License
 By contributing, you agree that your contributions will be licensed under its MIT License.
 
-### Thank you!
+## Learn more about the project
+To Learn more about the project read [our wiki](https://github.com/IrinaSing/Readeer/wiki).
+
