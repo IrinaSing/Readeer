@@ -102,28 +102,15 @@ export const myOffers = () => {
             (id) => {
               setBook(id);
               reloadPage(myOffers);
+            },
+            (id) => {
+              removeFromList(id);
             }
           );
         });
 
         previews.forEach((element) => {
-          const btnDiv = document.getElementById("btnDiv");
-          const removeOfferBtn = button(
-            "submit",
-            "Remove",
-            "btn btn-outline-danger",
-            "removeOfferBtn"
-          );
-          btnDiv.appendChild(removeOfferBtn);
-          removeOfferBtn.addEventListener("click", (event) => {
-            event.stopPropagation();
-            event.preventDefault();
-            const takeId =
-              removeOfferBtn.parentElement.previousElementSibling.id;
-            removeFromList(takeId);
-          });
-
-          btnDiv.appendChild(removeOfferBtn);
+          section.appendChild(element);
         });
       } else {
         const warning = document.createElement("div");
