@@ -17,6 +17,7 @@ import { loadingComponent } from '../../shared/loading.js';
 import { findBookOwners } from '../../../handlers/find-bookowners.js';
 import { errorAlert } from '../../shared/error-alert.js';
 import { googleSearchQuery } from '../../../logic/googleQuery.js';
+import { googleBooksAPI } from '../../../data-access/api-calls/googleBooksAPI.js';
 
 /**
  * The Books search result page.
@@ -113,11 +114,14 @@ export const searchList = () => {
           console.log('less than 30 books');
 
           // convert filter to googleBooksAPI format
-          const searchQuery = googleSearchQuery(filter);
+          const searchQuery = googleSearchQuery(filter, 30 - books.length);
 
           // fetch googleBooksAPI
 
-          // render previews up to 30 books
+          googleBooksAPI.getBookByURL(searchQuery).then((books) => {
+            console.log(books);
+            // render previews up to 30 books
+          });
         }
       } else {
         const warning = document.createElement('div');

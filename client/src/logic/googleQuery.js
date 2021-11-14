@@ -1,11 +1,14 @@
+// example google query
 //https://www.googleapis.com/books/v1/volumes?q=flowers+inauthor:keyes+isbn:0547539630+intitle:for&maxResults=30&printType=books
 
 const origin = 'https://www.googleapis.com/books/v1/volumes?q=';
-const maxResults = '&maxResults=30';
+
 const printType = '&printType=books';
 
-export const googleSearchQuery = (filter) => {
+export const googleSearchQuery = (filter, limitResults = 30) => {
   console.log('filter', typeof filter);
+
+  const maxResults = '&maxResults=' + limitResults;
 
   const text = filter.text;
   const authors = filter.authors;
@@ -21,7 +24,7 @@ export const googleSearchQuery = (filter) => {
 
     for (let index = 1; index < texts.length; index++) {
       const textPart = texts[index];
-      query += `%20+${textPart}`;
+      query += `%20${textPart}`;
     }
 
     isFirstQueryPart = false;
@@ -45,7 +48,7 @@ export const googleSearchQuery = (filter) => {
 
   query += maxResults + printType;
 
-  console.log(query);
+  console.log('query from the logic', query);
 
   return query;
 };

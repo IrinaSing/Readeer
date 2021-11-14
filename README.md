@@ -790,6 +790,8 @@ This deletes the specified book if it is owned by the specified owner.
 
 ### Request a Book
 
+**This route is not yet implemented.**
+
 This search returns all details about the book.
 
 - **URL**

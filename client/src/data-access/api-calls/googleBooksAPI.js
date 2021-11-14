@@ -13,10 +13,7 @@ export const googleBooksAPI = {
     return data;
   },
 
-  getBookByFilter: async (filter) => {
-    // TODO use this one to add new results to books list
-    const URL = `https://www.googleapis.com/books/v1/volumes?q=${filter}}`;
-    const encodedURL = encodeURI(URL);
+  getBookByURL: async (encodedURL) => {
     const response = await fetch(encodedURL, {
       method: 'GET',
     });
