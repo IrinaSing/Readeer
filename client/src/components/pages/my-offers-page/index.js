@@ -3,7 +3,7 @@ import classes from "../searchList/index.module.css";
 import {
   fetchSpecificBook,
   performBookSearchPost,
-  deleteBookOffer,
+  // deleteBookOffer,
 } from "../../../data-access/api-calls/calls.js";
 import { setBook } from "../../../handlers/set-book.js";
 import { state } from "../../../init/state.js";
@@ -16,6 +16,7 @@ import { findBookOwners } from "../../../handlers/find-bookowners.js";
 import { errorAlert } from "../../shared/error-alert.js";
 import { createFilter } from "../../../logic/createFilter.js";
 import { button } from "../../shared/button.js";
+import { removeFromList } from "../../../handlers/remove-from-list.js";
 
 /**
  * The Books search result page.
@@ -50,8 +51,7 @@ export const myOffers = () => {
         book.description,
         book.isbn_10,
         book.isbn_13,
-        book.authors,
-        book.thumbnail
+        book.authors
       );
 
       section.appendChild(element);
@@ -99,7 +99,6 @@ export const myOffers = () => {
             book.description,
             book.isbn_10,
             book.isbn_13,
-            book.thumbnail,
             (id) => {
               setBook(id);
               reloadPage(myOffers);
@@ -109,7 +108,7 @@ export const myOffers = () => {
 
         previews.forEach((element) => {
           const elementContainer = document.createElement("div");
-          elementContainer.className = "preview-container";
+          elementContainer.className = "preview-container d-flex flex-column";
           const btnDiv = document.createElement("div");
           btnDiv.classList = "text-center m-3";
 
@@ -124,8 +123,7 @@ export const myOffers = () => {
             event.preventDefault();
             const takeId =
               removeOfferBtn.parentElement.previousElementSibling.id;
-            deleteBookOffer(takeId);
-            reloadPage(myOffers);
+            removeFromList(takeId);
           });
 
           btnDiv.appendChild(removeOfferBtn);
