@@ -73,9 +73,6 @@ export const searchList = () => {
 
   // For specific book details form Google
   if (state.currentBookId && state.isCurrentBookFromGoogle) {
-    // TODO delete
-    console.log('detail from google.com', state.currentBookId);
-
     // Fetch from google api
     googleManager.getBookByIsbn(state.currentBookId).then((book) => {
       state.currentBook = book;
@@ -154,8 +151,6 @@ export const searchList = () => {
           // convert filter to googleBooksAPI format
           const searchQuery = googleSearchQuery(filter);
           bookPreviewsFromGoogle(searchQuery).then((googlePreviews) => {
-            console.log(googlePreviews);
-
             const numberOfBooksToAdd = Math.min(
               googlePreviews.length,
               numberOfGoogleBooksNeeded
@@ -228,7 +223,6 @@ export const searchList = () => {
 const bookPreviewsFromGoogle = async (searchQuery) => {
   // fetch googleBooksAPI
   const books = await googleManager.searchBooksFromGoogle(searchQuery);
-  console.log('books from inside', books);
 
   // filter google books for mature content
   const googlePreviews = books
@@ -254,9 +248,6 @@ const bookPreviewsFromGoogle = async (searchQuery) => {
         }
       );
     });
-
-  //TODO delete
-  console.log('googlePreviews', googlePreviews);
 
   return googlePreviews;
 };
