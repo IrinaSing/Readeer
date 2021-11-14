@@ -113,31 +113,42 @@ export const searchList = () => {
 
         // check for need to googleBooksAPI
         if (filteredArr.length < 30) {
-          // TODO delete this
-          console.log('less than 30 books');
+          const numberOfGoogleBooksNeeded = 30 - filteredArr.length;
 
           // convert filter to googleBooksAPI format
-          const searchQuery = googleSearchQuery(
-            filter,
-            30 - filteredArr.length
-          );
+          const searchQuery = googleSearchQuery(filter);
 
           // fetch googleBooksAPI
 
           googleManager.searchBooksFromGoogle(searchQuery).then((books) => {
             // TODO delete this
-            console.log(books);
+            console.log('books from google API', books);
             // render previews
 
-            const googlePreviews = books.map((book) => {
-              return bookPreviewFromGoogle(book.volumeInfo);
-            });
+            // TODO mention filter in Presentation
+            const googlePreviews = books
+              .filter(
+                (book) =>
+                  book.volumeInfo.industryIdentifiers &&
+                  book.volumeInfo.industryIdentifiers[0] &&
+                  book.volumeInfo.industryIdentifiers[1] &&
+                  book.volumeInfo.description &&
+                  book.volumeInfo.maturityRating === 'NOT_MATURE'
+              )
+              .map((book) => {
+                return bookPreviewFromGoogle(book.volumeInfo);
+              });
 
             console.log('googlePreviews', googlePreviews);
 
-            googlePreviews.forEach((element) => {
-              section.appendChild(element);
-            });
+            const numberOfBooksToAdd = Math.min(
+              googlePreviews.length,
+              numberOfGoogleBooksNeeded
+            );
+
+            for (let index = 0; index < numberOfBooksToAdd; index++) {
+              section.appendChild(googlePreviews[index]);
+            }
           });
         }
       } else {
