@@ -20,7 +20,6 @@ import { loadingComponent } from '../../shared/loading.js';
 import { findBookOwners } from '../../../handlers/find-bookowners.js';
 import { errorAlert } from '../../shared/error-alert.js';
 import { googleSearchQuery } from '../../../logic/googleQuery.js';
-import { googleBooksAPI } from '../../../data-access/api-calls/googleBooksAPI.js';
 import { googleManager } from '../../../business-logic/googleBooksAPI';
 
 /**
