@@ -43,6 +43,7 @@ export const logIn = async (event) => {
     state.email = response.email;
     state.isSignedIn = true;
     state.userId = response.userId;
+    state.username = response.username;
 
     if (state.isSignedIn) {
       navigateToHomepage(event);

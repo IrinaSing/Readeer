@@ -3,6 +3,7 @@ export const data = {
   currentBookId: '',
   email: '',
   userId: '',
+  username: '',
   isSignedIn: false,
   token: '',
   searchFilter: '',
