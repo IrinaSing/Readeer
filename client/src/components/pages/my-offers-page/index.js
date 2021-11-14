@@ -1,22 +1,21 @@
-import classes from "../searchList/index.module.css";
+import classes from '../searchList/index.module.css';
 
 import {
   fetchSpecificBook,
   performBookSearchPost,
   // deleteBookOffer,
-} from "../../../data-access/api-calls/calls.js";
-import { setBook } from "../../../handlers/set-book.js";
-import { state } from "../../../init/state.js";
-import { reloadPage } from "../../layout/page.js";
-import { bookPreview } from "../../shared/bookPreview.js";
-import { bookDetail } from "../searchList/book.js";
-import { searchBarComponent } from "../../shared/searchbar.js";
-import { loadingComponent } from "../../shared/loading.js";
-import { findBookOwners } from "../../../handlers/find-bookowners.js";
-import { errorAlert } from "../../shared/error-alert.js";
-import { createFilter } from "../../../logic/createFilter.js";
-import { button } from "../../shared/button.js";
-import { removeFromList } from "../../../handlers/remove-from-list.js";
+} from '../../../data-access/api-calls/calls.js';
+import { setBook } from '../../../logic/set-book.js';
+import { state } from '../../../init/state.js';
+import { reloadPage } from '../../layout/page.js';
+import { bookPreview } from '../../shared/bookPreview.js';
+import { bookDetail } from '../searchList/book.js';
+import { searchBarComponent } from '../../shared/searchbar.js';
+import { loadingComponent } from '../../shared/loading.js';
+import { findBookOwners } from '../../../logic/find-bookowners.js';
+import { errorAlert } from '../../shared/error-alert.js';
+import { createFilter } from '../../../logic/createFilter.js';
+import { removeFromList } from '../../../handlers/remove-from-list.js';
 
 /**
  * The Books search result page.
@@ -25,14 +24,14 @@ import { removeFromList } from "../../../handlers/remove-from-list.js";
  */
 
 export const myOffers = () => {
-  const container = document.createElement("div");
-  container.className = "body";
+  const container = document.createElement('div');
+  container.className = 'body';
 
   const searchBar = searchBarComponent();
   container.appendChild(searchBar);
 
-  const section = document.createElement("section");
-  section.classList.add("container");
+  const section = document.createElement('section');
+  section.classList.add('container');
   section.classList.add(classes.list);
   container.appendChild(section);
 
@@ -59,20 +58,20 @@ export const myOffers = () => {
       // get data about all offers
 
       if (!state.isSignedIn) {
-        const listDiv = document.getElementById("listDiv");
-        const alert = errorAlert("Please log in to see offers");
+        const listDiv = document.getElementById('listDiv');
+        const alert = errorAlert('Please log in to see offers');
         listDiv.appendChild(alert);
       } else {
         findBookOwners(book.isbn_13);
       }
     });
 
-    state.currentBookId = "";
+    state.currentBookId = '';
     return container;
   }
 
   // create filter by id
-  const query = "userId:";
+  const query = 'userId:';
   const filterInput = query + state.userId;
   const filter = createFilter(filterInput);
   state.searchFilter = filter;
@@ -113,13 +112,13 @@ export const myOffers = () => {
           section.appendChild(element);
         });
       } else {
-        const warning = document.createElement("div");
-        warning.className = "p-3 my-5 bg-danger text-white fs-3";
+        const warning = document.createElement('div');
+        warning.className = 'p-3 my-5 bg-danger text-white fs-3';
         warning.innerText = `It looks like you don't have any offers yet.`;
         section.appendChild(warning);
       }
     });
   }
-  state.searchFilter = "";
+  state.searchFilter = '';
   return container;
 };

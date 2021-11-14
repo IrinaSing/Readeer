@@ -7,7 +7,7 @@ import {
   fetchSpecificBook,
   performBookSearchPost,
 } from '../../../data-access/api-calls/calls.js';
-import { setBook } from '../../../handlers/set-book.js';
+import { setBook } from '../../../logic/set-book.js';
 import { state } from '../../../init/state.js';
 import { reloadPage } from '../../layout/page.js';
 import {
@@ -17,7 +17,7 @@ import {
 import { bookDetail } from './book.js';
 import { searchBarComponent } from '../../shared/searchbar.js';
 import { loadingComponent } from '../../shared/loading.js';
-import { findBookOwners } from '../../../handlers/find-bookowners.js';
+import { findBookOwners } from '../../../logic/find-bookowners.js';
 import { errorAlert } from '../../shared/error-alert.js';
 import { googleSearchQuery } from '../../../logic/googleQuery.js';
 import { googleManager } from '../../../business-logic/googleBooksAPI';
