@@ -6,8 +6,6 @@ const origin = 'https://www.googleapis.com/books/v1/volumes?q=';
 const printType = '&printType=books';
 
 export const googleSearchQuery = (filter, limitResults = 30) => {
-  console.log('filter', typeof filter);
-
   const maxResults = '&maxResults=' + limitResults;
 
   const text = filter.text;

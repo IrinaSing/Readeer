@@ -19,4 +19,15 @@ export const googleManager = {
       return 'https://via.placeholder.com/200x200';
     }
   },
+  searchBooksFromGoogle: async (encodedURL) => {
+    try {
+      const response = await googleBooksAPI.getBookByURL(encodedURL);
+
+      const items = response.items;
+
+      return items;
+    } catch (error) {
+      console.log(error);
+    }
+  },
 };

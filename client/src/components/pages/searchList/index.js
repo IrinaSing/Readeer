@@ -10,7 +10,10 @@ import {
 import { setBook } from '../../../handlers/set-book.js';
 import { state } from '../../../init/state.js';
 import { reloadPage } from '../../layout/page.js';
-import { bookPreview } from '../../shared/bookPreview.js';
+import {
+  bookPreview,
+  bookPreviewFromGoogle,
+} from '../../shared/bookPreview.js';
 import { bookDetail } from './book.js';
 import { searchBarComponent } from '../../shared/searchbar.js';
 import { loadingComponent } from '../../shared/loading.js';
@@ -18,6 +21,7 @@ import { findBookOwners } from '../../../handlers/find-bookowners.js';
 import { errorAlert } from '../../shared/error-alert.js';
 import { googleSearchQuery } from '../../../logic/googleQuery.js';
 import { googleBooksAPI } from '../../../data-access/api-calls/googleBooksAPI.js';
+import { googleManager } from '../../../business-logic/googleBooksAPI';
 
 /**
  * The Books search result page.
@@ -109,18 +113,33 @@ export const searchList = () => {
         });
 
         // check for need to googleBooksAPI
-        if (books.length < 30) {
+        if (filteredArr.length < 30) {
           // TODO delete this
           console.log('less than 30 books');
 
           // convert filter to googleBooksAPI format
-          const searchQuery = googleSearchQuery(filter, 30 - books.length);
+          const searchQuery = googleSearchQuery(
+            filter,
+            30 - filteredArr.length
+          );
 
           // fetch googleBooksAPI
 
-          googleBooksAPI.getBookByURL(searchQuery).then((books) => {
+          console.log(filteredArr.length, 30 - filteredArr.length);
+
+          googleManager.searchBooksFromGoogle(searchQuery).then((books) => {
+            // TODO delete this
             console.log(books);
-            // render previews up to 30 books
+            // render previews
+
+            // const googlePreviews = books.items.map((book) => {
+            //   console.log(
+            //     'bookPreview',
+            //     bookPreviewFromGoogle(book.volumeInfo)
+            //   );
+            // });
+
+            // console.log('googlePreviews', googlePreviews);
           });
         }
       } else {
