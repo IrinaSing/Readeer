@@ -7,7 +7,7 @@ import {
   fetchSpecificBook,
   performBookSearchPost,
 } from '../../../data-access/api-calls/calls.js';
-import { setBook } from '../../../logic/set-book.js';
+import { setBook, setBookFromGoogle } from '../../../logic/set-book.js';
 import { state } from '../../../init/state.js';
 import { reloadPage } from '../../layout/page.js';
 import {
@@ -42,7 +42,8 @@ export const searchList = () => {
   const loadingElement = loadingComponent();
   section.appendChild(loadingElement);
 
-  if (state.currentBookId) {
+  // For specific book details form DB
+  if (state.currentBookId && !state.isCurrentBookFromGoogle) {
     fetchSpecificBook(state.currentBookId).then((book) => {
       state.currentBook = book;
       section.removeChild(loadingElement);
@@ -73,6 +74,12 @@ export const searchList = () => {
     return container;
   }
 
+  // For specific book details form Google
+  if (state.currentBookId && state.isCurrentBookFromGoogle) {
+    console.log('detail from google.com', state.currentBookId);
+  }
+
+  // For search results
   if (
     state.searchFilter !== undefined &&
     state.searchFilter !== '' &&
@@ -80,6 +87,7 @@ export const searchList = () => {
   ) {
     const filter = state.searchFilter;
 
+    // Search for books from DB
     performBookSearchPost(state.searchFilter).then((books) => {
       section.removeChild(loadingElement);
 
@@ -118,11 +126,9 @@ export const searchList = () => {
           const searchQuery = googleSearchQuery(filter);
 
           // fetch googleBooksAPI
-
           googleManager.searchBooksFromGoogle(searchQuery).then((books) => {
             // TODO delete this
             console.log('books from google API', books);
-            // render previews
 
             // TODO mention filter in Presentation
             const googlePreviews = books
@@ -135,7 +141,19 @@ export const searchList = () => {
                   book.volumeInfo.maturityRating === 'NOT_MATURE'
               )
               .map((book) => {
-                return bookPreviewFromGoogle(book.volumeInfo);
+                // return bookPreviewFromGoogle(book.volumeInfo);
+                return bookPreview(
+                  // TODO add stg to know it is a google result
+                  book.volumeInfo.industryIdentifiers[0].identifier,
+                  book.volumeInfo.title,
+                  book.volumeInfo.description,
+                  book.volumeInfo.industryIdentifiers[0].identifier,
+                  book.volumeInfo.industryIdentifiers[1].identifier,
+                  (id) => {
+                    setBookFromGoogle(id);
+                    reloadPage(searchList);
+                  }
+                );
               });
 
             console.log('googlePreviews', googlePreviews);
@@ -162,6 +180,7 @@ export const searchList = () => {
     return container;
   }
 
+  // For directly coming to books page
   fetchBooks().then((books) => {
     // filter array to get rid of books with the same isbn
     const uniqueValuesBooks = new Set();

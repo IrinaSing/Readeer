@@ -69,7 +69,6 @@ export const bookPreview = (
 
   container.appendChild(image);
   container.appendChild(header);
-  //container.appendChild(isbn);
   container.appendChild(descriptor);
   container.appendChild(viewListings);
   elementContainer.appendChild(container);
@@ -87,49 +86,44 @@ export const bookPreviewFromGoogle = (bookFromGoogle) => {
   const container = document.createElement('article');
   container.classList.add(classes.preview);
 
-  if (
-    bookFromGoogle.industryIdentifiers &&
-    bookFromGoogle.industryIdentifiers[0] &&
-    bookFromGoogle.industryIdentifiers[1]
-  ) {
-    container.id = bookFromGoogle.industryIdentifiers[0].identifier;
+  container.id = bookFromGoogle.industryIdentifiers[0].identifier;
 
-    const image = document.createElement('img');
-    image.alt = 'book cover';
-    image.style.visibility = 'hidden';
+  const image = document.createElement('img');
+  image.alt = 'book cover';
+  image.style.visibility = 'hidden';
 
-    if (bookFromGoogle.imageLinks) {
-      const imageLinks = bookFromGoogle.imageLinks;
-      const thumbnail = imageLinks.thumbnail;
-      image.src = thumbnail;
-    } else {
-      image.src = 'https://via.placeholder.com/200x200';
-    }
-
-    image.style.visibility = 'visible';
-
-    const header = document.createElement('h1');
-    header.innerText = bookFromGoogle.title;
-
-    const descriptor = document.createElement('p');
-    descriptor.innerText = bookFromGoogle.description;
-    descriptor.classList.add(classes.descriptor);
-
-    const viewListings = document.createElement('a');
-    viewListings.innerText = 'View';
-    viewListings.href = '#';
-
-    //TODO change later
-    // viewListings.addEventListener('click', (event) => {
-    //   event.preventDefault();
-    //   onClick(id);
-    // });
-
-    container.appendChild(image);
-    container.appendChild(header);
-    container.appendChild(descriptor);
-    container.appendChild(viewListings);
+  if (bookFromGoogle.imageLinks) {
+    const imageLinks = bookFromGoogle.imageLinks;
+    const thumbnail = imageLinks.thumbnail;
+    image.src = thumbnail;
+  } else {
+    image.src = 'https://via.placeholder.com/200x200';
   }
+
+  image.style.visibility = 'visible';
+
+  const header = document.createElement('h1');
+  header.innerText = bookFromGoogle.title;
+
+  const descriptor = document.createElement('p');
+  descriptor.innerText = bookFromGoogle.description;
+  descriptor.classList.add(classes.descriptor);
+
+  const viewListings = document.createElement('a');
+  viewListings.innerText = 'View';
+  viewListings.href = '#';
+
+  //TODO change later
+  viewListings.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    onClick(id);
+  });
+
+  container.appendChild(image);
+  container.appendChild(header);
+  container.appendChild(descriptor);
+  container.appendChild(viewListings);
 
   elementContainer.appendChild(container);
 
