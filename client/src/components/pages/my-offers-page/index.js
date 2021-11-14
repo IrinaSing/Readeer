@@ -128,7 +128,7 @@ export const myOffers = () => {
       } else {
         const warning = document.createElement("div");
         warning.className = "p-3 my-5 bg-danger text-white fs-3";
-        warning.innerText = `It looks like there aren't many great matches for your search.`;
+        warning.innerText = `It looks like you don't have any offers yet.`;
         section.appendChild(warning);
       }
     });
