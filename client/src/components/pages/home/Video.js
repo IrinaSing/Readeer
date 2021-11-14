@@ -15,9 +15,7 @@ export const videoSection = () => {
 
   const iFrame = document.createElement("iframe");
   iFrame.id = "movie_player";
-  iFrame.style.display = "block";
-  iFrame.className =
-    "html5-video-player ytp-exp-bottom-control-flexbox ytp-title-enable-channel-logo ytp-embed ytp-embed-playlist ytp-embed-overlays-autohide ytp-mobile ytp-embed-mobile-exp unstarted-mode ytp-hide-controls ytp-small-mode";
+
   iFrame.src = "https://www.youtube.com/embed/a60088e-o6Q";
   iFrame.title = "Readeer";
 
@@ -25,10 +23,8 @@ export const videoSection = () => {
   iFrame.allow =
     "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
   iFrame.allowFullscreen = "true";
-  iFrame.style.justifyContent = "center";
 
-  iFrame.tabIndex = "-1";
-  iFrame.ariaLabel = "YouTube Video Oynatıcısı";
+  iFrame.ariaLabel = "YouTube Video";
 
   divVideo.appendChild(iFrame);
 
