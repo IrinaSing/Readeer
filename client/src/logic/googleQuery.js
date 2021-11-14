@@ -46,7 +46,5 @@ export const googleSearchQuery = (filter, limitResults = 30) => {
 
   query += maxResults + printType;
 
-  console.log('query from the logic', query);
-
   return query;
 };

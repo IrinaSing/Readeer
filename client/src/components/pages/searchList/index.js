@@ -125,21 +125,20 @@ export const searchList = () => {
 
           // fetch googleBooksAPI
 
-          console.log(filteredArr.length, 30 - filteredArr.length);
-
           googleManager.searchBooksFromGoogle(searchQuery).then((books) => {
             // TODO delete this
             console.log(books);
             // render previews
 
-            // const googlePreviews = books.items.map((book) => {
-            //   console.log(
-            //     'bookPreview',
-            //     bookPreviewFromGoogle(book.volumeInfo)
-            //   );
-            // });
+            const googlePreviews = books.map((book) => {
+              return bookPreviewFromGoogle(book.volumeInfo);
+            });
 
-            // console.log('googlePreviews', googlePreviews);
+            console.log('googlePreviews', googlePreviews);
+
+            googlePreviews.forEach((element) => {
+              section.appendChild(element);
+            });
           });
         }
       } else {

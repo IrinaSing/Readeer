@@ -75,9 +75,6 @@ export const bookPreview = (
   return container;
 };
 export const bookPreviewFromGoogle = (bookFromGoogle) => {
-  // TODO delete this
-  console.log(bookFromGoogle);
-
   const container = document.createElement('article');
   container.classList.add(classes.preview);
 
@@ -85,17 +82,28 @@ export const bookPreviewFromGoogle = (bookFromGoogle) => {
   image.alt = 'book cover';
   image.style.visibility = 'hidden';
 
-  const imageLinks = volumeInfo.imageLinks;
-  const thumbnail = imageLinks.thumbnail;
+  if (bookFromGoogle.imageLinks) {
+    const imageLinks = bookFromGoogle.imageLinks;
+    const thumbnail = imageLinks.thumbnail;
+    image.src = thumbnail;
+  } else {
+    image.src = 'https://via.placeholder.com/200x200';
+  }
 
-  image.src = thumbnail;
   image.style.visibility = 'visible';
 
   const header = document.createElement('h1');
   header.innerText = bookFromGoogle.title;
 
   const isbn = document.createElement('p');
-  isbn.innerText = `${bookFromGoogle.industryIdentifiers[0].identifier} - ${bookFromGoogle.industryIdentifiers[1].identifier}`;
+
+  if (
+    bookFromGoogle.industryIdentifiers &&
+    bookFromGoogle.industryIdentifiers[0] &&
+    bookFromGoogle.industryIdentifiers[1]
+  ) {
+    isbn.innerText = `${bookFromGoogle.industryIdentifiers[0].identifier} - ${bookFromGoogle.industryIdentifiers[1].identifier}`;
+  }
 
   const descriptor = document.createElement('p');
   descriptor.innerText = bookFromGoogle.description;
