@@ -75,7 +75,7 @@ export const searchList = () => {
   if (state.currentBookId && state.isCurrentBookFromGoogle) {
     console.log('detail from google.com', state.currentBookId);
 
-    // TODO fetch from google api
+    // Fetch from google api
     googleManager.getBookByIsbn(state.currentBookId).then((book) => {
       state.currentBook = book;
       section.removeChild(loadingElement);
@@ -155,10 +155,7 @@ export const searchList = () => {
 
           // fetch googleBooksAPI
           googleManager.searchBooksFromGoogle(searchQuery).then((books) => {
-            // TODO delete this
-            console.log('books from google API', books);
-
-            // TODO mention filter in Presentation
+            // filter google books for mature content
             const googlePreviews = books
               .filter(
                 (book) =>
@@ -171,7 +168,6 @@ export const searchList = () => {
               .map((book) => {
                 // return bookPreviewFromGoogle(book.volumeInfo);
                 return bookPreview(
-                  // TODO add stg to know it is a google result
                   book.volumeInfo.industryIdentifiers[0].identifier,
                   book.volumeInfo.title,
                   book.volumeInfo.description,

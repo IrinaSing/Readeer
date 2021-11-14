@@ -31,7 +31,6 @@ export const googleManager = {
     }
   },
   getBookByIsbn: async (isbn) => {
-    // TODO
     try {
       const response = await googleBooksAPI.getBookByIsbn(isbn);
 
@@ -50,17 +49,6 @@ export const googleManager = {
         const isbn_10 = volumeInfo.industryIdentifiers[0].identifier;
         const isbn_13 = volumeInfo.industryIdentifiers[1].identifier;
         const authors = volumeInfo.authors;
-
-        // TODO delete
-        console.log({
-          id,
-          title,
-          description,
-          isbn_10,
-          isbn_13,
-          authors,
-          thumbnail,
-        });
 
         return { id, title, description, isbn_10, isbn_13, authors, thumbnail };
       }
