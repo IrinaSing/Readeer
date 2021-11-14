@@ -8,6 +8,9 @@ export const createFilter = (userInput) => {
   //isbn_13:9781951949192
   const userSearchParams = userInput.split(',');
 
+  // TODO delete
+  console.log(userSearchParams);
+
   for (let index = 0; index < userSearchParams.length; index++) {
     const param = userSearchParams[index];
 
@@ -43,6 +46,8 @@ export const createFilter = (userInput) => {
       filter.text = filter.text ? filter.text + ' ' + param : param;
     }
   }
+
+  console.log(filter);
 
   return filter;
 };

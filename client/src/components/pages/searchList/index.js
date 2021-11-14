@@ -16,6 +16,7 @@ import { searchBarComponent } from '../../shared/searchbar.js';
 import { loadingComponent } from '../../shared/loading.js';
 import { findBookOwners } from '../../../handlers/find-bookowners.js';
 import { errorAlert } from '../../shared/error-alert.js';
+import { googleSearchQuery } from '../../../logic/googleQuery.js';
 
 /**
  * The Books search result page.
@@ -74,6 +75,8 @@ export const searchList = () => {
     state.searchFilter !== '' &&
     Object.keys(state.searchFilter).length !== 0
   ) {
+    const filter = state.searchFilter;
+
     performBookSearchPost(state.searchFilter).then((books) => {
       section.removeChild(loadingElement);
 
@@ -110,6 +113,7 @@ export const searchList = () => {
           console.log('less than 30 books');
 
           // convert filter to googleBooksAPI format
+          const searchQuery = googleSearchQuery(filter);
 
           // fetch googleBooksAPI
 
