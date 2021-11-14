@@ -30,7 +30,7 @@ The website is functioning properly, there is no bug. But you think that somethi
 Please use Markdown in your PRs and issues.
 
 ## Code of conduct
-Please consider that in this project we stick to a standard [Contributor Covenant Code of Conduct](https://github.com/IrinaSing/Home-page-Irina/blob/main/CODE_OF_CONDUCT.md). 
+Please consider that in this project we stick to a standard [Contributor Covenant Code of Conduct](https://github.com/IrinaSing/Readeer/blob/Code-of-conduct/CODE_OF_CONDUCT.md). 
 
 ## License
 By contributing, you agree that your contributions will be licensed under its MIT License.
