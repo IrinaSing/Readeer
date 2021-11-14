@@ -10,10 +10,7 @@ import {
 import { setBook, setBookFromGoogle } from '../../../logic/set-book.js';
 import { state } from '../../../init/state.js';
 import { reloadPage } from '../../layout/page.js';
-import {
-  bookPreview,
-  bookPreviewFromGoogle,
-} from '../../shared/bookPreview.js';
+import { bookPreview } from '../../shared/bookPreview.js';
 import { bookDetail } from './book.js';
 import { searchBarComponent } from '../../shared/searchbar.js';
 import { loadingComponent } from '../../shared/loading.js';
@@ -77,6 +74,37 @@ export const searchList = () => {
   // For specific book details form Google
   if (state.currentBookId && state.isCurrentBookFromGoogle) {
     console.log('detail from google.com', state.currentBookId);
+
+    // TODO fetch from google api
+    googleManager.getBookByIsbn(state.currentBookId).then((book) => {
+      state.currentBook = book;
+      section.removeChild(loadingElement);
+
+      // render card with details about the book
+      const element = bookDetail(
+        book.id,
+        book.title,
+        book.description,
+        book.isbn_10,
+        book.isbn_13,
+        book.authors,
+        book.thumbnail
+      );
+
+      section.appendChild(element);
+
+      // get data about all offers for this book
+      if (!state.isSignedIn) {
+        const listDiv = document.getElementById('listDiv');
+        const alert = errorAlert('Please log in to see offers');
+        listDiv.appendChild(alert);
+      } else {
+        findBookOwners(book.isbn_13);
+      }
+    });
+
+    // state.currentBookId = '';
+    return container;
   }
 
   // For search results
