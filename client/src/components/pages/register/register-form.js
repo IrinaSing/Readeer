@@ -286,7 +286,7 @@ export const registerForm = () => {
   const buttonDiv = document.createElement('div');
   buttonDiv.className = 'col-auto';
   const submitBtn = document.createElement('BUTTON');
-  submitBtn.classList = 'btn  btn-outline-primary';
+  submitBtn.classList = 'btn  btn-primary';
   submitBtn.type = 'submit';
   submitBtn.value = 'submit';
   submitBtn.innerHTML = 'Register';

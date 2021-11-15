@@ -1,11 +1,11 @@
 export const createFilter = (userInput) => {
   const filter = {};
-  //TODO add to demonstration
+  // example searches
   // "rose,author:Rosita,title:Rose and Daisy,language:en"
-  //"author:Julia Gerigk"
-  //author:Rosita Steenbeek,title:Rose and Daisy
-  //isbn_10:1951949196
-  //isbn_13:9781951949192
+  // "author:Julia Gerigk"
+  // author:Rosita Steenbeek,title:Rose and Daisy
+  // isbn_10:1951949196
+  // isbn_13:9781951949192
   const userSearchParams = userInput.split(',');
 
   for (let index = 0; index < userSearchParams.length; index++) {

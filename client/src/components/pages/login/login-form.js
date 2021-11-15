@@ -102,7 +102,7 @@ export const loginForm = () => {
 
   // submit button
   const submitBtn = document.createElement('BUTTON');
-  submitBtn.classList = 'btn  btn-outline-primary';
+  submitBtn.classList = 'btn  btn-primary';
   submitBtn.type = 'submit';
   submitBtn.value = 'submit';
   submitBtn.innerHTML = 'Login';

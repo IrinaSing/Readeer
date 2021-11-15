@@ -25,7 +25,7 @@ export const bookDetail = (
   isbn_10 = '',
   isbn_13 = '',
   authors = ['James Dean'],
-  thumbnail = 'https://via.placeholder.com/200x200'
+  thumbnail = null
 ) => {
   const bookInfoContainer = document.createElement('div');
   bookInfoContainer.id = 'bookInfoContainer';
@@ -47,10 +47,15 @@ export const bookDetail = (
   image.style.visibility = 'hidden';
 
   // fetch the image from the google books api
-  googleManager.getPictureURL(isbn_10).then((url) => {
-    image.src = url;
+  if (!thumbnail) {
+    googleManager.getPictureURL(isbn_10).then((url) => {
+      image.src = url;
+      image.style.visibility = 'visible';
+    });
+  } else {
+    image.src = thumbnail;
     image.style.visibility = 'visible';
-  });
+  }
 
   image.className = 'img-fluid rounded-start d-block  mx-auto';
   imgHolder.appendChild(image);

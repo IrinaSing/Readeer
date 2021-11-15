@@ -7,4 +7,5 @@ export const data = {
   token: '',
   searchFilter: '',
   currentBookOwnerIds: {},
+  isCurrentBookFromGoogle: false,
 };

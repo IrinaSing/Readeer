@@ -106,13 +106,13 @@ export const bookOwnersList = (offersArray) => {
       <div class="modal-content">
         <div class="modal-header bg-primary text-white">
           <h5 class="modal-title " id="exampleModalLabel">Contact Details</h5>
-          <button type="button" class="btn-close bg-danger " data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           You can ask the book from the owner: <a href="mailto:${b.userEmail}">${b.userEmail}</a>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-success" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-danger text-black" data-bs-dismiss="modal">Close</button>
         </div>
       </div>
     </div>`;
