@@ -25,7 +25,7 @@ export const footer = () => {
 
   // col-md-4
   const colEmail = document.createElement('div');
-  colEmail.classList = 'col-md-4';
+  colEmail.classList = 'col-md-4 my-3';
   row.appendChild(colEmail);
 
   const centerDiv1 = document.createElement('div');
@@ -46,13 +46,11 @@ export const footer = () => {
 
   const contactUs = document.createElement('p');
   contactUs.classList = 'pt-2 mb-0';
-  contactUs.innerHTML = `Contact us
-  <a href="mailto:readeer-app@gmail.com" style="text-decoration: none; color: white;"></a>`;
+  contactUs.innerHTML = 'Contact us';
   contentDiv1.appendChild(contactUs);
 
   const contactLink = document.createElement('a');
   contactLink.href = 'mailto:readeer-app@gmail.com';
-  // contactLink.classList = 'text-center';
   contactLink.innerText = 'readeer@ml.com';
   contactLink.style.color = 'white';
   contactLink.style.textDecoration = 'none';
@@ -60,26 +58,40 @@ export const footer = () => {
 
   //col-md-4
   const colSource = document.createElement('div');
-  colSource.classList = 'col-md-4';
+  colSource.classList = 'col-md-4 my-3';
   row.appendChild(colSource);
 
   const centerDiv2 = document.createElement('div');
-  centerDiv2.classList = 'mx-auto d-flex justify-content-center';
+  centerDiv2.classList = 'mx-auto';
   colSource.appendChild(centerDiv2);
+
+  const imgDiv2 = document.createElement('div');
+  imgDiv2.classList = 'rounded-circle mx-auto d-flex justify-content-center';
+  centerDiv2.appendChild(imgDiv2);
 
   const gitHubImg = document.createElement('img');
   gitHubImg.src = githubIcon;
-  centerDiv2.appendChild(gitHubImg);
+  imgDiv2.appendChild(gitHubImg);
+
+  const contentDiv2 = document.createElement('div');
+  contentDiv2.classList = 'text-center';
+  centerDiv2.appendChild(contentDiv2);
 
   const content = document.createElement('p');
-  content.classList = 'p-3 mb-0 d-block';
-  content.innerHTML = `Source code
-    <a href="https://github.com/IrinaSing/Readeer" style="text-decoration: none; color: white;">© 2021 Readeer</a>`;
-  centerDiv2.appendChild(content);
+  content.classList = 'pt-2 mb-0';
+  content.innerHTML = 'Source code';
+  contentDiv2.appendChild(content);
+
+  const sourceLink = document.createElement('a');
+  sourceLink.href = 'https://github.com/IrinaSing/Readeer';
+  sourceLink.innerText = '© 2021 Readeer';
+  sourceLink.style.color = 'white';
+  sourceLink.style.textDecoration = 'none';
+  contentDiv2.appendChild(sourceLink);
 
   //col-md-4
   const colLogo = document.createElement('div');
-  colLogo.classList = 'col-md-4';
+  colLogo.classList = 'col-md-4 my-3';
   row.appendChild(colLogo);
 
   const centerDiv3 = document.createElement('div');
