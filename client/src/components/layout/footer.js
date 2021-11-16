@@ -95,18 +95,32 @@ export const footer = () => {
   row.appendChild(colLogo);
 
   const centerDiv3 = document.createElement('div');
-  centerDiv3.classList = 'mx-auto d-flex justify-content-center';
+  centerDiv3.classList = 'mx-auto';
   colLogo.appendChild(centerDiv3);
+
+  const imgDiv3 = document.createElement('div');
+  imgDiv3.classList = 'rounded-circle mx-auto d-flex justify-content-center';
+  centerDiv3.appendChild(imgDiv3);
 
   const hyfImg = document.createElement('img');
   hyfImg.src = hyfLogo;
-  centerDiv3.appendChild(hyfImg);
+  imgDiv3.appendChild(hyfImg);
+
+  const contentDiv3 = document.createElement('div');
+  contentDiv3.classList = 'text-center';
+  centerDiv3.appendChild(contentDiv3);
 
   const hyfContent = document.createElement('p');
-  hyfContent.classList = 'p-3 mb-0';
-  hyfContent.innerHTML = `Final project
-    for <a href="https://hackyourfuture.be/" style="text-decoration: none; color: white;">HYF Belgium</a>`;
-  centerDiv3.appendChild(hyfContent);
+  hyfContent.classList = 'pt-2 mb-0';
+  hyfContent.innerHTML = 'Final project';
+  contentDiv3.appendChild(hyfContent);
+
+  const hyfLink = document.createElement('a');
+  hyfLink.href = 'https://hackyourfuture.be/';
+  hyfLink.innerText = 'for HYF Belgium';
+  hyfLink.style.color = 'white';
+  hyfLink.style.textDecoration = 'none';
+  contentDiv3.appendChild(hyfLink);
 
   return containerFooter;
 };
