@@ -25,6 +25,9 @@ import { googleManager } from '../../../business-logic/googleBooksAPI';
  * @returns {HTMLDivElement} A rendered search result page.
  */
 export const searchList = () => {
+  // reset state book preview list
+  state.bookPreviews = [];
+
   const container = document.createElement('div');
   container.className = 'body';
 
@@ -127,6 +130,8 @@ export const searchList = () => {
         });
 
         const previews = filteredArr.map((book) => {
+          state.bookPreviews.push(book.isbn_10);
+
           return bookPreview(
             book.id,
             book.title,
@@ -232,7 +237,10 @@ const bookPreviewsFromGoogle = async (searchQuery) => {
         book.volumeInfo.industryIdentifiers[0] &&
         book.volumeInfo.industryIdentifiers[1] &&
         book.volumeInfo.description &&
-        book.volumeInfo.maturityRating === 'NOT_MATURE'
+        book.volumeInfo.maturityRating === 'NOT_MATURE' &&
+        !state.bookPreviews.includes(
+          book.volumeInfo.industryIdentifiers[0].identifier
+        )
     )
     .map((book) => {
       // return bookPreviewFromGoogle(book.volumeInfo);
