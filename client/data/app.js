@@ -9,4 +9,5 @@ export const data = {
   currentBookOwnerIds: {},
   isCurrentBookFromGoogle: false,
   bookPreviews: [],
+  username: '',
 };

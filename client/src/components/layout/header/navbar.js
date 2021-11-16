@@ -53,6 +53,29 @@ export const navbar = (routes) => {
   navLinks.className = 'navbar-nav ms-auto mb-2 mb-lg-0';
   navContent.appendChild(navLinks);
 
+  const navLinkDropdown = document.createElement('li');
+  navLinkDropdown.className = 'nav-item dropdown';
+
+  const dropdownAnchor = document.createElement('a');
+  dropdownAnchor.className = 'nav-link dropdown-toggle fs-5';
+  dropdownAnchor.href = '#';
+  dropdownAnchor.id = 'navbarDropdown';
+  dropdownAnchor.setAttribute('role', 'button');
+  dropdownAnchor.setAttribute('data-bs-toggle', 'dropdown');
+  dropdownAnchor.setAttribute('aria-expanded', 'false');
+  dropdownAnchor.style.color = 'white';
+  dropdownAnchor.innerText = `${state.username}`;
+  navLinkDropdown.appendChild(dropdownAnchor);
+
+  const dropdownList = document.createElement('ul');
+  dropdownList.className = 'dropdown-menu';
+  dropdownList.setAttribute('aria-labelledby', 'navbarDropdown');
+  dropdownList.innerHTML = `           <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>`;
+  navLinkDropdown.appendChild(dropdownList);
+
   // add links
   for (const route of routes) {
     if (!state.token && route.authenticated === true) {
@@ -63,18 +86,35 @@ export const navbar = (routes) => {
       continue;
     }
 
+    // if (route.name === 'logout') {
+    //   continue;
+    // }
     const navLink = document.createElement('li');
     navLink.className = 'nav-item';
     navLinks.appendChild(navLink);
 
     const anchor = document.createElement('a');
     anchor.id = route.id;
-    anchor.className = 'nav-link fs-5';
-    anchor.style.color = 'white';
+
     anchor.innerHTML = route.name;
     anchor.href = route.path;
     anchor.setAttribute('data-navigo', '');
-    navLink.appendChild(anchor);
+
+    switch (route.name) {
+      case 'my offers':
+        const dropdownItem = document.createElement('li');
+        dropdownList.appendChild(dropdownItem);
+
+        anchor.className = 'dropdown-item';
+        dropdownItem.appendChild(anchor);
+        break;
+
+      default:
+        anchor.className = 'nav-link fs-5';
+        anchor.style.color = 'white';
+        navLink.appendChild(anchor);
+        break;
+    }
 
     anchor.addEventListener('click', () => {
       state.currentBookId = '';
@@ -89,6 +129,10 @@ export const navbar = (routes) => {
         navigateToMyOffers();
       }
     });
+  }
+
+  if (state.isSignedIn) {
+    navLinks.appendChild(navLinkDropdown);
   }
 
   return navbar;
