@@ -3,8 +3,8 @@
 }
 
 .banner-text {
-  font-family: "Solway", serif;
-  font-weight: "700";
+  font-family: "Montserrat", serif;
+  font-weight: "600";
   text-align: center;
 }
 
@@ -27,7 +27,7 @@ html {
   position: relative;
   height: 100%;
   font-size: 16px;
-  font-family: "Poppins";
+  font-family: "Montserrat", sans-serif;
   font-style: normal;
 }
 
@@ -37,7 +37,7 @@ body {
   margin: 0;
   /* padding-top: 53px; */
   padding-bottom: 64px;
-  font-family: "Poppins";
+  font-family: "Montserrat", sans-serif;
   font-style: normal;
 }
 

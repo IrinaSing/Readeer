@@ -20,7 +20,8 @@
   font-size: 1.3em;
   text-align: center;
   margin: 0.5em 0em;
-  font-family: Solway, "Times New Roman", Times, serif;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
 }
 
 .preview a {
