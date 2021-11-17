@@ -8,4 +8,6 @@ export const data = {
   searchFilter: '',
   currentBookOwnerIds: {},
   isCurrentBookFromGoogle: false,
+  bookPreviews: [],
+  username: '',
 };

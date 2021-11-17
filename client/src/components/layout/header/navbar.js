@@ -2,6 +2,7 @@ import deerIconWithCircle from '../../../../public/icons/deer-icon_white-circle_
 import { navigateToBooksPageWithFilter } from '../../../handlers/navigateToBooksPage';
 import { navigateToMyOffers } from '../../../handlers/navigateToOffersPage.js';
 import { state } from '../../../init/state.js';
+import logOut from '../../../../public/logOut.svg';
 
 /**
  * The shared navbar.
@@ -13,7 +14,6 @@ export const navbar = (routes) => {
   const navbar = document.createElement('nav');
   navbar.id = 'navbar';
   navbar.className = 'navbar navbar-expand-md navbar-dark bg-primary py-0 mb-5';
-  // navbar.style.marginTop = '50px';
 
   // Create a navbar container-fluid
   const navBarContainer = document.createElement('div');
@@ -53,6 +53,26 @@ export const navbar = (routes) => {
   navLinks.className = 'navbar-nav ms-auto mb-2 mb-lg-0';
   navContent.appendChild(navLinks);
 
+  const navLinkDropdown = document.createElement('li');
+  navLinkDropdown.className = 'nav-item dropdown ml-5';
+
+  const dropdownAnchor = document.createElement('a');
+  dropdownAnchor.className = 'nav-link dropdown-toggle fs-5';
+  dropdownAnchor.href = '#';
+  dropdownAnchor.id = 'navbarDropdown';
+  dropdownAnchor.setAttribute('role', 'button');
+  dropdownAnchor.setAttribute('data-bs-toggle', 'dropdown');
+  dropdownAnchor.setAttribute('aria-expanded', 'false');
+  dropdownAnchor.style.color = 'white';
+  dropdownAnchor.innerHTML = `<u>${state.username}</u>`;
+  // dropdownAnchor.innerText = `${state.username}`;
+  navLinkDropdown.appendChild(dropdownAnchor);
+
+  const dropdownList = document.createElement('ul');
+  dropdownList.className = 'dropdown-menu';
+  dropdownList.setAttribute('aria-labelledby', 'navbarDropdown');
+  navLinkDropdown.appendChild(dropdownList);
+
   // add links
   for (const route of routes) {
     if (!state.token && route.authenticated === true) {
@@ -69,12 +89,39 @@ export const navbar = (routes) => {
 
     const anchor = document.createElement('a');
     anchor.id = route.id;
-    anchor.className = 'nav-link fs-5';
-    anchor.style.color = 'white';
+
     anchor.innerHTML = route.name;
     anchor.href = route.path;
     anchor.setAttribute('data-navigo', '');
-    navLink.appendChild(anchor);
+
+    const dropdownItem = document.createElement('li');
+
+    switch (route.name) {
+      case 'my offers':
+        dropdownList.appendChild(dropdownItem);
+
+        anchor.className = 'dropdown-item';
+        dropdownItem.appendChild(anchor);
+        break;
+
+      case 'logout':
+        const dropdownDivider = document.createElement('li');
+        dropdownDivider.innerHTML = '<hr class="dropdown-divider">';
+        dropdownList.appendChild(dropdownDivider);
+
+        dropdownList.appendChild(dropdownItem);
+
+        anchor.innerHTML = `<img src="${logOut}"/> logout`;
+        anchor.className = 'dropdown-item';
+        dropdownItem.appendChild(anchor);
+        break;
+
+      default:
+        anchor.className = 'nav-link fs-5';
+        anchor.style.color = 'white';
+        navLink.appendChild(anchor);
+        break;
+    }
 
     anchor.addEventListener('click', () => {
       state.currentBookId = '';
@@ -89,6 +136,10 @@ export const navbar = (routes) => {
         navigateToMyOffers();
       }
     });
+  }
+
+  if (state.isSignedIn) {
+    navLinks.appendChild(navLinkDropdown);
   }
 
   return navbar;

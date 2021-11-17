@@ -62,13 +62,6 @@ const routeHandler =
     id: 'books',
   },
   {
-    name: 'my offers',
-    path: `/my-offers`,
-    callback: routeHandler(myOffers),
-    authenticated: true,
-    id: 'my-offers',
-  },
-  {
     name: 'register',
     path: `/register`,
     callback: routeHandler(register),
@@ -81,6 +74,13 @@ const routeHandler =
     callback: routeHandler(login),
     unauthenticated: true,
     id: 'login',
+  },
+  {
+    name: 'my offers',
+    path: `/my-offers`,
+    callback: routeHandler(myOffers),
+    authenticated: true,
+    id: 'my-offers',
   },
   {
     name: 'logout',
