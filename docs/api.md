@@ -32,6 +32,7 @@
   - [mongodbAccess.js](#apidata-accessmongodbAccessjs)
 - middleware
   - [authenticate.js](#apimiddlewareauthenticatejs)
+  - [authorize.js](#apimiddlewareauthorizejs)
 - routes
   - [books.js](#apiroutesbooksjs)
   - [login.js](#apiroutesloginjs)
@@ -126,6 +127,10 @@
 # /middleware
 
 <details><summary><a href="../../api/middleware/authenticate.js" id="apimiddlewareauthenticatejs">../api/middleware/authenticate.js</a></summary>
+
+</details>
+
+<details><summary><a href="../../api/middleware/authorize.js" id="apimiddlewareauthorizejs">../api/middleware/authorize.js</a></summary>
 
 </details>
 
